@@ -4,5 +4,7 @@
     vim
     nodejs_20
     pnpm
+
+    godot
   ];
 }
