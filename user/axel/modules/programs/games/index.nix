@@ -1,23 +1,9 @@
-{
-  pkgs,
-  ...
-}:
-{
-  imports = [ ./aagl.nix ];
-
-  services.flatpak.packages = [
-    "com.vysp3r.ProtonPlus"
-    "org.prismlauncher.PrismLauncher"
-  ];
-  programs = {
-    steam = {
-      enable = true;
-      package = pkgs.millennium-steam;
-      gamescopeSession.enable = true;
-    };
-    gamemode.enable = true;
-  };
-  environment.systemPackages = with pkgs; [
-    osu-lazer-bin
+_: {
+  imports = [
+    ./aagl.nix
+    ./osu.nix
+    ./prismlauncher.nix
+    ./protonplus.nix
+    ./steam.nix
   ];
 }
