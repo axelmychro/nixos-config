@@ -11,8 +11,8 @@ commands:
   switch
   drun
   test
-  undo
   update
+  undo
   prune
   purge
   overview
@@ -26,23 +26,27 @@ EOF
       ;;
     switch)
       git add /etc/nixos &&
-        sudo nixos-rebuild switch --flake /etc/nixos#mychro
+        systemd-inhibit --what=idle:sleep --why="nixos switch rebuild" \
+          sudo nixos-rebuild switch --flake /etc/nixos#mychro
       ;;
     drun)
       git add /etc/nixos &&
-        sudo nixos-rebuild dry-run --flake /etc/nixos#mychro
+        systemd-inhibit --what=idle:sleep --why="nixos dry-run rebuild" \
+          sudo nixos-rebuild dry-run --flake /etc/nixos#mychro
       ;;
     test)
       git add /etc/nixos &&
-        sudo nixos-rebuild test --flake /etc/nixos#mychro
-      ;;
-    undo)
-      sudo nixos-rebuild switch --rollback
+        systemd-inhibit --what=idle:sleep --why="nixos test rebuild" \
+          sudo nixos-rebuild test --flake /etc/nixos#mychro
       ;;
     update)
       git add /etc/nixos &&
         nix flake update &&
-        sudo nixos-rebuild switch --flake /etc/nixos#mychro
+        systemd-inhibit --what=idle:sleep --why="nixos update rebuild" \
+          sudo nixos-rebuild switch --flake /etc/nixos#mychro
+      ;;
+    undo)
+      sudo nixos-rebuild switch --rollback
       ;;
     prune)
       echo "my: prune: delete generations older than 3 days"
