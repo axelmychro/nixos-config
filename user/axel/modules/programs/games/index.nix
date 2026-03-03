@@ -3,6 +3,8 @@
   ...
 }:
 {
+  imports = [ ./aagl.nix ];
+
   services.flatpak.packages = [
     "com.vysp3r.ProtonPlus"
     "org.prismlauncher.PrismLauncher"

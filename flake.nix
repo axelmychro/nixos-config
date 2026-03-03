@@ -22,6 +22,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
+
+    aagl = {
+      url = "github:ezKEa/aagl-gtk-on-nix/release-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -30,6 +35,7 @@
       home-manager,
       plasma-manager,
       nix-flatpak,
+      aagl,
       ...
     }:
     let
@@ -40,7 +46,7 @@
     in
     {
       nixosConfigurations.mychro = nixpkgs.lib.nixosSystem {
-        specialArgs = { inherit spicePkgs; };
+        specialArgs = { inherit spicePkgs aagl; };
 
         modules = [
           ./system/configuration.nix
@@ -60,7 +66,10 @@
             nixpkgs.overlays = [ inputs.millennium.overlays.default ];
           }
           {
-            imports = [ inputs.silentSDDM.nixosModules.default ];
+            imports = [
+              inputs.silentSDDM.nixosModules.default
+              aagl.nixosModules.default
+            ];
           }
           inputs.spicetify-nix.nixosModules.default
         ];

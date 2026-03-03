@@ -3,7 +3,7 @@ _: {
     ./cli.nix
     ./development.nix
     ./documents.nix
-    ./games.nix
+    ./games/index.nix
     ./internet.nix
     ./multimedia.nix
     ./utilities.nix
