@@ -1,7 +1,7 @@
 _: {
   imports = [
-    ./ghostty.nix
-    # ./kitty.nix
+    # ./ghostty.nix
+    ./kitty.nix
 
     ./git/index.nix
     ./zed/index.nix

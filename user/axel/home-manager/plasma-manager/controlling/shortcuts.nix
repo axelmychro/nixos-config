@@ -24,7 +24,7 @@ _: {
         "Window to Desktop 8" = "Meta+Shift+8";
       };
 
-      "services/com.mitchellh.ghostty.desktop" = {
+      "services/kitty.desktop" = {
         "_launch" = "Meta+Return";
       };
     };

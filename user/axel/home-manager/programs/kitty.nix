@@ -13,12 +13,14 @@ _: {
 
       scrollback_lines = 32000;
 
-      repaint_delay = 0;
       input_delay = 0;
+      repaint_delay = 0;
+      sync_to_monitor = "no";
+      wayland_enable_ime = "no";
 
       background_opacity = "1";
-      initial_window_width = "128c";
-      initial_window_height = "32c";
+      initial_window_width = "80c";
+      initial_window_height = "24c";
       remember_window_size = "no";
       window_padding_width = 0;
 
