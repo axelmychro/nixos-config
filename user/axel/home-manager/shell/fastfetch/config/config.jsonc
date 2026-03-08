@@ -14,7 +14,7 @@
   "display": {
     "separator": "",
     "key": {
-      "width": 14,
+      "width": 16,
       "type": "string"
     },
     "color": { "keys": "#c6d0f5", "output": "#c6d0f5" },
@@ -29,55 +29,55 @@
   "modules": [
     {
       "type": "custom",
-      "key": "╭────────────",
-      "format": "─ ── ─ -"
+      "key": "  ╭────────────",
+      "format": "────────────────"
     },
     {
       "type": "title",
-      "format": "│    {6}{7}{8}"
+      "format": "  │        {6}{7}{8}"
     },
     {
       "type": "custom",
-      "key": "├───────────┬",
-      "format": "── ─ ─ -"
+      "key": "  ├───────────┬",
+      "format": "────────────────"
     },
     {
       "type": "kernel",
-      "key": "│ kernel   │",
+      "key": "  │ kernel   │",
       "keyColor": "#e5c890",
       "format": "{release} {arch}"
     },
     {
       "type": "os",
-      "key": "│󰏗 distro   │",
+      "key": "  │󰏗 distro   │",
       "keyColor": "#8caaee",
-      "format": "{name} {version}"
+      "format": "{name} {version-id}"
     },
     {
       "type": "wm",
-      "key": "│ manager  │",
+      "key": "  │ manager  │",
       "keyColor": "#85c1dc"
     },
     {
       "type": "terminal",
-      "key": "│ term     │",
+      "key": "  │ term     │",
       "keyColor": "#ef9f76"
     },
     {
       "type": "uptime",
-      "key": "│󱑀 uptime   │",
+      "key": "  │󱑀 uptime   │",
       "keyColor": "#e78284"
     },
     {
       "type": "colors",
       "symbol": "diamond",
-      "key": "│ colours  │",
+      "key": "  │ colours  │",
       "keyColor": "#ca9ee6"
     },
     {
       "type": "custom",
-      "key": "╰───────────┴",
-      "format": "─ ─ ── -"
+      "key": "  ╰───────────┴",
+      "format": "────────────────"
     }
   ]
 }
