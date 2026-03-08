@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./audio.nix
-    ./graphics.nix
+    ./display.nix
     ./profiling.nix
   ];
 }

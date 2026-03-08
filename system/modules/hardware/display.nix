@@ -29,6 +29,10 @@
       };
     };
   };
+  services.xserver = {
+    enable = true;
+    videoDrivers = [ "nvidia" ];
+  };
   environment.systemPackages = with pkgs; [
     nvtopPackages.nvidia
     vulkan-tools
