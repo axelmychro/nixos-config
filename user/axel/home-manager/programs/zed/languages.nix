@@ -4,6 +4,7 @@ _: {
       "nix"
       "toml"
       "ini"
+      "kdl"
     ];
 
     userSettings.languages = {
