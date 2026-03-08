@@ -8,8 +8,8 @@
     gtklock
     mako
     swayidle
-    quickshell
     noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
   imports = [ ./niri/index.nix ];
+  services.displayManager.ly.enable = true;
 }
