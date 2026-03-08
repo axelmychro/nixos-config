@@ -1,18 +1,13 @@
-{ pkgs, ... }:
-{
-
-  environment.systemPackages = with pkgs; [
-    thermald
-    auto-cpufreq
-  ];
+_: {
   services = {
     thermald = {
       enable = true;
       debug = true;
     };
+    upower.enable = true;
 
     # major options below all conflict with each other
-    power-profiles-daemon.enable = false;
+    power-profiles-daemon.enable = true;
 
     tlp = {
       enable = false;
@@ -23,7 +18,7 @@
     };
 
     auto-cpufreq = {
-      enable = true;
+      enable = false;
       settings = {
         battery = {
           governor = "powersave";
