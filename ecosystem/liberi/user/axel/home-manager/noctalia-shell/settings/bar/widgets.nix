@@ -3,7 +3,7 @@ _: {
     left = [
       {
         id = "ControlCenter";
-        useDistroLogo = true;
+        useDistroLogo = false;
         enableColorization = true;
       }
       {
@@ -11,9 +11,6 @@ _: {
       }
       {
         id = "Bluetooth";
-      }
-      {
-        id = "ActiveWindow";
       }
     ];
     center = [
