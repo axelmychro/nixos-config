@@ -56,12 +56,11 @@ layout {
     }
     // preset-window-heights { }
     default-column-width { proportion 0.5; }
-    draw-border-with-background true
     focus-ring {
         // off
         width 4
-        active-color "#b48ead"
-        inactive-color "#2e3440"
+        active-color "#d8dee9"
+        inactive-color "#3b4252"
         // active-gradient from="#80c8ff" to="#c7ff7f" angle=45
         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
     }
@@ -118,15 +117,16 @@ window-rule {
     block-out-from "screen-capture"
     // block-out-from "screencast"
 }
-/-window-rule {
-    geometry-corner-radius 12
-    clip-to-geometry false
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+    draw-border-with-background false
 }
 binds {
     // Mod-Shift-/, which is usually the same as Mod-?,
     Mod+Shift+Slash { show-hotkey-overlay; }
 
-    Mod+Return hotkey-overlay-title="Open a Terminal: kitty" { spawn "kitty"; }
+    Mod+Return hotkey-overlay-title="Open a Terminal: ghostty" { spawn "ghostty"; }
     Mod+R hotkey-overlay-title="Run an Application: fuzzel" { spawn "fuzzel"; }
     Super+Alt+L hotkey-overlay-title="Lock the Screen: gtklock" { spawn "gtklock"; }
 
