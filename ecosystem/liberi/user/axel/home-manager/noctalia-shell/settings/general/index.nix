@@ -25,11 +25,11 @@ _: {
     showHibernateOnLockScreen = false;
     enableLockScreenMediaControls = true;
 
-    enableBlurBehind = false;
-    enableShadows = false;
+    enableBlurBehind = true;
+    enableShadows = true;
     shadowDirection = "bottom_right";
-    shadowOffsetX = 2;
-    shadowOffsetY = 3;
+    shadowOffsetX = 3;
+    shadowOffsetY = 2;
 
     allowPanelsOnScreenWithoutBar = true;
     showChangelogOnStartup = true;
