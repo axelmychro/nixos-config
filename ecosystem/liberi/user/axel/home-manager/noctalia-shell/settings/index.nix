@@ -3,8 +3,9 @@ _: {
     ./bar/index.nix
     ./calendar.nix
     ./colors.nix
-    ./general.nix
+    ./general/index.nix
     ./location.nix
     ./ui.nix
+    ./wallpaper.nix
   ];
 }

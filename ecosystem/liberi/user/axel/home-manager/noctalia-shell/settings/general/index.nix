@@ -51,18 +51,7 @@ _: {
     lockScreenBlur = 0.1;
     lockScreenTint = 0.1;
 
-    keybinds = {
-      keyUp = [ "Up" ];
-      keyDown = [ "Down" ];
-      keyLeft = [ "Left" ];
-      keyRight = [ "Right" ];
-      keyEnter = [
-        "Return"
-        "Enter"
-      ];
-      keyEscape = [ "Esc" ];
-      keyRemove = [ "Del" ];
-    };
     reverseScroll = false;
   };
+  imports = [ ./keybinds.nix ];
 }
