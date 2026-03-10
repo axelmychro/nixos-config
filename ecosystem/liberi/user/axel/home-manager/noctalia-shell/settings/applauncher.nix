@@ -23,6 +23,6 @@ _: {
     ignoreMouseInput = false;
     screenshotAnnotationTool = "";
     overviewLayer = false;
-    density = "default";
+    density = "comfortable";
   };
 }
