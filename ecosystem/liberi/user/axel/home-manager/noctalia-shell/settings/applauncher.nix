@@ -10,7 +10,7 @@ _: {
     pinnedApps = [ ];
     useApp2Unit = false;
     sortByMostUsed = true;
-    terminalCommand = "alacritty -e";
+    terminalCommand = "ghostty -e";
     customLaunchPrefixEnabled = false;
     customLaunchPrefix = "";
     viewMode = "grid";
