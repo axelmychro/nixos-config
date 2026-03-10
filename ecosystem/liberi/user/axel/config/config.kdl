@@ -83,16 +83,16 @@ binds {
   Mod+Shift+Slash {
     show-hotkey-overlay
   }
-  Mod+Space hotkey-overlay-title="Toggle control center" {
+  Mod+Space hotkey-overlay-title="Control center" {
     spawn-sh "noctalia-shell ipc call controlCenter toggle"
   }
-  Mod+Return hotkey-overlay-title="Open ghostty" {
+  Mod+Return hotkey-overlay-title="Terminal" {
     spawn-sh "ghostty"
   }
-  Mod+R hotkey-overlay-title="Toggle launcher" {
+  Mod+R hotkey-overlay-title="Applauncher" {
     spawn-sh "noctalia-shell ipc call launcher toggle"
   }
-  Super+Alt+L hotkey-overlay-title="Lock the Screen" {
+  Super+Alt+L hotkey-overlay-title="Lock screen" {
     spawn-sh "noctalia-shell ipc call lockScreen lock"
   }
   XF86AudioRaiseVolume allow-when-locked=true {
