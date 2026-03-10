@@ -6,6 +6,7 @@ _: {
     ./general/index.nix
     ./location.nix
     ./ui.nix
+
     ./wallpaper.nix
   ];
 }
