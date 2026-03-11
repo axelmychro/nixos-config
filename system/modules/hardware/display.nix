@@ -5,9 +5,13 @@
 }:
 {
   hardware = {
+    enableRedistributableFirmware = true;
     graphics = {
       enable = true;
       enable32Bit = true;
+      extraPackages = with pkgs; [
+        intel-media-driver
+      ];
     };
     nvidia = {
       package = config.boot.kernelPackages.nvidiaPackages.stable;
@@ -30,11 +34,19 @@
     };
   };
   services.xserver = {
-    enable = true;
+    enable = false;
     videoDrivers = [ "nvidia" ];
   };
-  environment.systemPackages = with pkgs; [
-    nvtopPackages.nvidia
-    vulkan-tools
-  ];
+  environment = {
+    sessionVariables = {
+      LIBVA_DRIVER_NAME = "iHD";
+    };
+    systemPackages = with pkgs; [
+      libva-utils
+      mesa-demos
+      nvtopPackages.nvidia
+      vulkan-tools
+    ];
+  };
+  boot.kernelParams = [ "i915.enable_guc=3" ];
 }
