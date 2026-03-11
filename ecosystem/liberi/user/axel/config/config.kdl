@@ -1,6 +1,6 @@
 spawn-at-startup "noctalia-shell"
-workspace "aegir"
-workspace "sns"
+workspace "1"
+workspace "2"
 hotkey-overlay {
   skip-at-startup
 }
