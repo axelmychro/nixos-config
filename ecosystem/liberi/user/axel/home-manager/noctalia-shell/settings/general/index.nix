@@ -4,7 +4,7 @@ _: {
     telemetryEnabled = false;
     language = "en";
     avatarImage = "/home/axel/.face";
-    dimmerOpacity = 0.1;
+    dimmerOpacity = 0.2;
 
     scaleRatio = 1;
     radiusRatio = 0.25;
@@ -44,7 +44,7 @@ _: {
     clockStyle = "custom";
     clockFormat = "hh\nmm a";
 
-    passwordChars = "triangle-filled";
+    passwordChars = [ "triangle-filled" ];
     # "circle-filled", "pentagon-filled", "michelin-star-filled", "square-rounded-filled", "guitar-pick-filled", "blob-filled", "triangle-filled"
 
     lockScreenMonitors = [ ];
