@@ -84,11 +84,14 @@ binds {
   Mod+Shift+Slash {
     show-hotkey-overlay
   }
-  Mod+Space hotkey-overlay-title="Control center" {
-    spawn-sh "noctalia-shell ipc call controlCenter toggle"
-  }
   Mod+Return hotkey-overlay-title="Terminal" {
-    spawn-sh "ghostty"
+    spawn "ghostty"
+  }
+  Mod+E hotkey-overlay-title="Explorer" {
+    spawn "nautilus"
+  }
+  Mod+C hotkey-overlay-title="Control center" {
+    spawn-sh "noctalia-shell ipc call controlCenter toggle"
   }
   Mod+R hotkey-overlay-title="Applauncher" {
     spawn-sh "noctalia-shell ipc call launcher toggle"
@@ -129,7 +132,7 @@ binds {
   Mod+O repeat=false {
     toggle-overview
   }
-  Mod+Ctrl+Q repeat=false {
+  Mod+Q repeat=false {
     close-window
   }
   Mod+Left {
@@ -302,10 +305,10 @@ binds {
   Mod+Ctrl+F {
     expand-column-to-available-width
   }
-  Mod+C {
+  Mod+Ctrl+C {
     center-column
   }
-  Mod+Ctrl+C {
+  Mod+Shift+C {
     center-visible-columns
   }
   Mod+Minus {
