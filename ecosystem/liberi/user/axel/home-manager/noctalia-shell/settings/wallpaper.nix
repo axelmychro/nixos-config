@@ -35,13 +35,13 @@
     randomIntervalSec = 300;
 
     skipStartupTransition = false;
-    transitionDuration = 5000;
+    transitionDuration = 1500;
     transitionType = "random";
     transitionEdgeSmoothness = 1;
 
     overviewEnabled = true;
-    overviewBlur = 0.7;
-    overviewTint = 0.7;
+    overviewBlur = 0.9;
+    overviewTint = 0.9;
 
     useWallhaven = false;
     wallhavenQuery = "";
