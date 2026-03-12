@@ -6,14 +6,14 @@
       text = builtins.toJSON {
         defaultWallpaper = "${config.home.homeDirectory}/Pictures/Wallpapers/orca.jpg";
         wallpapers = {
-          "DP-1" = "${config.home.homeDirectory}/Pictures/Wallpapers/orca.jpg";
+          "eDP-1" = "${config.home.homeDirectory}/Pictures/Wallpapers/orca.jpg";
         };
       };
     };
   };
   programs.noctalia-shell.settings.wallpaper = {
     enabled = true;
-    overviewEnabled = false;
+    panelPosition = "follow_bar";
     directory = "${config.home.homeDirectory}/Pictures/Wallpapers";
 
     showHiddenFiles = false;
@@ -30,18 +30,18 @@
     useSolidColor = false;
     solidColor = "#2e3440";
 
-    automationEnabled = false;
+    automationEnabled = true;
     wallpaperChangeMode = "random";
     randomIntervalSec = 300;
 
     skipStartupTransition = false;
-    transitionDuration = 1500;
+    transitionDuration = 5000;
     transitionType = "random";
-    transitionEdgeSmoothness = 0.05;
+    transitionEdgeSmoothness = 1;
 
-    panelPosition = "follow_bar";
-    overviewBlur = 0.1;
-    overviewTint = 0.1;
+    overviewEnabled = true;
+    overviewBlur = 0.7;
+    overviewTint = 0.7;
 
     useWallhaven = false;
     wallhavenQuery = "";
