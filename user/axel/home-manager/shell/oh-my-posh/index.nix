@@ -1,6 +1,3 @@
 _: {
-  programs.oh-my-posh = {
-    enable = true;
-    configFile = ./config.json;
-  };
+  programs.oh-my-posh.enable = true;
 }
