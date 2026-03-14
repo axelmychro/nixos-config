@@ -1,5 +1,6 @@
 {
   noctalia,
+  pkgs,
   ...
 }:
 {
@@ -12,6 +13,27 @@
         ./programs/index.nix
         ./shell/index.nix
       ];
+
+      gtk = {
+        enable = true;
+        theme = {
+          name = "Nordic";
+          package = pkgs.nordic;
+        };
+        iconTheme = {
+          name = "Papirus-Dark";
+          package = pkgs.papirus-icon-theme;
+        };
+        cursorTheme = {
+          name = "Nordic-Cursors";
+          package = pkgs.nordic;
+        };
+      };
+      qt = {
+        enable = true;
+        platformTheme.name = "gtk";
+        style.name = "nordic";
+      };
     };
   };
 }
