@@ -5,7 +5,7 @@ _: {
 
     themes = {
       nord = {
-        background = "3b4252";
+        background = "2e3440";
         foreground = "d8dee9";
         cursor-color = "e5e9f0";
         cursor-text = "eceff4";
