@@ -12,7 +12,8 @@ _: {
   home.shell.enableFishIntegration = true;
 
   imports = [
-    ./aliases.nix
     ./abbrs.nix
+    ./aliases.nix
+    ./functions.nix
   ];
 }
