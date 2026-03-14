@@ -9,7 +9,6 @@
         "video"
         "render"
       ];
-      shell = pkgs.bash;
     };
   };
   imports = [

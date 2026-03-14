@@ -1,7 +1,6 @@
 _: {
   imports = [ ./functions/index.nix ];
   programs.bash = {
-    enable = true;
     shellAliases = {
       bb = "exec bash";
       x = "exit";

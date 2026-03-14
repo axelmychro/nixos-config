@@ -2,6 +2,7 @@ _: {
   programs.ghostty = {
     enable = true;
     enableBashIntegration = false;
+    enableFishIntegration = true;
 
     themes = {
       nord = {

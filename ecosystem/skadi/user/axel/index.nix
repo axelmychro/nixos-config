@@ -1,1 +1,5 @@
-_: { imports = [ ./home-manager/home.nix ]; }
+{ pkgs, ... }:
+{
+  users.users.axel.shell = pkgs.fish;
+  imports = [ ./home-manager/home.nix ];
+}
