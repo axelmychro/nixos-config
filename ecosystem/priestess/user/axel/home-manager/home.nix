@@ -16,7 +16,6 @@
     };
     sharedModules = [
       plasma-manager.homeModules.plasma-manager
-      spicetify-nix.homeManagerModules.spicetify
     ];
   };
 }
