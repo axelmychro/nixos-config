@@ -6,7 +6,7 @@ _: {
         or return
 
         if set -q _flag_wipe
-            nix profile wipe-history --verbpse
+            nix profile wipe-history --verbose
             nix store gc --verbose
             nix store optimise --verbose
         end
