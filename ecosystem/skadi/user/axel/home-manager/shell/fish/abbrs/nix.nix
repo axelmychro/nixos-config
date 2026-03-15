@@ -12,13 +12,5 @@ _: {
     nsg = "nix store gc";
     nph = "nix profile history";
     nphx = "nix profile wipe-history";
-
-    g = "git";
-    ga = "git add";
-    gc = "git commit -m";
-    gp = "git push";
-
-    nf = "fd -e nix -x sh -c 'nixfmt {}'";
-    kf = "fd -e kdl -x sh -c 'kdlfmt format {}'";
   };
 }

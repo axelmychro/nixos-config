@@ -1,4 +1,5 @@
 _: {
+  home.shell.enableFishIntegration = true;
   programs.fish = {
     enable = true;
 
@@ -12,11 +13,9 @@ _: {
       end
     '';
   };
-  home.shell.enableFishIntegration = true;
-
   imports = [
-    ./abbrs.nix
-    ./aliases.nix
-    ./functions.nix
+    ./abbrs/index.nix
+    ./aliases/index.nix
+    ./functions/index.nix
   ];
 }
