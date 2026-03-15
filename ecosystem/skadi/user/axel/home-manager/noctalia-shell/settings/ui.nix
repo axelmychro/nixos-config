@@ -1,6 +1,6 @@
 _: {
   programs.noctalia-shell.settings.ui = {
-    fontDefault = "UbuntuSans Nerd Font";
+    fontDefault = "FiraCode Nerd Font";
     fontFixed = "FiraCode Nerd Font";
 
     fontDefaultScale = 1;
