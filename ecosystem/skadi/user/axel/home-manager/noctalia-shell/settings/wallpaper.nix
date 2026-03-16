@@ -30,7 +30,7 @@
     useSolidColor = false;
     solidColor = "#2e3440";
 
-    automationEnabled = true;
+    automationEnabled = false;
     wallpaperChangeMode = "random";
     randomIntervalSec = 300;
 
