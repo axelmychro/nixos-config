@@ -81,6 +81,15 @@ window-rule {
   draw-border-with-background false
   open-focused false
 }
+window-rule {
+  match app-id="dev.zed.Zed"
+  geometry-corner-radius 8
+  open-on-workspace "2"
+}
+window-rule {
+  match app-id="zen-twilight"
+  open-on-workspace "3"
+}
 binds {
   Mod+Shift+Slash {
     show-hotkey-overlay
@@ -359,3 +368,4 @@ cursor {
   xcursor-theme "skadi-pixel-cursors"
   xcursor-size 48
 }
+
