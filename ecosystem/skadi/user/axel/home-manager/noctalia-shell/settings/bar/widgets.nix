@@ -26,6 +26,12 @@
     ];
     right = [
       {
+        id = "Volume";
+      }
+      {
+        id = "Brightness";
+      }
+      {
         id = "Battery";
         displayMode = "graphic";
         showPercentageText = true;
