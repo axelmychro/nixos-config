@@ -31,6 +31,9 @@ _: {
     shortcuts = {
       left = [
         {
+          id = "AirplaneMode";
+        }
+        {
           id = "WallpaperSelector";
         }
         {
