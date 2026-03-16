@@ -3,15 +3,7 @@ _: {
   programs.fish = {
     enable = true;
 
-    interactiveShellInit = ''
-      set fish_greeting
-      if status is-interactive
-        clear -x
-      end
-      if test "$SHLVL" -le 2
-        fastfetch
-      end
-    '';
+    interactiveShellInit = builtins.readFile ./init.fish;
   };
   imports = [
     ./abbrs/index.nix
