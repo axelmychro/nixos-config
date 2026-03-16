@@ -12,11 +12,9 @@
     kernelModules = [ "ideapad_laptop" ];
   };
 
-  networking = {
-    hostName = "mychro";
-    networkmanager.enable = true;
-  };
-  time.timeZone = "Asia/Jakarta";
+  networking.hostName = "mychro";
+
+  time.timeZone = "Asia/Bangkok";
   i18n.defaultLocale = "en_US.UTF-8";
 
   nixpkgs.config.allowUnfree = true;
