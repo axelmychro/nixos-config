@@ -42,16 +42,7 @@ fd -e kdl -q; and fd -e kdl -X kdlfmt format {}
 fd -e fish -q; and fd -e fish -X fish_indent -w {}
 fd -e sh -q; and fd -e sh -X shfmt -w -s -i 2 -ci -sr {}
 
-if not git diff --quiet; or not git diff --cached --quiet; or count (git ls-files --others --exclude-standard) >/dev/null
-    set_color yellow
-    echo "kya: stage changes"
-    set_color normal
-    git add .
-else
-    set_color yellow
-    echo "kya: no change found"
-    set_color normal
-end
+git add .
 
 if set -q _flag_update
     set_color yellow
