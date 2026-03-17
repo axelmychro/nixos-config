@@ -44,11 +44,13 @@ _: {
       mouse-hide-while-typing = true;
       mouse-scroll-multiplier = 3;
 
-      title = "catastrophe";
       window-decoration = "none";
       window-height = 24;
       window-width = 80;
+      window-padding-x = 2;
+      window-padding-y = 2;
       window-save-state = "never";
+      window-vsync = false;
     };
   };
 }
