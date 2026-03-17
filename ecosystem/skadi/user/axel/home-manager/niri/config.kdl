@@ -1,7 +1,4 @@
 spawn-at-startup "noctalia-shell"
-workspace "1"
-workspace "2"
-workspace "3"
 hotkey-overlay {
   skip-at-startup
 }
@@ -82,8 +79,12 @@ window-rule {
   open-focused false
 }
 window-rule {
+  match app-id="spotify"
+  open-on-workspace "1"
+}
+window-rule {
   match app-id="dev.zed.Zed"
-  geometry-corner-radius 8
+  geometry-corner-radius 12
   open-on-workspace "2"
 }
 window-rule {
