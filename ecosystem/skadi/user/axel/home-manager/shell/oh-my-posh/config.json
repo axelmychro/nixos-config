@@ -2,20 +2,19 @@
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
   "console_title_template": "PRTS",
   "palette": {
-    "crust": "#3b4252",
-    "mantle": "#3b4252",
-    "blue": "#5e81ac",
+    "night": "#2e3440",
+    "frost": "#8fbcbb",
     "peach": "#d08770",
-    "plain": "#d8dee9",
-    "closer": "p:plain"
+    "snow": "#d8dee9",
+    "closer": "p:snow"
   },
   "blocks": [
     {
       "alignment": "left",
       "segments": [
         {
-          "background": "p:mantle",
-          "foreground": "p:blue",
+          "background": "p:night",
+          "foreground": "p:frost",
           "options": {
             "folder_icon": "\ue5fe",
             "home_icon": "~",
@@ -26,7 +25,7 @@
           "style": "plain"
         },
         {
-          "background": "p:mantle",
+          "background": "p:night",
           "foreground": "p:peach",
           "options": {
             "branch_icon": "\ue725 ",
@@ -46,7 +45,7 @@
           "style": "plain"
         },
         {
-          "background": "p:crust",
+          "background": "p:night",
           "foreground": "p:closer",
           "template": " 󰈺 ",
           "type": "text",
