@@ -1,6 +1,7 @@
 spawn-at-startup "noctalia-shell"
 workspace "1"
 workspace "2"
+workspace "3"
 hotkey-overlay {
   skip-at-startup
 }
