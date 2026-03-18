@@ -1,7 +1,7 @@
 _: {
   programs.fish.shellAliases = {
-    x = "exit";
-    xx = "exec fish";
+    x = "exec fish";
+    xx = "exit";
 
     wd = "waydroid";
     wds = "waydroid show-full-ui";
