@@ -15,5 +15,8 @@
     nautilus
     nnn
   ];
-  imports = [ ./modules/index.nix ];
+  imports = [
+    ./modules/index.nix
+    ./boot/loader.nix
+  ];
 }

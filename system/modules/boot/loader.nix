@@ -1,4 +1,4 @@
-{ pkgs, systemAssets, ... }:
+{ systemAssets, ... }:
 {
   boot = {
     loader = {
@@ -24,10 +24,8 @@
         font = "${systemAssets}/FiraCodeNerdFont-Regular.ttf";
         fontSize = 16;
 
-        backgroundColor = "#ff000";
-        # theme = ./assets/catppuccin-frappe-grub-theme;
-        # splashImage = ./assets/splashImage.png;
-        splashMode = "normal";
+        # backgroundColor = "#ff0000";
+        # splashMode = "normal";
       };
     };
   };

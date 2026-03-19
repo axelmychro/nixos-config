@@ -54,3 +54,7 @@ this is the flake i daily drive on my laptop
 - [Ghostty](https://github.com/ghostty-org/ghostty)
 - [4DBug](https://github.com/4DBug/nix-ansi) (fastfetch logo)
 - [アーリン](https://www.pixiv.net/en/artworks/137307172)
+
+### grub
+
+- [theme](https://github.com/Shelton786/Grub-Themes-Arknights_Priestess)
