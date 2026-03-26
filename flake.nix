@@ -78,7 +78,7 @@
           modules = [
             ./system/configuration.nix
             ./user/axel/configuration.nix
-            ./ecosystem/priestess/index.nix
+            ./subsystem/priestess/index.nix
 
             home-manager.nixosModules.home-manager
             nix-flatpak.nixosModules.nix-flatpak
@@ -106,7 +106,7 @@
           modules = [
             ./system/configuration.nix
             ./user/axel/configuration.nix
-            ./ecosystem/skadi/index.nix
+            ./subsystem/skadi/index.nix
 
             home-manager.nixosModules.home-manager
             nix-flatpak.nixosModules.nix-flatpak
