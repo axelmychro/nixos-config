@@ -20,7 +20,7 @@
         gfxmodeBios = "1920x1080";
         gfxpayloadBios = "keep";
 
-        font = "${systemAssets}/FiraCodeNerdFont-Regular.ttf";
+        font = "${systemAssets}/GeistMonoNerdFont-Regular.ttf";
         fontSize = 16;
 
         # backgroundColor = "#ff0000";

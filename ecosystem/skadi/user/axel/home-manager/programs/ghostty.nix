@@ -37,7 +37,7 @@ _: {
       shell-integration = "none";
       theme = "nord";
 
-      font-family = "FiraCode Nerd Font";
+      font-family = "GeistMono Nerd Font";
       font-size = 16;
       cursor-style = "underline";
       shell-integration-features = "no-cursor";

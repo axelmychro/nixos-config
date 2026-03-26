@@ -1,7 +1,7 @@
 _:
 let
-  sans = "ZedMono Nerd Font";
-  code = "FiraCode Nerd Font";
+  sans = "GeistMono Nerd Font";
+  code = "GeistMono Nerd Font";
 in
 {
   programs.plasma = {

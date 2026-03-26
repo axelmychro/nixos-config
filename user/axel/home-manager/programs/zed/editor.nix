@@ -13,7 +13,7 @@ _: {
     };
 
     buffer_font_size = 20.0;
-    buffer_font_family = "FiraCode Nerd Font";
+    buffer_font_family = "GeistMono Nerd Font";
     buffer_font_features.calt = true;
     buffer_line_height = "comfortable";
   };

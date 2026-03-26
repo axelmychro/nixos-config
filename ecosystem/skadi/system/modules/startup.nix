@@ -24,8 +24,8 @@
       package = pkgs.nordic;
     };
     font = {
-      package = pkgs.nerd-fonts.zed-mono;
-      name = "ZedMono Nerd Font";
+      package = pkgs.nerd-fonts.geist-mono;
+      name = "GeistMono Nerd Font";
       size = 16;
     };
   };
