@@ -11,10 +11,9 @@
       };
       grub = {
         enable = true;
-        configurationName = "neeks";
         configurationLimit = 10;
         efiSupport = true;
-        useOSProber = true;
+        useOSProber = false;
         device = "nodev";
         gfxmodeEfi = "1920x1080";
         gfxpayloadEfi = "keep";
