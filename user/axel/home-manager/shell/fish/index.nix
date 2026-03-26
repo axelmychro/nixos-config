@@ -1,6 +1,13 @@
 _: {
+  home.shell.enableFishIntegration = true;
   programs.fish = {
     enable = true;
+
+    interactiveShellInit = builtins.readFile ./init.fish;
   };
-  home.shell.enableFishIntegration = true;
+  imports = [
+    ./abbrs/index.nix
+    ./aliases/index.nix
+    ./functions/index.nix
+  ];
 }
