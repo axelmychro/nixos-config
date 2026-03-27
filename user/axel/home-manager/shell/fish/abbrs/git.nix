@@ -16,7 +16,7 @@ _: {
     gcn = "git clean";
     gcnn = "git clean -fd";
 
-    gct = "git commit -m";
+    gct = "git commit";
     gcf = "git commit --fixup";
     gctt = "git commit --amend --no-edit";
 
@@ -41,9 +41,10 @@ _: {
     grs = "git reset";
     grsh = "git reset --hard";
 
-    grm = "git remote";
+    gre = "git remote -v";
 
     gs = "git stash";
+    gsl = "git stash list";
     gsu = "git stash -u";
     gsm = "git stash push -m";
     gsum = "git stash push -um";
