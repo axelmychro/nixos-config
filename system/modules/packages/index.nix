@@ -9,5 +9,7 @@
     tree
     fd
     ripgrep
+
+    gparted
   ];
 }
