@@ -8,9 +8,7 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nix-flatpak.url = "github:gmodena/nix-flatpak";
     nixcord.url = "github:FlameFlag/nixcord";
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
 
     # priestess
@@ -40,9 +38,7 @@
     {
       nixpkgs,
       home-manager,
-      nix-flatpak,
       nixcord,
-      millennium,
       spicetify-nix,
 
       silentSDDM,
@@ -75,12 +71,6 @@
             ./subsystem/priestess/index.nix
 
             home-manager.nixosModules.home-manager
-            nix-flatpak.nixosModules.nix-flatpak
-            {
-              nixpkgs.overlays = [
-                millennium.overlays.default
-              ];
-            }
             spicetify-nix.nixosModules.default
             silentSDDM.nixosModules.default
           ];
@@ -101,12 +91,6 @@
             ./subsystem/skadi/index.nix
 
             home-manager.nixosModules.home-manager
-            nix-flatpak.nixosModules.nix-flatpak
-            {
-              nixpkgs.overlays = [
-                millennium.overlays.default
-              ];
-            }
             spicetify-nix.nixosModules.default
           ];
         };
