@@ -42,8 +42,17 @@
   };
   environment = {
     sessionVariables = {
-      LIBVA_DRIVER_NAME = "iHD";
+      # LIBVA_DRIVER_NAME = "iHD";
+      LIBVA_DRIVER_NAME = "nvidia";
       NIXOS_OZONE_WL = "1";
+
+      KWIN_COMPOSE = "O2";
+      KWIN_PERSISTENT_VBO = "1";
+      KWIN_EFFECTS_FORCE_ANIMATIONS = "1";
+
+      __GL_YIELD = "USLEEP";
+      __GL_GSYNC_ALLOWED = "1";
+      __GL_VRR_ALLOWED = "1";
     };
     systemPackages = with pkgs; [
       libva-utils
