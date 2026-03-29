@@ -5,7 +5,6 @@
     aurorae
     plasma-browser-integration
     plasma-workspace-wallpapers
-    ark
     elisa
     gwenview
     okular

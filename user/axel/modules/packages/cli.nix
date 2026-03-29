@@ -5,7 +5,6 @@
     imagemagick
 
     btop
-    ncdu
     gdu
   ];
 }
