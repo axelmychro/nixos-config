@@ -1,9 +1,8 @@
 _: {
   imports = [
-    ./cli.nix
+    ./qol.nix
     ./development.nix
-    ./documents.nix
-    ./internet.nix
     ./multimedia.nix
+    ./suite.nix
   ];
 }

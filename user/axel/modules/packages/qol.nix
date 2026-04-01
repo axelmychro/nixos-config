@@ -1,10 +1,14 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    eza
+    tree
+    ripgrep
+    fd
     bat
     imagemagick
-
-    btop
     gdu
+    btop
+    gparted
   ];
 }

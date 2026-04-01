@@ -19,7 +19,4 @@
       obs-vkcapture
     ];
   };
-  imports = [
-    ./obs-studio.nix
-  ];
 }
