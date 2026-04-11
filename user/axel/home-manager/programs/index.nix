@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./alacritty/index.nix
     ./firefox/index.nix
     ./git/index.nix
     ./zed/index.nix
