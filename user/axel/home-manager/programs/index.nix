@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./alacritty/index.nix
+    ./alacritty.nix
     ./fastfetch/index.nix
     ./firefox/index.nix
     ./git/index.nix

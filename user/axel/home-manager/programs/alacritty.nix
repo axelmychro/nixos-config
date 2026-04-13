@@ -9,7 +9,7 @@ _: {
       };
       font = {
         normal.family = "GeistMono Nerd Font";
-        size = 12;
+        size = 16;
       };
       cursor = {
         style = {
