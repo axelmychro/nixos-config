@@ -5,7 +5,7 @@ _: {
     lockOnSuspend = true;
 
     clockStyle = "custom";
-    clockFormat = "hh\nmm\na";
+    clockFormat = "hh\nmm\nA";
 
     lockScreenAnimations = true;
     compactLockScreen = false;
