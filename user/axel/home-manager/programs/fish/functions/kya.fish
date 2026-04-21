@@ -41,7 +41,7 @@ sudo -v
 fd -e nix -q; and fd -e nix -X nixfmt {}
 fd -e kdl -q; and fd -e kdl -X kdlfmt format {}
 fd -e fish -q; and fd -e fish -X fish_indent -w {}
-fd -e sh -q; and fd -e sh -X shfmt -w -s -i 2 -ci -sr {}
+fd -e sh -q; and fd -e sh -X shfmt -w -s {}
 
 git add .
 
