@@ -8,18 +8,18 @@
     dimmerOpacity = 0.3;
 
     scaleRatio = 1.0;
-    radiusRatio = 0.08;
+    radiusRatio = 1.0;
     iRadiusRatio = 1.0;
     boxRadiusRatio = 1.0;
 
-    showScreenCorners = false;
-    forceBlackScreenCorners = false;
+    showScreenCorners = true;
+    forceBlackScreenCorners = true;
     screenRadiusRatio = 1.0;
 
     animationSpeed = 1.5;
     animationDisabled = false;
 
-    enableBlurBehind = false;
+    enableBlurBehind = true;
     enableShadows = true;
     shadowDirection = "bottom_right";
     shadowOffsetX = 0.0;
