@@ -47,6 +47,7 @@
     let
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
+      assets = ./assets;
     in
     {
       formatter.${system} = pkgs.nixfmt-rfc-style;
@@ -55,6 +56,7 @@
           specialArgs = {
             inherit
               nixpkgs
+              assets
               noctalia
               ;
           };

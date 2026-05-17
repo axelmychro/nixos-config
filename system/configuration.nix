@@ -3,10 +3,6 @@
   ...
 }:
 {
-  _module.args = {
-    systemAssets = ./assets;
-  };
-
   system = {
     stateVersion = "25.11";
   };
