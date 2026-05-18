@@ -1,6 +1,6 @@
-{ abyssAssets, ... }:
+{ assets, ... }:
 {
-  home.file.".face".source = "${abyssAssets}/face.jpg";
+  home.file.".face".source = "${assets}/face.jpg";
   programs.noctalia-shell.settings.general = {
     telemetryEnabled = false;
     language = "en";

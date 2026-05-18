@@ -1,6 +1,6 @@
-{ abyssAssets, ... }:
+{ assets, ... }:
 {
-  home.file.".icon".source = "${abyssAssets}/icon.png";
+  home.file.".icon".source = "${assets}/icon.png";
   programs.noctalia-shell.settings.bar.widgets = {
     left = [
       {
