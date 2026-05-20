@@ -4,14 +4,14 @@ _: {
       number = 8;
       rows = 2;
       names = [
-        "󰜌"
-        ""
-        ""
-        ""
-        ""
-        "󰭹"
-        "󰺵"
-        "󰏗"
+        "󰜌 "
+        " "
+        " "
+        " "
+        " "
+        "󰭹 "
+        "󰺵 "
+        "󰏗 "
       ];
     };
     session = {
@@ -30,7 +30,7 @@ _: {
     };
     configFile.kdeglobals = {
       General = {
-        TerminalApplication = "alacritty";
+        TerminalApplication = "Alacritty";
         TerminalService = "Alacritty.desktop";
       };
     };
