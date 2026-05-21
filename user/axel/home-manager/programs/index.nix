@@ -5,9 +5,11 @@ _: {
     ./firefox/index.nix
     ./fish/index.nix
     ./git/index.nix
+    ./nixvim/index.nix
     ./oh-my-posh/index.nix
     ./zed/index.nix
     ./alacritty.nix
     ./direnv.nix
+    ./nixvim.nix
   ];
 }

@@ -1,5 +1,6 @@
 _: {
   programs.fish.shellAbbrs = {
+    lg = "lazygit";
     g = "git";
     gg = "git status";
     ggg = "git status; and git fetch; and git stash list";
