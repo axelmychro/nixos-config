@@ -1,49 +1,48 @@
 #!/usr/bin/env fish
 
-set cmd kya
-set flags '[--purge/-p] [--update/-u] [--reboot/-r]'
+set THE_CMD kya
+set THE_FLAGS '[--purge/-p] [--update/-u] [--reboot/-r]'
 function log
-    argparse e/error E/critical -- $argv
+    argparse e/error -- $argv
 
     set code 0
-    if set -q _flag_critical
-        set code 2
-    else if set -q _flag_error
-        set code 1
-    end
-
-    set -l msg (string join " " $argv)
+    set -q _flag_error; and set code 1
 
     set_color blue
-    if test "$code" -gt 0
-        set_color red
-    end
+    test "$code" -gt 0; and set_color red
+
+    set -l msg (string join " " $argv)
 
     printf "(%s) %s\n" "$code" "$msg"
     set_color normal
 
-    test "$code" -eq 2; and exit 1
     return "$code"
 end
 function usage
-    log -E "usage: $cmd $flags <flake> <operation>"
+    log -e "usage: $THE_CMD $THE_FLAGS <flake> <operation>"
 end
 
 # Eval
 set nixos_config_dir "$HOME/nixos-config"
 if not test -d "$nixos_config_dir"
-    log -E 'NixOS config directory not found'
+    log -e 'NixOS config directory not found'
+    return 1
 end
+
 set flake_file "$nixos_config_dir/flake.nix"
 if not test -f "$flake_file"
-    log -E "Flake file not found"
+    log -e "Flake file not found"
+    return 1
 end
 
 # Run
 argparse p/purge u/update r/reboot -- $argv
 set flake_opt "$argv[1]"
 set operation_opt "$argv[2]"
-test -z "$flake_opt"; or test -z "$operation_opt"; and usage
+if test -z "$flake_opt"; or test -z "$operation_opt"
+    usage
+    return 1
+end
 
 function kya_purge
     log Purge
@@ -79,13 +78,15 @@ function kya_format
     fd -e sh -e bash -X shfmt -w -s {}
 end
 function kya_track
-    git add "$nixos_config_dir"
+    git -C "$nixos_config_dir" add .
 end
 function kya_rebuild
+    rm -f "$HOME/.gtkrc-2.0"
     if sudo nixos-rebuild "$operation_opt" --flake "$nixos_config_dir#$flake_opt" --verbose --install-bootloader --upgrade-all
-        log "Done $cmd $flake_opt $operation_opt"
+        log "Done $THE_CMD $flake_opt $operation_opt"
     else
-        log -E "Failed $cmd $flake $operation"
+        log -e "Failed $THE_CMD $flake_opt $operation_opt"
+        return 1
     end
 end
 
@@ -93,5 +94,5 @@ test -n "$_flag_purge"; and kya_purge
 test -n "$_flag_update"; and kya_update
 kya_format
 kya_track
-kya_rebuild
+kya_rebuild; or return 1
 test -n "$_flag_reboot"; and kya_reboot
