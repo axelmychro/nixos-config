@@ -17,6 +17,7 @@
   };
 
   networking.hostName = "mychro";
+  users.defaultUserShell = pkgs.bash;
 
   time.timeZone = "Asia/Bangkok";
   i18n.defaultLocale = "en_US.UTF-8";
@@ -43,14 +44,8 @@
   services.fwupd.enable = true; # linux FOSS firmware update daemon
   zramSwap.enable = true; # 50% by default
 
-  users.defaultUserShell = pkgs.bash;
-
   imports = [
     ./hardware-configuration.nix
-
-    ./modules/boot/index.nix
-    ./modules/hardware/index.nix
-    ./modules/packages/index.nix
-    ./modules/services/index.nix
+    ./modules/index.nix
   ];
 }
