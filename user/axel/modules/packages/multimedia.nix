@@ -1,8 +1,8 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    qview
-    haruna
+    # qview
+    # haruna
   ];
   programs.obs-studio = {
     enable = true;

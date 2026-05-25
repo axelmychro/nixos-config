@@ -1,4 +1,4 @@
-{ systemAssets, ... }:
+{ assets, ... }:
 {
   boot = {
     loader = {
@@ -20,12 +20,12 @@
         gfxmodeBios = "1920x1080";
         gfxpayloadBios = "keep";
 
-        font = "${systemAssets}/GeistMonoNerdFont-Regular.otf";
+        font = "${assets}/GeistMonoNerdFont-Regular.otf";
         fontSize = 24;
 
         backgroundColor = "#ff0000";
-        theme = "${systemAssets}/grub/theme";
-        splashImage = "${systemAssets}/grub/splash.png";
+        theme = "${assets}/grub/theme";
+        splashImage = "${assets}/grub/splash.png";
         splashMode = "normal";
       };
     };

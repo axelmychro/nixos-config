@@ -2,8 +2,8 @@
 {
   environment.systemPackages = with pkgs; [
     vim
-    nodejs_20
-    pnpm
+    # nodejs_20
+    # pnpm
 
     godot
   ];

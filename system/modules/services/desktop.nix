@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  assets,
+  ...
+}:
 {
   services.xserver.excludePackages = [ pkgs.xterm ];
   fonts = {
@@ -23,7 +28,7 @@
     enable = true;
     theme = "rei";
     backgrounds = {
-      "pries.mp4" = ../../assets/pries.mp4;
+      "pries.mp4" = "${assets}/pries.mp4";
     };
 
     settings = {
@@ -41,7 +46,7 @@
   system.activationScripts.face = {
     text = ''
       rm -f /var/lib/AccountsService/icons/*
-      ln -sfn ${../../assets/face.jpg} /var/lib/AccountsService/icons/axel
+      ln -sfn ${assets}/face.jpg /var/lib/AccountsService/icons/axel
     '';
   };
 }

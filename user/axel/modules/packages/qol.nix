@@ -10,6 +10,6 @@
     gdu
     btop
     gparted
-    btrfs-progs
+    # btrfs-progs
   ];
 }
