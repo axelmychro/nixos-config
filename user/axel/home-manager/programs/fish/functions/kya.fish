@@ -54,7 +54,8 @@ if set -q _flag_update
 end
 
 sudo -v
-if sudo nixos-rebuild $operation --flake .#$flake --install-bootloader --verbose
+sudo rm -f ~/.gtkrc-2.0
+if sudo nixos-rebuild $operation --flake .#$flake --verbose --install-bootloader --upgrade-all
     set_color green
     echo "kya: $flake $operation success"
     set_color normal
