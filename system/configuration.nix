@@ -31,8 +31,8 @@
         "flakes"
       ];
       auto-optimise-store = true;
-      cores = 2;
-      max-jobs = 4;
+      cores = 6;
+      max-jobs = 12;
     };
     gc = {
       automatic = true;
