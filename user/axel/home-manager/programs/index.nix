@@ -10,6 +10,6 @@ _: {
     ./zed/index.nix
     ./alacritty.nix
     ./direnv.nix
-    ./nixvim.nix
+    ./lazygit.nix
   ];
 }
