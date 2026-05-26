@@ -4,8 +4,8 @@ _: {
     settings = {
       general.live_config_reload = false;
       window.padding = {
-        x = 2;
-        y = 2;
+        x = 0;
+        y = 0;
       };
       font = {
         normal.family = "GeistMono Nerd Font";
