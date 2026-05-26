@@ -1,5 +1,6 @@
 _: {
   programs.fish.shellAbbrs = {
+    e = "$EDITOR";
     ff = "fastfetch";
   };
   imports = [
