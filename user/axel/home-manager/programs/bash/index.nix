@@ -8,7 +8,7 @@ _: {
     #   xx = "exit";
     # };
     # initExtra = builtins.readFile ./init.bash;
-    # profileExtra = builtins.readFile ./profile.bash;
+    profileExtra = builtins.readFile ./profile.bash;
     # logoutExtra = builtins.readFile ./logout.bash;
   };
   # imports = [ ./functions/index.nix ];
