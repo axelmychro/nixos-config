@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  nixvim,
   ...
 }:
 {
@@ -39,6 +40,7 @@
       # style.name = "Nordic";
     };
     imports = [
+      nixvim.homeModules.default
       ./default-apps/index.nix
       ./programs/index.nix
     ];

@@ -25,6 +25,10 @@
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim/nixos-25.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -34,6 +38,7 @@
       silentSDDM,
       plasma-manager,
       noctalia,
+      nixvim,
       ...
     }:
     let
@@ -51,6 +56,7 @@
               assets
               plasma-manager
               noctalia
+              nixvim
               ;
           };
           modules = [
@@ -58,8 +64,9 @@
             ./user/axel/configuration.nix
             ./ecosystem/abyss/index.nix
 
-            home-manager.nixosModules.home-manager
+            home-manager.nixosModules.default
             silentSDDM.nixosModules.default
+            nixvim.nixosModules.default
           ];
         };
       };

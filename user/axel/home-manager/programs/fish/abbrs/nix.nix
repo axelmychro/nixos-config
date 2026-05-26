@@ -1,5 +1,6 @@
 _: {
   programs.fish.shellAbbrs = {
+    nc = "cd ~/nixos-config";
     nrs = "sudo nixos-rebuild switch";
     nrsf = "sudo nixos-rebuild switch --flake .#";
     nrt = "sudo nixos-rebuild test";
