@@ -3,11 +3,14 @@ _: {
   programs.fish = {
     enable = true;
 
-    interactiveShellInit = builtins.readFile ./init.fish;
+    shellInit = ''
+      ${builtins.readFile ./functions/log.fish}
+      ${builtins.readFile ./functions/kya.fish}
+    '';
+    interactiveShellInit = builtins.readFile ./config.fish;
   };
   imports = [
     ./abbrs/index.nix
     ./aliases/index.nix
-    ./functions/index.nix
   ];
 }
