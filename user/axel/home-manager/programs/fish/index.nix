@@ -10,7 +10,7 @@ _: {
     interactiveShellInit = builtins.readFile ./config.fish;
   };
   imports = [
-    ./abbrs/index.nix
-    ./aliases/index.nix
+    ./abbrs.nix
+    ./aliases.nix
   ];
 }
