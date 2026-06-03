@@ -5,5 +5,6 @@ _: {
     ./home-manager/index.nix
     ./packages/index.nix
     ./services/index.nix
+    ./virtualisation/index.nix
   ];
 }
