@@ -5,8 +5,11 @@ function kya
     set nixos_config_dir "$HOME/nixos-config"
     set flake_file "$nixos_config_dir/flake.nix"
 
-    set flake_opt skadi
-    set operation_opt boot
+    set flake_opt "$argv[1]"
+    test -z "$flake_opt"; and set flake_opt skadi
+
+    set operation_opt "$argv[2]"
+    test -z "$operation_opt"; and set operation_opt switch
 
     if set -q -- _flag_wipe
         log Purge
