@@ -15,4 +15,3 @@
 - [Niri](https://niri-wm.github.io/niri)
   - [Wallpaper](https://x.com/t4b4ko/status/1968375351547204009)
   - [Noctalia](https://docs.noctalia.dev)
-  - [Alacritty](https://alacritty.org)
