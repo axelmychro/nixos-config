@@ -55,7 +55,7 @@ _: {
           highlight.enable = true;
           indent.enable = true;
         };
-        folding = false;
+        folding.enable = false;
       };
       cmp = {
         enable = true;
