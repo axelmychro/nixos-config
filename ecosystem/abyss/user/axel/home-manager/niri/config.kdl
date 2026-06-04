@@ -96,7 +96,7 @@ window-rule {
 }
 binds {
     Mod+Return hotkey-overlay-title="Terminal" {
-        spawn "alacritty"
+        spawn "konsole"
     }
     Mod+E hotkey-overlay-title="Explorer" {
         spawn "dolphin"
