@@ -8,8 +8,8 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_6_18;
-    kernelModules = [ "ideapad_laptop" ];
+    kernelPackages = pkgs.linuxPackages_latest;
+    #kernelModules = [ "ideapad_laptop" ];
   };
 
   networking.hostName = "mychro";
