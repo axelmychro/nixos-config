@@ -24,7 +24,7 @@ _: {
         "Window to Desktop 8" = "Meta+Ctrl+8";
       };
 
-      "services/Alacritty.desktop" = {
+      "services/org.kde.konsole.desktop" = {
         "_launch" = "Meta+Return";
       };
     };

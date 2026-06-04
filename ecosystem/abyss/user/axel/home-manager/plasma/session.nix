@@ -30,8 +30,8 @@ _: {
     };
     configFile.kdeglobals = {
       General = {
-        TerminalApplication = "Alacritty";
-        TerminalService = "Alacritty.desktop";
+        TerminalApplication = "konsole";
+        TerminalService = "org.kde.konsole.desktop";
       };
     };
   };
