@@ -24,15 +24,15 @@
     };
     xdg.enable = true;
     gtk = {
-      enable = true;
-      # theme = {
-      #   name = "Nordic";
-      #   package = pkgs.nordic;
-      # };
-      # iconTheme = {
-      #   name = "Nordzy";
-      #   package = pkgs.nordzy-icon-theme;
-      # };
+      enable = false;
+      theme = {
+        name = "Nordic";
+        package = pkgs.nordic;
+      };
+      iconTheme = {
+        name = "Nordzy";
+        package = pkgs.nordzy-icon-theme;
+      };
     };
     qt = {
       enable = true;
