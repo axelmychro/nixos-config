@@ -30,7 +30,6 @@ function kya
     fd -e sh -e bash -X shfmt -w -s {}
 
     git -C "$nixos_config_dir" add .
-    rm -f "$HOME/.gtkrc-2.0"
     if sudo nixos-rebuild "$operation_opt" --flake "$nixos_config_dir#$flake_opt" --verbose --install-bootloader --upgrade-all
         log "Done $THE_CMD $flake_opt $operation_opt"
     else
