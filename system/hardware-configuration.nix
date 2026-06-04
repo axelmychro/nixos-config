@@ -19,12 +19,12 @@
       ];
       kernelModules = [ ];
     };
-    kernelModules = [ "kvm-intel" ];
+    kernelModules = [ ];
     extraModulePackages = [ ];
   };
   fileSystems = {
     "/" = {
-      device = "/dev/disk/by-uuid/5181c9d0-dc6e-445e-8dd1-e2a0ae256230";
+      device = "/dev/disk/by-uuid/a7040a66-da20-41eb-a1e4-1831da82557e";
       fsType = "ext4";
     };
     "/boot" = {

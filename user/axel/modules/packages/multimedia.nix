@@ -1,11 +1,12 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    # qview
-    # haruna
+    imagemagick
+    #qview
+    #haruna
   ];
   programs.obs-studio = {
-    enable = true;
+    enable = false;
     package = (
       pkgs.obs-studio.override {
         cudaSupport = true;

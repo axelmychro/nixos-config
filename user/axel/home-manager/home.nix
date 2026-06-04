@@ -8,9 +8,9 @@
   home-manager.users.axel = {
     home = {
       homeDirectory = "/home/axel";
-      stateVersion = "24.11";
+      stateVersion = "26.05"; # HM is developed against nixos-unstable
       pointerCursor = {
-        enable = true;
+        enable = false;
         package = lib.mkDefault pkgs.nordzy-cursor-theme;
         name = lib.mkDefault "Nordzy-cursors-white";
         size = 48;
@@ -41,7 +41,7 @@
     };
     imports = [
       nixvim.homeModules.default
-      ./default-apps/index.nix
+      #./default-apps/index.nix
       ./programs/index.nix
     ];
   };

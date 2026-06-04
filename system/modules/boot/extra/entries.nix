@@ -27,9 +27,8 @@ in
     menuentry 'Fedora' --class fedora --class gnu-linux --class gnu --class os {
       insmod part_gpt
       insmod ext2
-      search --no-floppy --fs-uuid --set=root ${fedoraPartition}
-      linux /boot/vmlinuz root=UUID=${fedoraPartition} rw quiet loglevel=3 nowatchdog fsck.mode=force fsck.repair=yes
-      initrd /boot/initramfs.img
+      search --no-floppy --fs-uuid --set=root ${bootPartition}
+      chainloader /EFI/Fedora-boot/shimx64.efi
     }
   '';
 }

@@ -11,6 +11,9 @@
   environment.systemPackages = with pkgs; [
     noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     xwayland-satellite
+    kdePackages.kdenlive
+    kdePackages.gwenview
+    kdePackages.dolphin
     wl-clipboard
     wl-clip-persist
   ];

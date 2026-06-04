@@ -1,6 +1,6 @@
 # NixOS Config
 
-- Release: 25.11 (enable: nix command, flakes)
+- Release: 26.05 (enable: nix command, flakes)
 - MArch: alderlake (x86-64)
 - KMod: nvme, ext4, nvidia, i915
 
@@ -15,4 +15,3 @@
 - [Niri](https://niri-wm.github.io/niri)
   - [Wallpaper](https://x.com/t4b4ko/status/1968375351547204009)
   - [Noctalia](https://docs.noctalia.dev)
-  - [Alacritty](https://alacritty.org)

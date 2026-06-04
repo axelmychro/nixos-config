@@ -4,9 +4,9 @@
 }:
 {
   environment.systemPackages = with pkgs; [
-    # libreoffice
+    #libreoffice
     zoom-us
     obsidian
-    pspp
+    #pspp
   ];
 }

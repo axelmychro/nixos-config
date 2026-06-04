@@ -3,7 +3,6 @@ _: {
     ./development.nix
     ./multimedia.nix
     ./qol.nix
-    ./qt.nix
     ./suite.nix
   ];
 }

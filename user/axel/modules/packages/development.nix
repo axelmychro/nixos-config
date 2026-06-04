@@ -1,10 +1,10 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    vim
-    nodejs
-    pnpm
+    #vim
+    #nodejs
+    #pnpm
 
-    godot
+    #godot
   ];
 }

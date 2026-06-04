@@ -2,14 +2,14 @@
 {
   environment.systemPackages = with pkgs; [
     eza
-    tree
     ripgrep
     fd
-    bat
-    imagemagick
-    gdu
+
     btop
+    tree
+    gdu
+
     gparted
-    # btrfs-progs
+    #btrfs-progs
   ];
 }
