@@ -7,7 +7,6 @@ _: {
     ./nixvim/index.nix
     ./oh-my-posh/index.nix
     ./zed/index.nix
-    ./alacritty.nix
     ./direnv.nix
     ./git.nix
     ./lazygit.nix
