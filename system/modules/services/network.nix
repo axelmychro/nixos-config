@@ -16,9 +16,11 @@ _: {
 
   services.resolved = {
     enable = false;
-    dnsovertls = "true";
-    dnssec = "true";
-    domains = [ "~." ];
+    settings.Resolve = {
+      DNSOverTLS = "true";
+      DNSSEC = "true";
+      Domains = [ "~." ];
+    };
   };
   services.cloudflare-warp.enable = false; # conflicts with resolved
 }
