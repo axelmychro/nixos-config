@@ -9,7 +9,11 @@ function log
         set code 1
         set_color red
     end
-    printf "(%s) %s\n" "$code" "$msg"
+
+    set key --
+    test "$code" -gt 0; and set key '!!'
+
+    printf ' %s %s\n' "$key" "$msg"
     set_color normal
 
     return "$code"
