@@ -12,6 +12,7 @@ _: {
         s = "status";
         r = "remote -v";
         l = "log --oneline";
+        co = "checkout";
         f = "fetch";
         sh = "stash";
         pl = "pull";
