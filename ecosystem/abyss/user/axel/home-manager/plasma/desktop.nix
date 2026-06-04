@@ -1,4 +1,4 @@
-_:
+{ assets, ... }:
 let
   sans = "GeistMono Nerd Font";
   code = "GeistMono Nerd Font";
@@ -7,14 +7,14 @@ in
   #xdg.dataFile."color-schemes/CatppuccinFrappe.colors".source = ../assets/CatppuccinFrappe.colors;
   programs.plasma = {
     workspace = {
-      #wallpaper = ../assets/desktop.jpg;
+      #wallpaper = "${assets}/pries.jpg";
       lookAndFeel = "org.kde.breezedark.desktop";
       #colorScheme = "CatppuccinFrappe";
       theme = null; # plasma style. null = default
-      windowDecorations = {
-        theme = "Breeze";
-        library = "org.kde.breeze";
-      };
+      #windowDecorations = {
+      #  theme = "Breeze";
+      #  library = "org.kde.breeze";
+      #};
       iconTheme = "breeze-dark";
       cursor = {
         animationTime = 5;
@@ -24,13 +24,13 @@ in
         theme = "Breeze_Light";
       };
       soundTheme = "ocean";
-      splashScreen = {
-        engine = "none";
-        theme = "None";
-      };
+      #splashScreen = {
+      #  engine = "none";
+      #  theme = "None";
+      #};
     };
     kscreenlocker.appearance = {
-      wallpaper = ../assets/lock.jpg;
+      #wallpaper = "${assets}/pries.jpg";
       alwaysShowClock = true;
       showMediaControls = true;
     };
