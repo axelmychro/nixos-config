@@ -1,6 +1,6 @@
 # NixOS Config
 
-- Release: unstable (enable: nix command, flakes)
+- Release: 26.05 (enable: nix command, flakes)
 - MArch: alderlake (x86-64)
 - KMod: nvme, ext4, nvidia, i915
 
