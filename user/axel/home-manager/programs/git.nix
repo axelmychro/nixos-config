@@ -8,6 +8,15 @@ _: {
       };
       init.defaultBranch = "main";
       pull.rebase = true;
+      alias = {
+        s = "status";
+        r = "remote -v";
+        l = "log --oneline";
+        f = "fetch";
+        sh = "stash";
+        pl = "pull";
+        ph = "push";
+      };
     };
   };
 }

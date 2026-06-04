@@ -4,12 +4,12 @@ _: {
     ./fastfetch/index.nix
     ./firefox/index.nix
     ./fish/index.nix
-    ./git/index.nix
     ./nixvim/index.nix
     ./oh-my-posh/index.nix
     ./zed/index.nix
     ./alacritty.nix
     ./direnv.nix
+    ./git.nix
     ./lazygit.nix
   ];
 }
