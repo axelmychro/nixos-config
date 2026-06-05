@@ -7,6 +7,7 @@ _: {
     ./network/index.nix
 
     # OPTIONAL
+    ./audio/index.nix
     ./bluetooth/index.nix
     ./packages/index.nix
     ./home-manager/index.nix
