@@ -4,6 +4,7 @@
     loader = {
       timeout = 10;
       efi.canTouchEfiVariables = true;
+
       systemd-boot = {
         enable = false;
         configurationLimit = 10;
@@ -11,10 +12,11 @@
       };
       grub = {
         enable = true;
+        useOSProber = false;
         configurationLimit = 10;
         efiSupport = true;
-        useOSProber = false;
         device = "nodev";
+
         gfxmodeEfi = "1920x1080";
         gfxpayloadEfi = "keep";
         gfxmodeBios = "1920x1080";
@@ -23,7 +25,7 @@
         font = "${assets}/GeistMonoNerdFont-Regular.otf";
         fontSize = 24;
 
-        backgroundColor = "#ff0000";
+        backgroundColor = "#ffffff";
         theme = "${assets}/grub/theme";
         splashImage = "${assets}/grub/splash.png";
         splashMode = "normal";
