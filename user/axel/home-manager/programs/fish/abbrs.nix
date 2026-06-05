@@ -3,7 +3,7 @@ _: {
     s = "sudo";
     c = "cd";
     md = "mkdir -p";
-    e = "\"$EDITOR\"";
+    e = "$EDITOR";
     cn = "cd ~/nixos-config";
 
     mt = "mount";
