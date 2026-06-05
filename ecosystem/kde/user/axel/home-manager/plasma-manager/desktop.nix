@@ -7,7 +7,7 @@ in
   #xdg.dataFile."color-schemes/CatppuccinFrappe.colors".source = ../assets/CatppuccinFrappe.colors;
   programs.plasma = {
     workspace = {
-      #wallpaper = "${assets}/pries.jpg";
+      wallpaper = "${assets}/her.png";
       lookAndFeel = "org.kde.breezedark.desktop";
       #colorScheme = "CatppuccinFrappe";
       theme = null; # plasma style. null = default
@@ -30,7 +30,7 @@ in
       #};
     };
     kscreenlocker.appearance = {
-      #wallpaper = "${assets}/pries.jpg";
+      wallpaper = "${assets}/her.png";
       alwaysShowClock = true;
       showMediaControls = true;
     };
