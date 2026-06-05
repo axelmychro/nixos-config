@@ -12,12 +12,6 @@
     #kernelModules = [ "ideapad_laptop" ];
   };
 
-  networking.hostName = "mychro";
-  users.defaultUserShell = pkgs.bash;
-
-  time.timeZone = "Asia/Bangkok";
-  i18n.defaultLocale = "en_US.UTF-8";
-
   nixpkgs.config.allowUnfree = true;
   programs.nix-ld.enable = true;
 
@@ -37,7 +31,14 @@
       options = "--delete-older-than 3d";
     };
   };
-  services.fwupd.enable = true; # linux FOSS firmware update daemon
+
+  time.timeZone = "Asia/Bangkok";
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  networking.hostName = "mychro";
+  users.defaultUserShell = pkgs.bash;
+
+  services.fwupd.enable = true; # firmware update daemon
   zramSwap.enable = true; # 50% by default
 
   imports = [
