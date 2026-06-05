@@ -58,13 +58,15 @@
               ;
           };
           modules = [
-            ./system/configuration.nix
-            ./user/axel/configuration.nix
-            ./ecosystem/abyss/index.nix
-
+            { system.nixos.label = "abyss"; }
             home-manager.nixosModules.default
             silentSDDM.nixosModules.default
             nixvim.nixosModules.default
+
+            ./system/configuration.nix
+            ./user/axel/configuration.nix
+            ./ecosystem/kde/index.nix
+            ./ecosystem/niri/index.nix
           ];
         };
       };

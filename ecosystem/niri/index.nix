@@ -5,7 +5,6 @@
 }:
 {
   programs.niri.enable = true;
-  services.desktopManager.plasma6.enable = true;
   security.polkit.enable = true;
   services.gnome.gnome-keyring.enable = true;
   environment.systemPackages = with pkgs; [
@@ -16,4 +15,6 @@
     wl-clipboard
     wl-clip-persist
   ];
+
+  imports = [ ./user/index.nix ];
 }
