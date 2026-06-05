@@ -2,7 +2,11 @@
 {
   users.users.axel = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "video"
+      "render"
+    ];
     shell = pkgs.fish;
   };
   programs.fish.enable = true;

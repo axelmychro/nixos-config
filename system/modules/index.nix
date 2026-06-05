@@ -7,7 +7,7 @@ _: {
     ./network/index.nix
 
     # OPTIONAL
-    #./graphics/index.nix
+    ./graphics/index.nix
     ./audio/index.nix
     ./bluetooth/index.nix
     ./packages/index.nix
