@@ -3,7 +3,7 @@ _: {
     # ESSENTIAL
     ./boot/index.nix
     ./login/index.nix
-    ./hardware/index.nix
+    ./power/index.nix
     ./network/index.nix
 
     # OPTIONAL
