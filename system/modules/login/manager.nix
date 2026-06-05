@@ -1,24 +1,9 @@
 {
   lib,
-  pkgs,
   assets,
   ...
 }:
 {
-  services.xserver.excludePackages = [ pkgs.xterm ];
-  fonts = {
-    fontconfig = {
-      enable = true;
-      subpixel.rgba = "rgb";
-      hinting = {
-        enable = true;
-        style = "full";
-      };
-    };
-    packages = with pkgs; [
-      nerd-fonts.geist-mono
-    ];
-  };
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = lib.mkForce true;
