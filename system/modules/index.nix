@@ -7,9 +7,9 @@ _: {
     ./network/index.nix
 
     # OPTIONAL
+    ./bluetooth/index.nix
     ./packages/index.nix
     ./home-manager/index.nix
-    ./services/index.nix
     ./virtualisation/index.nix
   ];
 }
