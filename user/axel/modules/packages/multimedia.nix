@@ -4,7 +4,6 @@
     kdePackages.kdenlive
     imagemagick
     #qview
-    #haruna
   ];
   programs.obs-studio = {
     enable = false;

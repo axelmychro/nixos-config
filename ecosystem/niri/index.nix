@@ -12,6 +12,7 @@
     xwayland-satellite
     kdePackages.gwenview
     kdePackages.dolphin
+    haruna
     wl-clipboard
     wl-clip-persist
   ];
