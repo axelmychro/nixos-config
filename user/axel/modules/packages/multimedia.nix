@@ -6,7 +6,7 @@
     #qview
   ];
   programs.obs-studio = {
-    enable = false;
+    enable = true;
     package = (
       pkgs.obs-studio.override {
         cudaSupport = true;
