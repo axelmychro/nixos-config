@@ -2,10 +2,11 @@ _: {
   programs.zed-editor.userSettings = {
     title_bar = {
       show_menus = false;
-      show_branch_icon = true;
+      show_branch_icon_status = true;
     };
 
     project_panel = {
+      dock = "left";
       drag_and_drop = true;
       hide_hidden = false;
       hide_root = true;
@@ -16,7 +17,6 @@ _: {
       entry_spacing = "standard";
       hide_gitignore = false;
       default_width = 240.0;
-      dock = "right";
     };
 
     tab_bar.show = true;
