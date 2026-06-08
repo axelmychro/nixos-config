@@ -5,6 +5,7 @@ _: {
 
     shellInit = ''
       ${builtins.readFile ./functions/log.fish}
+      ${builtins.readFile ./functions/conserve.fish}
       ${builtins.readFile ./functions/kya.fish}
       ${builtins.readFile ./functions/mount-git.fish}
       ${builtins.readFile ./functions/dl.fish}
