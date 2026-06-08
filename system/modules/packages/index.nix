@@ -19,4 +19,6 @@
       nerd-fonts.geist-mono
     ];
   };
+
+  imports = [ ./flatpak.nix ];
 }
