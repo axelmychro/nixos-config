@@ -9,7 +9,6 @@ _: {
     mt = "mount";
     umt = "umount";
 
-    t = "btop";
     ff = "fastfetch";
     g = "git";
     nxsh = "nix-shell";
