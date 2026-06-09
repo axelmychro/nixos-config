@@ -5,5 +5,6 @@ _: {
     lm = "l --sort=modified";
     ".." = "cd ..";
     "..." = "cd ../..";
+    t = "tmux attach 2>/dev/null; or tmux";
   };
 }
