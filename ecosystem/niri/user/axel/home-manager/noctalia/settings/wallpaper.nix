@@ -11,7 +11,7 @@
       };
     };
   };
-  programs.noctalia-shell.settings.wallpaper = {
+  programs.noctalia.settings.wallpaper = {
     enabled = true;
     panelPosition = "center";
     directory = "${config.home.homeDirectory}/Pictures/Wallpapers";

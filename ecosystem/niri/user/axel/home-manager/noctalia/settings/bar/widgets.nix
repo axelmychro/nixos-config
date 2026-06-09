@@ -1,7 +1,7 @@
 { assets, ... }:
 {
   home.file.".icon".source = "${assets}/icon.png";
-  programs.noctalia-shell.settings.bar.widgets = {
+  programs.noctalia.settings.bar.widgets = {
     left = [
       {
         id = "NotificationHistory";

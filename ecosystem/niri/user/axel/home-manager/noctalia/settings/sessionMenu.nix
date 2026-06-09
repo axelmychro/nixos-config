@@ -1,5 +1,5 @@
 _: {
-  programs.noctalia-shell.settings.sessionMenu = {
+  programs.noctalia.settings.sessionMenu = {
     enableCountdown = true;
     countdownDuration = 10000;
     position = "center";

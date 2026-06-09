@@ -1,5 +1,5 @@
 _: {
-  programs.noctalia-shell.settings.general = {
+  programs.noctalia.settings.general = {
     enableLockScreenCountdown = true;
     lockScreenCountdownDuration = 10000;
     lockOnSuspend = true;

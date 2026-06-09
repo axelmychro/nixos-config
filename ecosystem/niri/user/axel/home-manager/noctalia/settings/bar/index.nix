@@ -1,5 +1,5 @@
 _: {
-  programs.noctalia-shell.settings.bar = {
+  programs.noctalia.settings.bar = {
     barType = "simple";
     position = "left";
 

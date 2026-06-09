@@ -1,5 +1,5 @@
 _: {
-  programs.noctalia-shell.settings.location = {
+  programs.noctalia.settings.location = {
     name = "Bangkok, Thailand";
 
     use12hourFormat = true;

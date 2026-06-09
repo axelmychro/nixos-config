@@ -1,7 +1,7 @@
 { assets, ... }:
 {
   home.file.".face".source = "${assets}/face.jpg";
-  programs.noctalia-shell.settings.general = {
+  programs.noctalia.settings.general = {
     telemetryEnabled = false;
     language = "en";
     avatarImage = "/home/axel/.face";

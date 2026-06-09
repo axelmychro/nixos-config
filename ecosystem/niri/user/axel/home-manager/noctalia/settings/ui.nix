@@ -1,5 +1,5 @@
 _: {
-  programs.noctalia-shell.settings.ui = {
+  programs.noctalia.settings.ui = {
     fontDefault = "GeistMono Nerd Font";
     fontFixed = "GeistMono Nerd Font";
 

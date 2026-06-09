@@ -1,5 +1,5 @@
 _: {
-  programs.noctalia-shell.settings.network = {
+  programs.noctalia.settings.network = {
     wifiEnabled = true;
     airplaneModeEnabled = false;
     bluetoothRssiPollingEnabled = false;

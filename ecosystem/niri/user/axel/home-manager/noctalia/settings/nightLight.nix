@@ -1,5 +1,5 @@
 _: {
-  programs.noctalia-shell.settings.nightLight = {
+  programs.noctalia.settings.nightLight = {
     enabled = false;
     forced = false;
     autoSchedule = false;

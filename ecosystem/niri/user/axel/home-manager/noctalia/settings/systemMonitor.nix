@@ -1,5 +1,5 @@
 _: {
-  programs.noctalia-shell.settings.systemMonitor = {
+  programs.noctalia.settings.systemMonitor = {
     cpuWarningThreshold = 80;
     cpuCriticalThreshold = 90;
     tempWarningThreshold = 80;

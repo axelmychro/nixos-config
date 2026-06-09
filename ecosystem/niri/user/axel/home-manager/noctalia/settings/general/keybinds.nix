@@ -1,5 +1,5 @@
 _: {
-  programs.noctalia-shell.settings.general.keybinds = {
+  programs.noctalia.settings.general.keybinds = {
     keyUp = [ "Up" ];
     keyDown = [ "Down" ];
     keyLeft = [ "Left" ];

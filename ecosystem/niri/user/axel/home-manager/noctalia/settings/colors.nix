@@ -1,5 +1,5 @@
 _: {
-  programs.noctalia-shell.settings = {
+  programs.noctalia.settings = {
     colorSchemes = {
       useWallpaperColors = false;
       predefinedScheme = "Catppuccin";

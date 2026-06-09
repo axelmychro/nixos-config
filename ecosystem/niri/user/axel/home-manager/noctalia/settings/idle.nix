@@ -1,5 +1,5 @@
 _: {
-  programs.noctalia-shell.settings.idle = {
+  programs.noctalia.settings.idle = {
     enabled = true;
     screenOffTimeout = 360;
     lockTimeout = 360;
