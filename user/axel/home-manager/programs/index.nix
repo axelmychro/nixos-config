@@ -11,5 +11,6 @@ _: {
     ./easyeffects.nix
     ./git.nix
     ./lazygit.nix
+    ./tmux.nix
   ];
 }
