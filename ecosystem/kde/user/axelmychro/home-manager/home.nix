@@ -12,7 +12,7 @@
         ;
     };
     sharedModules = [ plasma-manager.homeModules.plasma-manager ];
-    users.axel = {
+    users.axelmychro = {
       imports = [
         ./plasma-manager/index.nix
       ];

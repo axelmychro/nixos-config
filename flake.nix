@@ -65,7 +65,7 @@
             nixvim.nixosModules.default
 
             ./system/configuration.nix
-            ./user/axel/configuration.nix
+            ./user/axelmychro/configuration.nix
             ./ecosystem/kde/index.nix
             #./ecosystem/niri/index.nix
           ];

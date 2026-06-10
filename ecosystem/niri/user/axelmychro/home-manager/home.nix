@@ -11,7 +11,7 @@
         noctalia
         ;
     };
-    users.axel = {
+    users.axelmychro = {
       imports = [
         ./niri/index.nix
         ./noctalia/index.nix

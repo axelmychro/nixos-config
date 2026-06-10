@@ -1,5 +1,5 @@
 _: {
   imports = [
-    ./axel/configuration.nix
+    ./axelmychro/configuration.nix
   ];
 }

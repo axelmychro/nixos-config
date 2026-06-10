@@ -1,13 +1,14 @@
 {
   lib,
   pkgs,
+  name,
   nixvim,
   ...
 }:
 {
-  home-manager.users.axel = {
+  home-manager.users.${name} = {
     home = {
-      homeDirectory = "/home/axel";
+      homeDirectory = "/home/${name}";
       stateVersion = "26.05"; # HM is developed against nixos-unstable
       pointerCursor = {
         enable = false;

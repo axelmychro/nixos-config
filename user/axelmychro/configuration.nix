@@ -1,6 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, name, ... }:
 {
-  users.users.axel = {
+  _module.args = {
+    name = "axelmychro";
+  };
+  users.users.${name} = {
     isNormalUser = true;
     extraGroups = [
       "wheel"
