@@ -9,6 +9,7 @@
       "wheel"
       "video"
       "render"
+      "docker"
     ];
     shell = pkgs.fish;
   };
