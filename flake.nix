@@ -5,7 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     silentSDDM = {
       url = "github:uiriansan/SilentSDDM";
@@ -13,21 +12,20 @@
     };
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
-      #inputs.nixpkgs.follows = "nixpkgs";
-      #inputs.home-manager.follows = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
     };
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
-      #inputs.nixpkgs.follows = "nixpkgs";
-      #inputs.noctalia-qs.follows = "noctalia-qs";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.noctalia-qs.follows = "noctalia-qs";
     };
     noctalia-qs = {
       url = "github:noctalia-dev/noctalia-qs";
-      #inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
-      #inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -64,7 +62,7 @@
             silentSDDM.nixosModules.default
             nixvim.nixosModules.default
 
-            ./system/configuration.nix
+            ./host/prts/configuration.nix
             ./user/axelmychro/configuration.nix
             ./ecosystem/kde/index.nix
             #./ecosystem/niri/index.nix

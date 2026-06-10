@@ -35,7 +35,7 @@
   time.timeZone = "Asia/Bangkok";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  networking.hostName = "mychro";
+  networking.hostName = "prts";
   users.defaultUserShell = pkgs.bash;
 
   services.fwupd.enable = true; # firmware update daemon
