@@ -1,4 +1,9 @@
-{ pkgs, name, ... }:
+{
+  pkgs,
+  assets,
+  name,
+  ...
+}:
 {
   _module.args = {
     name = "axelmychro";
@@ -18,4 +23,10 @@
     ./modules/packages/index.nix
     ./home-manager/home.nix
   ];
+  system.activationScripts.face = {
+    text = ''
+      rm -f /var/lib/AccountsService/icons/${name}
+      ln -sfn ${assets}/face.jpg /var/lib/AccountsService/icons/${name}
+    '';
+  };
 }

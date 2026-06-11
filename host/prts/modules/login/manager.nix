@@ -28,10 +28,4 @@
       };
     };
   };
-  system.activationScripts.face = {
-    text = ''
-      rm -f /var/lib/AccountsService/icons/*
-      ln -sfn ${assets}/face.jpg /var/lib/AccountsService/icons/axelmychro
-    '';
-  };
 }
