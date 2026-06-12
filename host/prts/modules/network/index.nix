@@ -5,11 +5,13 @@ _: {
       dns = "none";
     };
     firewall = {
-      enable = true;
+      #enable = true;
       allowPing = true;
       logReversePathDrops = true;
     };
     nameservers = [
+      "1.1.1.1"
+      "8.8.8.8"
       "9.9.9.9"
     ];
   };
