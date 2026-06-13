@@ -3,6 +3,7 @@
   environment.systemPackages = with pkgs; [
     kdePackages.kdenlive
     krita
+    lmms
     imagemagick
   ];
   programs.obs-studio = {
