@@ -2,15 +2,15 @@
 {
   environment.systemPackages = with pkgs; [
     kdePackages.kdenlive
+    krita
     imagemagick
-    #qview
   ];
   programs.obs-studio = {
     enable = true;
     enableVirtualCamera = true;
     package = (
       pkgs.obs-studio.override {
-        cudaSupport = true;
+        cudaSupport = false;
       }
     );
     plugins = with pkgs.obs-studio-plugins; [
