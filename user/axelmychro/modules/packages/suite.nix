@@ -6,7 +6,7 @@
   environment.systemPackages = with pkgs; [
     libreoffice
     zoom-us
-    obsidian
+    #obsidian
     #pspp
   ];
 }
