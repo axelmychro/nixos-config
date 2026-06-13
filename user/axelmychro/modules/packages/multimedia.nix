@@ -2,6 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     kdePackages.kdenlive
+    gimp
     krita
     lmms
     imagemagick
