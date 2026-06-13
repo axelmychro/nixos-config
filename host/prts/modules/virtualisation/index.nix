@@ -1,6 +1,7 @@
 _: {
   imports = [
     ./docker.nix
-    ./vmware.nix
+    ./virt-manager.nix
+    #./vmware.nix
   ];
 }

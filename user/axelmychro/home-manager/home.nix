@@ -1,5 +1,4 @@
 {
-  lib,
   pkgs,
   name,
   nixvim,
@@ -11,9 +10,9 @@
       homeDirectory = "/home/${name}";
       stateVersion = "26.05"; # HM is developed against nixos-unstable
       pointerCursor = {
-        enable = false;
-        package = lib.mkDefault pkgs.nordzy-cursor-theme;
-        name = lib.mkDefault "Nordzy-cursors-white";
+        enable = true;
+        package = pkgs.vanilla-dmz;
+        name = "Vanilla-DMZ";
         size = 48;
 
         x11 = {

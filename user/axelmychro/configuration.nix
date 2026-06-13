@@ -15,6 +15,7 @@
       "video"
       "render"
       "docker"
+      "libvirtd"
     ];
     shell = pkgs.fish;
   };
