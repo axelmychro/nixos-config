@@ -35,7 +35,12 @@
   time.timeZone = "Asia/Bangkok";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  networking.hostName = "prts";
+  networking = {
+    hostName = "prts";
+    hosts = {
+      "192.168.122.204" = [ "web-prts" ];
+    };
+  };
   users.defaultUserShell = pkgs.bash;
 
   services.fwupd.enable = true; # firmware update daemon
