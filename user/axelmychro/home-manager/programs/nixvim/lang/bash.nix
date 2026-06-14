@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, grammars, ... }:
 {
   programs.nixvim = {
     plugins = {
@@ -7,9 +7,12 @@
         bash = [ "shfmt" ];
         sh = [ "shfmt" ];
       };
-      treesitter.grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+      treesitter.grammarPackages = with grammars; [
         bash
       ];
     };
+    extraPackages = with pkgs; [
+      shfmt
+    ];
   };
 }

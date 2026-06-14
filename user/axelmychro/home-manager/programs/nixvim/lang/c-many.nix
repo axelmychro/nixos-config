@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, grammars, ... }:
 {
   programs.nixvim = {
     plugins = {
@@ -6,14 +6,15 @@
       conform-nvim.settings.formatters_by_ft = {
         c = [ "clang-format" ];
         cpp = [ "clang-format" ];
-        objc = [ "clang-format" ];
-        cuda = [ "clang-format" ];
       };
-      treesitter.grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+      treesitter.grammarPackages = with grammars; [
         c
         cpp
-        cuda
       ];
     };
+
+    extraPackages = with pkgs; [
+      clang-tools
+    ];
   };
 }

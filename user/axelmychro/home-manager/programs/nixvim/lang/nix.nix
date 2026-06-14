@@ -1,4 +1,4 @@
-{ config, ... }:
+{ pkgs, grammars, ... }:
 {
   programs.nixvim = {
     plugins = {
@@ -7,9 +7,12 @@
       conform-nvim.settings.formatters_by_ft = {
         nix = [ "nixfmt" ];
       };
-      treesitter.grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+      treesitter.grammarPackages = with grammars; [
         nix
       ];
     };
+    extraPackages = with pkgs; [
+      nixfmt
+    ];
   };
 }

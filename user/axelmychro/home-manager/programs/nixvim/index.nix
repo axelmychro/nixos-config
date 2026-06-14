@@ -1,4 +1,5 @@
-_: {
+{ pkgs, config, ... }:
+{
   programs.nixvim = {
     enable = true;
 
@@ -36,6 +37,10 @@ _: {
       register = "unnamedplus";
       providers.wl-copy.enable = true;
     };
+
+    extraPackages = with pkgs; [
+      tree-sitter
+    ];
 
     plugins = {
       lsp = {
@@ -85,5 +90,7 @@ _: {
       cmp-path.enable = true;
     };
   };
+
+  _module.args.grammars = config.programs.nixvim.plugins.treesitter.package.builtGrammars;
   imports = [ ./lang/index.nix ];
 }
