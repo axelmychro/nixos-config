@@ -1,5 +1,6 @@
 {
   config,
+  pkgs,
   ...
 }:
 {
@@ -28,8 +29,8 @@
     enable = false;
     videoDrivers = [ "nvidia" ];
   };
-  #environment.systemPackages = with pkgs; [
-  #  nvtopPackages.nvidia
-  #  vulkan-tools
-  #];
+  environment.systemPackages = with pkgs; [
+    nvtopPackages.nvidia
+    vulkan-tools
+  ];
 }
