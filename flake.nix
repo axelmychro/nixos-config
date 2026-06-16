@@ -59,7 +59,7 @@
             nixvim.nixosModules.default
 
             ./host/prts
-            ./user/axelmychro/configuration.nix
+            ./user/axelmychro
             ./ecosystem/kde/index.nix
             #./ecosystem/niri/index.nix
           ];
