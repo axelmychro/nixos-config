@@ -1,6 +1,6 @@
 _: {
   programs.zed-editor = {
-    #enable = true;
+    enable = true;
 
     extensions = [
       "git-firefly"
@@ -23,13 +23,13 @@ _: {
         restore_unsaved_buffers = true;
       };
 
-      prettier = {
-        allowed = true;
-        trailingComma = "none";
-        tabWidth = 2;
-        semi = false;
-        singleQuote = true;
-      };
+      #prettier = {
+      #  allowed = true;
+      #  trailingComma = "none";
+      #  tabWidth = 2;
+      #  semi = false;
+      #  singleQuote = true;
+      #};
 
       use_auto_surround = true;
       use_autoclose = true;
@@ -48,9 +48,9 @@ _: {
       on_last_window_closed = "quit_app";
 
       vim_mode = true;
-      hard_tabs = true;
-      tab_size = 4;
-      preferred_line_length = 80;
+      #hard_tabs = true;
+      #tab_size = 4;
+      #preferred_line_length = 80;
 
       redact_private_values = true;
       use_system_prompts = false;
@@ -60,7 +60,7 @@ _: {
 
   imports = [
     ./editor.nix
-    ./languages.nix
+    #./languages.nix
     ./layout.nix
     ./terminal.nix
     ./theme.nix
