@@ -51,13 +51,14 @@
               nixvim
               ;
           };
+
           modules = [
             { system.nixos.label = "abyss"; }
             home-manager.nixosModules.default
             silentSDDM.nixosModules.default
             nixvim.nixosModules.default
 
-            ./host/prts/configuration.nix
+            ./host/prts
             ./user/axelmychro/configuration.nix
             ./ecosystem/kde/index.nix
             #./ecosystem/niri/index.nix

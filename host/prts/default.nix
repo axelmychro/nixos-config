@@ -38,7 +38,7 @@
   networking = {
     hostName = "prts";
     hosts = {
-      "192.168.122.204" = [ "web-prts" ];
+      "192.168.122.204" = [ "prts-web" ];
     };
   };
   users.defaultUserShell = pkgs.bash;
