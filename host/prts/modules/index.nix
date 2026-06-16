@@ -4,7 +4,7 @@ _: {
     ./boot/index.nix
     ./login/index.nix
     ./power/index.nix
-    ./network/index.nix
+    ./networking/index.nix
 
     # OPTIONAL
     ./graphics/index.nix
