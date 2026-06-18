@@ -1,4 +1,5 @@
-_: {
+{ config, ... }: {
+  _module.args.grammars = config.programs.nixvim.plugins.treesitter.package.builtGrammars;
   imports = [
     ./bash.nix
     ./c-many.nix
