@@ -79,6 +79,7 @@
 
             ./host/prts
             ./user/axelmychro
+            ./user/priestess
             ./ecosystem/kde/index.nix
             #./ecosystem/niri/index.nix
           ];
@@ -87,7 +88,7 @@
         ## PRTS-Web
         web = nixpkgs.lib.nixosSystem {
           modules = [
-            { system.nixos.label = "web"; }
+            { system.nixos.label = "PRTS-Web"; }
             ./host/prts-web
             ./user/axelmychro
           ];
