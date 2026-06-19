@@ -6,7 +6,7 @@ function kya
     set flake_file "$nixos_config_dir/flake.nix"
 
     set flake_opt "$argv[1]"
-    test -z "$flake_opt"; and set flake_opt skadi
+    test -z "$flake_opt"; and set flake_opt prts
 
     set operation_opt "$argv[2]"
     test -z "$operation_opt"; and set operation_opt switch

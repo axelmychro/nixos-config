@@ -2,9 +2,13 @@
   description = "Like a phoe-nix, cry and rise up from the ash!";
 
   inputs = {
+    ## Package manager
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+
+    ## Desktop
     home-manager = {
       url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     silentSDDM = {
       url = "github:uiriansan/SilentSDDM";
@@ -26,7 +30,9 @@
 
   outputs =
     {
+      # Essential
       nixpkgs,
+      # Desktop
       home-manager,
       silentSDDM,
       plasma-manager,
@@ -51,7 +57,8 @@
     in
     {
       nixosConfigurations = {
-        skadi = nixpkgs.lib.nixosSystem {
+        #PRTS
+        prts = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit
               system
@@ -65,7 +72,7 @@
           };
 
           modules = [
-            { system.nixos.label = "abyss"; }
+            { system.nixos.label = "PRTS"; }
             home-manager.nixosModules.default
             silentSDDM.nixosModules.default
             nixvim.nixosModules.default
