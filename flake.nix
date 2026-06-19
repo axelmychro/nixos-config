@@ -76,6 +76,15 @@
             #./ecosystem/niri/index.nix
           ];
         };
+
+        ## PRTS-Web
+        web = nixpkgs.lib.nixosSystem {
+          modules = [
+            { system.nixos.label = "web"; }
+            ./host/prts-web
+            ./user/axelmychro
+          ];
+        };
       };
     };
 }
