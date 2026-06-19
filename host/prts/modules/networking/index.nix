@@ -19,6 +19,6 @@ _: {
   imports = [
     # All options here conflict
     #./systemd-resolved.nix
-    ./warp.nix
+    #./warp.nix
   ];
 }
