@@ -5,7 +5,6 @@ _: {
     extensions = [
       "git-firefly"
       "editorconfig"
-      "wakatime"
     ];
 
     userSettings = {
@@ -14,7 +13,7 @@ _: {
         diagnostics = false;
         metrics = false;
       };
-      autosave.after_delay.milliseconds = 0;
+      #autosave.after_delay.milliseconds = 0;
       format_on_save = "on";
 
       restore_on_startup = "launchpad";
@@ -60,7 +59,7 @@ _: {
 
   imports = [
     ./editor.nix
-    #./languages.nix
+    ./lang
     ./layout.nix
     ./terminal.nix
     ./theme.nix
