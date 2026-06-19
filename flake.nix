@@ -87,6 +87,7 @@
 
         ## PRTS-Web
         web = nixpkgs.lib.nixosSystem {
+          specialArgs = { inherit users; };
           modules = [
             { system.nixos.label = "PRTS-Web"; }
             ./host/prts-web
