@@ -2,8 +2,8 @@
 {
   environment.systemPackages = with pkgs; [
     #vim
-    #nodejs
-    #pnpm
+    nodejs
+    pnpm
 
     #godot
   ];
