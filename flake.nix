@@ -37,6 +37,17 @@
     let
       system = "x86_64-linux";
       assets = ./assets;
+      user = ./user;
+      users = {
+        axelmychro = {
+          username = "axelmychro";
+          configuration = "${user}/${users.axelmychro.username}";
+        };
+        priestess = {
+          username = "priestess";
+          configuration = "${user}/${users.priestess.username}";
+        };
+      };
     in
     {
       nixosConfigurations = {
@@ -45,6 +56,7 @@
             inherit
               system
               assets
+              users
               nixpkgs
               plasma-manager
               noctalia
