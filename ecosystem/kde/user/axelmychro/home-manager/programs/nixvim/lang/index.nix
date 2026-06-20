@@ -2,7 +2,7 @@
   _module.args.grammars = config.programs.nixvim.plugins.treesitter.package.builtGrammars;
   imports = [
     ./shell-scripts.nix
-    ./c-many.nix
+    ./c-language.nix
     ./fish.nix
     ./json.nix
     ./nix.nix
