@@ -13,14 +13,8 @@
   ];
   services.nginx = {
     virtualHosts."192.168.122.185" = {
-      locations."/" = {
-        return = "200 '<html><body>It works</body></html>'";
-        extraConfig = ''
-          default_type text/html;
-        '';
-      };
+      root = "/var/www/dist";
     };
-
     enable = true;
   };
   networking.firewall.allowedTCPPorts = [ 80 ];
