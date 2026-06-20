@@ -12,7 +12,7 @@
     pnpm
   ];
   services.nginx = {
-    virtualHosts.localhost = {
+    virtualHosts."192.168.122.185" = {
       locations."/" = {
         return = "200 '<html><body>It works</body></html>'";
         extraConfig = ''

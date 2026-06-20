@@ -32,7 +32,7 @@
 
   networking.hosts = {
     "192.168.1.11" = [ "prts" ];
-    "192.168.122.57" = [ "prts-web" ];
+    "192.168.122.185" = [ "prts-web" ];
   };
 
   services.openssh = {
