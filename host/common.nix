@@ -46,4 +46,13 @@
       MaxAuthTries = 3;
     };
   };
+
+  # Config
+
+  programs = {
+    vim = {
+      enable = true;
+      defaultEditor = true;
+    };
+  };
 }
