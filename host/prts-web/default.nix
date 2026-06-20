@@ -3,6 +3,7 @@ _: {
 
   imports = [
     ../common.nix
+    ./configuration.nix
   ];
 
   nix.settings = {
