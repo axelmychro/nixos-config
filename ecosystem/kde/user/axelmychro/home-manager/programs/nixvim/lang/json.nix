@@ -1,5 +1,9 @@
-{ pkgs, grammars, ... }:
+{ pkgs, ... }:
 {
+  home.packages = [
+    pkgs.prettier
+  ];
+
   programs.nixvim = {
     plugins = {
       lsp.servers.jsonls.enable = true;
@@ -8,13 +12,6 @@
         json = [ "prettier" ];
         jsonc = [ "prettier" ];
       };
-
-      treesitter.grammarPackages = with grammars; [
-      ];
     };
-
-    extraPackages = with pkgs; [
-      prettier
-    ];
   };
 }
