@@ -54,5 +54,23 @@
       enable = true;
       defaultEditor = true;
     };
+
+    git = {
+      config = {
+        init.defaultBranch = "main";
+        pull.rebase = true;
+        alias = {
+          s = "status";
+          r = "remote -v";
+          l = "log --oneline";
+          co = "checkout";
+          f = "fetch";
+          pl = "pull";
+          ph = "push";
+        };
+      };
+
+      enable = true;
+    };
   };
 }
