@@ -3,7 +3,7 @@ _: {
     ./bufferline.nix
     ./lualine.nix
     ./noice.nix
-    ./mini-icons.nix
+    ./mini.nix
     ./nui.nix
     ./snacks.nix
   ];
