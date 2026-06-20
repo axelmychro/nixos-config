@@ -73,4 +73,17 @@
       enable = true;
     };
   };
+
+  environment.shellAliases = {
+    x = "sync; clear; exec $SHELL";
+    l = "ls -Ahl";
+    lm = "ls -Ahlt";
+    md = "mkdir -p";
+    c = "cd";
+    s = "sudo";
+    e = "$EDITOR";
+    sue = "sudoedit";
+    g = "git";
+    nxsh = "nix-shell -p";
+  };
 }
