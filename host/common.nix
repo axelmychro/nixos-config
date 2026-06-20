@@ -1,5 +1,6 @@
 {
   pkgs,
+  users,
   ...
 }:
 {
@@ -33,5 +34,17 @@
   networking.hosts = {
     "192.168.1.11" = [ "prts" ];
     "192.168.122.57" = [ "prts-web" ];
+  };
+
+  services.openssh = {
+    enable = true;
+    openFirewall = true;
+    settings = {
+      PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
+      PermitRootLogin = "no";
+      AllowUsers = [ users.axelmychro.username ];
+      MaxAuthTries = 3;
+    };
   };
 }
