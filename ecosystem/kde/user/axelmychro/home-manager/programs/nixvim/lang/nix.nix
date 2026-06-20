@@ -10,13 +10,9 @@
 
       lsp.servers.nixd.enable = true;
 
-      conform-nvim.settings.formatters_by_ft = {
-        nix = [ "nixfmt" ];
-      };
+      conform-nvim.settings.formatters_by_ft.nix = [ "nixfmt" ];
 
-      treesitter = {
-        grammarPackages = with grammars; [ nix ];
-      };
+      treesitter.grammarPackages = [ grammars.nix ];
     };
   };
 }
