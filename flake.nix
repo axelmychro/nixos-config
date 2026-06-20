@@ -80,8 +80,8 @@
             ./host/prts
             ./user/axelmychro
             ./user/priestess
-            ./ecosystem/kde/index.nix
-            #./ecosystem/niri/index.nix
+            ./ecosystem/kde
+            #./ecosystem/niri
           ];
         };
 
