@@ -58,7 +58,7 @@
     {
       nixosConfigurations = {
         #PRTS
-        prts = nixpkgs.lib.nixosSystem {
+        main = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit
               system
