@@ -10,3 +10,11 @@ indent_size = 4
 [*.nix]
 indent_style = space
 indent_size = 2
+
+[*.{sh,bash}]
+indent_style = tab
+shell_variant = posix
+simplify = true
+binary_next_line = true
+keep_padding = true
+function_next_line = true
