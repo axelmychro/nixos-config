@@ -1,6 +1,6 @@
 _: {
   programs.fish.shellAliases = {
-    x = "sync; clear; exec fish";
+    x = "sync; clear; exec $SHELL";
     l = "eza --almost-all --long --group-directories-first --git";
     lm = "l --sort=modified";
     ".." = "cd ..";
