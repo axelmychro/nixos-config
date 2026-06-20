@@ -3,11 +3,9 @@ _: {
 
   imports = [
     ../common.nix
-    ./hardware-configuration.nix
+    ./configuration.nix
     ./modules/index.nix
   ];
-
-  boot.kernelModules = [ "ideapad_laptop" ];
 
   nix.settings = {
     cores = 12;
