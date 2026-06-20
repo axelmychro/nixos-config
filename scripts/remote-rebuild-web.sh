@@ -1,3 +1,11 @@
 #!/bin/sh
+set -eu
 
-nixos-rebuild switch --install-bootloader --ask-sudo-password --flake .#web --target-host axelmychro@prts-web
+git add --all
+target='axelmychro@prts-web'
+nixos-rebuild switch \
+	--ask-sudo-password \
+	--install-bootloader \
+	--flake .#web \
+	--target-host $target \
+	--build-host $target
