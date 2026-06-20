@@ -1,7 +1,8 @@
 {
-  users,
   pkgs,
   assets,
+  users,
+  them,
   ...
 }:
 let
@@ -9,13 +10,14 @@ let
 in
 {
   _module.args.them = their.username;
+
   imports = [
     "${their.configuration}"
     ./packages/index.nix
     ./home-manager/home.nix
   ];
 
-  users.users.${their.username} = {
+  users.users.${them} = {
     shell = pkgs.fish;
 
     extraGroups = [
@@ -27,10 +29,8 @@ in
   };
   programs.fish.enable = true;
 
-  system.activationScripts.face = {
-    text = ''
-      rm -f /var/lib/AccountsService/icons/${their.username}
-      ln -sfn ${assets}/face.jpg /var/lib/AccountsService/icons/${their.username}
-    '';
-  };
+  system.activationScripts.face.text = ''
+    rm -f /var/lib/AccountsService/icons/${them}
+    ln -sfn ${assets}/${them}/face.png /var/lib/AccountsService/icons/${them}
+  '';
 }
