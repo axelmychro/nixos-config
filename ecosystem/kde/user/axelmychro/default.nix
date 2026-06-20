@@ -17,6 +17,13 @@ in
 
   users.users.${their.username} = {
     shell = pkgs.fish;
+
+    extraGroups = [
+      "video"
+      "render"
+      "docker"
+      "libvirtd"
+    ];
   };
   programs.fish.enable = true;
 
