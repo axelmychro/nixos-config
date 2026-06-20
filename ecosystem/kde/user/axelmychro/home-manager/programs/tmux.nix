@@ -5,5 +5,9 @@ _: {
     prefix = "C-z";
     keyMode = "vi";
     focusEvents = true;
+
+    extraConfig = ''
+      set-option -g status-style bg=#c6a0f6,fg=#24273a
+    '';
   };
 }
