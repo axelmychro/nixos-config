@@ -24,7 +24,6 @@
       options = "--delete-older-than 3d";
     };
   };
-  #programs.nix-ld.enable = true;
 
   # Network
 
