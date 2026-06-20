@@ -1,5 +1,4 @@
 _: {
-  home.shell.enableFishIntegration = true;
   programs.fish = {
     enable = true;
     interactiveShellInit = builtins.readFile ./config.fish;

@@ -3,7 +3,7 @@ _: {
     ./bash
     ./fastfetch/index.nix
     ./firefox/index.nix
-    ./fish/index.nix
+    ./fish
     ./nixvim/index.nix
     ./oh-my-posh/index.nix
     #./zed/index.nix
