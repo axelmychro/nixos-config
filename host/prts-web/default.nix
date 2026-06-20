@@ -1,4 +1,4 @@
-_: {
+{ pkgs, ... }: {
   networking.hostName = "prts-web";
 
   imports = [
@@ -6,8 +6,22 @@ _: {
     ./configuration.nix
   ];
 
-  nix.settings = {
-    cores = 2;
-    max-jobs = 2;
+  environment.systemPackages = with pkgs; [
+    nginx
+    nodejs
+    pnpm
+  ];
+  services.nginx = {
+    virtualHosts.localhost = {
+      locations."/" = {
+        return = "200 '<html><body>It works</body></html>'";
+        extraConfig = ''
+          default_type text/html;
+        '';
+      };
+    };
+
+    enable = true;
   };
+  networking.firewall.allowedTCPPorts = [ 80 ];
 }
