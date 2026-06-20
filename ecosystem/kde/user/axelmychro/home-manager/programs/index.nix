@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./bash/index.nix
+    ./bash
     ./fastfetch/index.nix
     ./firefox/index.nix
     ./fish/index.nix
