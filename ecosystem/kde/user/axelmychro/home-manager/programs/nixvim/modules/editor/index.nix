@@ -4,5 +4,6 @@ _: {
     ./flash.nix
     ./which-key.nix
     ./gitsigns.nix
+    ./trouble.nix
   ];
 }
