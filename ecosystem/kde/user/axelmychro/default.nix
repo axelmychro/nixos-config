@@ -30,7 +30,9 @@ in
   programs.fish.enable = true;
 
   system.activationScripts.face.text = ''
-    rm -f /var/lib/AccountsService/icons/${them}
-    ln -sfn ${assets}/${them}/face.png /var/lib/AccountsService/icons/${them}
+    _user_icon_dir=/var/lib/AccountsService/icons
+    rm -fr -- "$_user_icon_dir/${them}"
+    ln -sfn -- "${assets}/${them}/face.png" "$_user_icon_dir/${them}"
+    unset _user_icon_dir
   '';
 }
