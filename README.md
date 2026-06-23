@@ -1,13 +1,15 @@
 # NixOS Config
 
-Release: 26.05 "Yarara"
-Arch: x86-64
+- Release: 26.05 "Yarara"
+- Arch: x86-64
 
 ## --flake .#main
 
-Host: prts
-Type: desktop
-Note: "Use nvme module and nvidia gpu"
+- Host: prts
+- Type: desktop
+- Note: "Use nvme module and nvidia gpu"
+
+### Setup
 
 - [GRUB](https://www.gnu.org/software/grub)
     - [Theme](https://github.com/Shelton786/Grub-Themes-Arknights_Priestess)
