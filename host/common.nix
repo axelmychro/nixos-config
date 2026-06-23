@@ -1,6 +1,6 @@
 {
   pkgs,
-  users,
+  config,
   ...
 }:
 {
@@ -42,7 +42,7 @@
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [ users.axelmychro.username ];
+      AllowUsers = [ config.nixosConfigUsers.axelmychro.name ];
       MaxAuthTries = 3;
     };
   };

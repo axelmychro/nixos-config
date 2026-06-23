@@ -1,17 +1,16 @@
 {
-  users,
+  config,
   ...
 }:
-let
-  them = users.axelmychro.username;
-in
 {
-  users.users.${them} = {
-    isNormalUser = true;
+  nixosConfigUsers.axelmychro = {
+    name = "axelmychro";
+    configuration = ./default.nix;
+  };
 
-    extraGroups = [
-      "wheel"
-    ];
+  users.users.${config.nixosConfigUsers.axelmychro.name} = {
+    isNormalUser = true;
+    extraGroups = [ "wheel" ];
 
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIG6PBGNhpPnKvAjl2k0oZeY732xawJPcRM/G4yjc+vgR axelmychro@prts"

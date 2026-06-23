@@ -1,16 +1,15 @@
 {
-  users,
+  config,
   ...
 }:
-let
-  them = users.priestess.username;
-in
 {
-  users.users.${them} = {
+  nixosConfigUsers.priestess = {
+    name = "priestess";
+    configuration = ./default.nix;
+  };
+
+  users.users.${config.nixosConfigUsers.priestess.name} = {
     isNormalUser = true;
-    extraGroups = [
-      "video"
-      "render"
-    ];
+    extraGroups = [ ];
   };
 }

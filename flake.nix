@@ -43,17 +43,6 @@
     let
       system = "x86_64-linux";
       assets = ./assets;
-      user = ./user;
-      users = {
-        axelmychro = {
-          username = "axelmychro";
-          configuration = "${user}/${users.axelmychro.username}";
-        };
-        priestess = {
-          username = "priestess";
-          configuration = "${user}/${users.priestess.username}";
-        };
-      };
     in
     {
       nixosConfigurations = {
@@ -63,7 +52,6 @@
             inherit
               system
               assets
-              users
               nixpkgs
               plasma-manager
               noctalia
@@ -77,6 +65,7 @@
             silentSDDM.nixosModules.default
             nixvim.nixosModules.default
 
+            ./lib/nixosConfigUser.nix
             ./host/prts
             ./user/axelmychro
             ./user/priestess
@@ -87,9 +76,10 @@
 
         ## PRTS-Web
         web = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit users; };
           modules = [
             { system.nixos.label = "PRTS-Web"; }
+
+            ./lib/nixosConfigUser.nix
             ./host/prts-web
             ./user/axelmychro
           ];

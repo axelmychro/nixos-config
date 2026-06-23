@@ -1,22 +1,20 @@
 {
+  config,
   pkgs,
   assets,
-  users,
-  them,
+  plasma-manager,
+  nixvim,
   ...
 }:
 let
-  their = users.axelmychro;
+  user = config.nixosConfigUsers.axelmychro;
 in
 {
-  _module.args.them = their.username;
-
   imports = [
-    "${their.configuration}"
     ./packages/index.nix
   ];
 
-  users.users.${them} = {
+  users.users.${user.name} = {
     shell = pkgs.fish;
 
     extraGroups = [
@@ -30,8 +28,8 @@ in
 
   system.activationScripts.face.text = ''
     _user_icon_dir=/var/lib/AccountsService/icons
-    rm -fr -- "$_user_icon_dir/${them}"
-    ln -sfn -- "${assets}/${them}/face.png" "$_user_icon_dir/${them}"
+    rm -fr -- "$_user_icon_dir/${user.name}"
+    ln -sfn -- "${assets}/${user.name}/face.png" "$_user_icon_dir/${user.name}"
     unset _user_icon_dir
   '';
 
