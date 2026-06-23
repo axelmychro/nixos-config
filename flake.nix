@@ -60,15 +60,18 @@
           };
 
           modules = [
-            { system.nixos.label = "PRTS"; }
+            { system.nixos.label = "desktop"; }
+
             home-manager.nixosModules.default
             silentSDDM.nixosModules.default
             nixvim.nixosModules.default
 
-            ./lib/nixosConfigUser.nix
             ./host/prts
+
+            ./lib/nixosConfigUser.nix
             ./user/axelmychro
             ./user/priestess
+
             ./ecosystem/kde
             #./ecosystem/niri
           ];
@@ -77,10 +80,11 @@
         ## PRTS-Web
         web = nixpkgs.lib.nixosSystem {
           modules = [
-            { system.nixos.label = "PRTS-Web"; }
+            { system.nixos.label = "server"; }
+
+            ./host/prts-web
 
             ./lib/nixosConfigUser.nix
-            ./host/prts-web
             ./user/axelmychro
           ];
         };
