@@ -1,4 +1,5 @@
 {
+  version,
   config,
   pkgs,
   assets,
@@ -45,7 +46,7 @@ in
     users.${user.name} = {
       home = {
         homeDirectory = "/home/${user.name}";
-        stateVersion = "26.05"; # HM is developed against nixos-unstable
+        stateVersion = version; # HM is developed against nixos-unstable
       };
 
       imports = [

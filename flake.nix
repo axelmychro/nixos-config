@@ -25,6 +25,7 @@
     };
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -32,6 +33,7 @@
     {
       # Essential
       nixpkgs,
+
       # Desktop
       home-manager,
       silentSDDM,
@@ -42,6 +44,7 @@
     }:
     let
       system = "x86_64-linux";
+      version = "26.05";
       assets = ./assets;
     in
     {
@@ -51,8 +54,8 @@
           specialArgs = {
             inherit
               system
+              version
               assets
-              nixpkgs
               plasma-manager
               noctalia
               nixvim

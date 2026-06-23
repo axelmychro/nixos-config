@@ -1,4 +1,5 @@
 {
+  version,
   pkgs,
   config,
   ...
@@ -6,7 +7,7 @@
 {
   # System
 
-  system.stateVersion = "26.05";
+  system.stateVersion = version;
   boot.kernelPackages = pkgs.linuxPackages_6_18;
 
   nixpkgs.config.allowUnfree = true;
@@ -30,9 +31,13 @@
   time.timeZone = "Asia/Bangkok";
   i18n.defaultLocale = "en_AU.UTF-8";
 
-  networking.hosts = {
-    "192.168.1.11" = [ "prts" ];
-    "192.168.122.185" = [ "prts-web" ];
+  networking = {
+    networkmanager.enable = true;
+
+    hosts = {
+      "192.168.1.11" = [ "prts" ];
+      "192.168.122.185" = [ "prts-web" ];
+    };
   };
 
   services.openssh = {
