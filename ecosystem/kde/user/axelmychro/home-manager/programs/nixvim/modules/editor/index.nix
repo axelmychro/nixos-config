@@ -6,5 +6,7 @@ _: {
     ./gitsigns.nix
     ./trouble.nix
     ./todo-comments.nix
+
+    ./render-markdown.nix
   ];
 }
