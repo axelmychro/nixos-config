@@ -8,7 +8,7 @@ _: {
     g = "git";
     nxsh = "nix-shell -p";
 
-    cn = "cd ~/nixos-config";
+    nc = "cd ~/nixos-config";
 
     mt = "mount";
     umt = "umount";
