@@ -82,6 +82,13 @@
 
         ## PRTS-Web
         web = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit
+              system
+              version
+              ;
+          };
+
           modules = [
             { system.nixos.label = "server"; }
 
