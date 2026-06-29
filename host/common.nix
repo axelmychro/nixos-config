@@ -89,6 +89,6 @@
     e = "$EDITOR";
     sue = "sudoedit";
     g = "git";
-    nxsh = "nix-shell -p";
+    nsh = "nix-shell -p";
   };
 }
