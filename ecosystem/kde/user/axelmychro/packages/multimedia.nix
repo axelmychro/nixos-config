@@ -9,10 +9,11 @@
 
     lmms
 
-    (blender.override {
-      config.cudaSupport = true;
-      config.rocmSupport = true;
-    })
+    blender
+    #(blender.override {
+    #  config.cudaSupport = true;
+    #  config.rocmSupport = true;
+    #})
   ];
 
   programs.obs-studio = {
