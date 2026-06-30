@@ -85,6 +85,8 @@
     lm = "ls -Ahlt";
     md = "mkdir -p";
     c = "cd";
+    ".." = "cd ..";
+    "..." = "cd ../..";
     s = "sudo";
     e = "$EDITOR";
     sue = "sudoedit";
