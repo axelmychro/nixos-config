@@ -8,7 +8,7 @@ in
       insmod part_gpt
       insmod ext2
       search --no-floppy --fs-uuid --set=root ${gentooPartition}
-      linux /boot/vmlinuz root=UUID=${gentooPartition}
+      linux /boot/vmlinuz root=UUID=${gentooPartition} quiet
       initrd /boot/initramfs.img
     }
   '';
