@@ -1,7 +1,7 @@
 _: {
   imports = [
     # ESSENTIAL
-    ./boot/index.nix
+    ./boot
     ./login/index.nix
     ./power/index.nix
     ./networking/index.nix
