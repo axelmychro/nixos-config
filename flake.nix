@@ -64,7 +64,7 @@
 
             ./host/prts
 
-            ./lib/nixosConfigUser.nix
+            ./lib/nixosconfiguser.nix
             ./user/axelmychro
           ];
         };
