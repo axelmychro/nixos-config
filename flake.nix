@@ -31,92 +31,57 @@
 
   outputs =
     {
-      # Essential
-      nixpkgs,
-
-      # Desktop
       home-manager,
       silentSDDM,
       plasma-manager,
       noctalia,
       nixvim,
       ...
-    }:
+    }@inputs:
     let
-      system = "x86_64-linux";
-      version = "26.05";
-      assets = ./assets;
+      mkConfig = import ./lib/mkconfig.nix { inherit inputs; };
     in
     {
       nixosConfigurations = {
-        ## PRTS-Minimal
-        minimal = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit
-              system
-              version
-              assets
-              ;
-          };
 
-          modules = [
-            { system.nixos.label = "minimal"; }
-
-            ./host/prts
-
-            ./lib/nixosconfiguser.nix
-            ./user/axelmychro
-          ];
+        default = mkConfig "prts" {
+          system = "x86_64-linux";
+          users = [ "axelmychro" ];
         };
 
-        ## PRTS-KDE
-        kde = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit
-              system
-              version
-              assets
-              plasma-manager
-              noctalia
-              nixvim
-              ;
-          };
+        kde = mkConfig "prts" {
+          system = "x86_64-linux";
+          type = "desktop";
 
-          modules = [
-            { system.nixos.label = "kde"; }
+          users = [
+            "axelmychro"
+            "priestess"
+          ];
 
+          gfx = [
+            "intel"
+            "nvidia"
+          ];
+
+          extraArgs = { inherit plasma-manager nixvim; };
+
+          extraModules = [
             home-manager.nixosModules.default
             silentSDDM.nixosModules.default
             nixvim.nixosModules.default
 
-            ./host/prts
-
-            ./lib/nixosConfigUser.nix
-            ./user/axelmychro
-            ./user/priestess
-
             ./ecosystem/kde
-            #./ecosystem/niri
+            ./modules/flatpak
+            ./modules/virtualisation/virt-manager.nix
+            ./modules/virtualisation/docker.nix
           ];
         };
 
-        ## PRTS-WEB
-        web = nixpkgs.lib.nixosSystem {
-          specialArgs = {
-            inherit
-              system
-              version
-              ;
-          };
+        web = mkConfig "prts-web" {
+          system = "x86_64-linux";
+          type = "server";
 
-          modules = [
-            { system.nixos.label = "web"; }
-
-            ./host/prts-web
-
-            ./lib/nixosConfigUser.nix
-            ./user/axelmychro
-          ];
+          users = [ "axelmychro" ];
         };
       };
     };
