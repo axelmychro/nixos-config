@@ -1,35 +1,33 @@
-{ assets, ... }:
+{ lib, assets, ... }:
 {
-  boot = {
-    loader = {
-      timeout = 10;
-      efi.canTouchEfiVariables = true;
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    timeout = 10;
 
-      systemd-boot = {
-        enable = false;
-        configurationLimit = 10;
-        consoleMode = "0";
-      };
-      grub = {
-        enable = true;
-        useOSProber = false;
-        configurationLimit = 10;
-        efiSupport = true;
-        device = "nodev";
+    systemd-boot = {
+      enable = lib.mkForce false;
+      configurationLimit = 8;
+      consoleMode = "0";
+    };
+    grub = {
+      enable = true;
+      efiSupport = true;
+      device = "nodev";
+      configurationLimit = 8;
+      useOSProber = false;
 
-        gfxmodeEfi = "1920x1080";
-        gfxpayloadEfi = "keep";
-        gfxmodeBios = "1920x1080";
-        gfxpayloadBios = "keep";
+      gfxmodeEfi = "1920x1080";
+      gfxpayloadEfi = "keep";
+      gfxmodeBios = "1920x1080";
+      gfxpayloadBios = "keep";
 
-        font = "${assets}/GeistMonoNerdFont-Regular.otf";
-        fontSize = 24;
+      font = "${assets}/GeistMonoNerdFont-Regular.otf";
+      fontSize = 24;
 
-        backgroundColor = "#ffffff";
-        theme = "${assets}/grub/theme";
-        splashImage = "${assets}/grub/splash.png";
-        splashMode = "normal";
-      };
+      backgroundColor = "#ffffff";
+      theme = "${assets}/grub/theme";
+      splashImage = "${assets}/grub/splash.png";
+      splashMode = "normal";
     };
   };
 }
