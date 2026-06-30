@@ -1,5 +1,4 @@
 { pkgs, ... }: {
-  programs.virt-manager.enable = true;
   virtualisation.libvirtd = {
     enable = true;
     qemu.vhostUserPackages = with pkgs; [ virtiofsd ];
@@ -8,4 +7,5 @@
     dnsmasq
   ];
   networking.firewall.trustedInterfaces = [ "virbr0" ];
+  programs.virt-manager.enable = true;
 }

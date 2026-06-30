@@ -4,6 +4,8 @@
   ...
 }:
 {
+  imports = [ ./default.nix ];
+
   hardware.nvidia = {
     package = config.boot.kernelPackages.nvidiaPackages.stable;
     modesetting.enable = true;

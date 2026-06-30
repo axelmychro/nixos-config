@@ -4,7 +4,7 @@ _: {
       enable = true;
       dns = "none";
     };
-    firewall.enable = false;
+    firewall.enable = true;
 
     nameservers = [
       "1.1.1.1"
@@ -15,10 +15,4 @@ _: {
       "149.112.112.112"
     ];
   };
-
-  imports = [
-    # All options here conflict
-    #./systemd-resolved.nix
-    #./warp.nix
-  ];
 }

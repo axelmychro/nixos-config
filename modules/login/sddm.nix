@@ -5,7 +5,7 @@
 }:
 {
   services.displayManager.sddm = {
-    enable = true;
+    enable = lib.mkForce true;
     wayland.enable = lib.mkForce true;
   };
 

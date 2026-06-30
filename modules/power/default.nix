@@ -3,7 +3,7 @@ _: {
     ./thermald.nix
     ./upower.nix
 
-    # -- Choose one
+    # WARN: Conflicting options, pick one!
     ./power-profiles-daemon.nix
     #./tlp.nix
     #./auto-cpufreq.nix
