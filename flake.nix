@@ -49,8 +49,28 @@
     in
     {
       nixosConfigurations = {
-        #PRTS
-        main = nixpkgs.lib.nixosSystem {
+        ## PRTS-Minimal
+        minimal = nixpkgs.lib.nixosSystem {
+          specialArgs = {
+            inherit
+              system
+              version
+              assets
+              ;
+          };
+
+          modules = [
+            { system.nixos.label = "minimal"; }
+
+            ./host/prts
+
+            ./lib/nixosConfigUser.nix
+            ./user/axelmychro
+          ];
+        };
+
+        ## PRTS-KDE
+        kde = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit
               system
@@ -63,7 +83,7 @@
           };
 
           modules = [
-            { system.nixos.label = "desktop"; }
+            { system.nixos.label = "kde"; }
 
             home-manager.nixosModules.default
             silentSDDM.nixosModules.default
@@ -80,7 +100,7 @@
           ];
         };
 
-        ## PRTS-Web
+        ## PRTS-WEB
         web = nixpkgs.lib.nixosSystem {
           specialArgs = {
             inherit
@@ -90,7 +110,7 @@
           };
 
           modules = [
-            { system.nixos.label = "server"; }
+            { system.nixos.label = "web"; }
 
             ./host/prts-web
 
