@@ -2,7 +2,6 @@
 {
   services = {
     displayManager.gdm.enable = true;
-
     desktopManager.gnome.enable = true;
     gnome = {
       core-apps.enable = false;
@@ -10,8 +9,14 @@
       games.enable = false;
     };
   };
-  environment.gnome.excludePackages = with pkgs; [
-    gnome-tour
-    gnome-user-docs
-  ];
+  environment = {
+    gnome.excludePackages = with pkgs; [
+      gnome-tour
+      gnome-user-docs
+    ];
+    systemPackages = with pkgs; [
+      alacritty
+    ];
+  };
+  programs.firefox.enable = true;
 }
