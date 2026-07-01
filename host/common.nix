@@ -54,13 +54,13 @@
   };
 
   services.openssh = {
-    enable = true;
+    enable = false;
     openFirewall = true;
     settings = {
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [ config.nixosConfigUsers.axelmychro.name ];
+      AllowUsers = [];
       MaxAuthTries = 3;
     };
   };
