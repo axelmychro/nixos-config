@@ -44,11 +44,23 @@ inputs.nixpkgs.lib.nixosSystem {
       [ ]
     else if type == "desktop" then
       [
-        ../modules/login
+        inputs.home-manager.nixosModules.default
         ../modules/home-manager
+
+        ../modules/audio
+        ../modules/bluetooth
+
+        ../modules/graphics
+      ]
+    else if type == "laptop" then
+      [
+        inputs.home-manager.nixosModules.default
+        ../modules/home-manager
+
         ../modules/audio
         ../modules/bluetooth
         ../modules/power
+
         ../modules/graphics
       ]
     else if type == "server" then

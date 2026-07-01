@@ -31,7 +31,6 @@
 
   outputs =
     {
-      home-manager,
       silentSDDM,
       plasma-manager,
       noctalia,
@@ -51,7 +50,7 @@
 
         kde = mkConfig "prts" {
           system = "x86_64-linux";
-          type = "desktop";
+          type = "laptop";
 
           users = [
             "axelmychro"
@@ -66,12 +65,14 @@
           extraArgs = { inherit plasma-manager nixvim; };
 
           extraModules = [
-            home-manager.nixosModules.default
             silentSDDM.nixosModules.default
             nixvim.nixosModules.default
 
+            ./modules/login
             ./ecosystem/kde
+
             ./modules/flatpak
+
             ./modules/virtualisation/virt-manager.nix
             ./modules/virtualisation/docker.nix
           ];
