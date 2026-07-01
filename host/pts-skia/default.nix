@@ -1,5 +1,5 @@
 _: {
-  networking.hostName = "pts-kefal";
+  networking.hostName = "pts-skia";
 
   imports = [
     ../common.nix
