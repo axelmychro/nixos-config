@@ -34,8 +34,6 @@ inputs.nixpkgs.lib.nixosSystem {
   modules = [
     { system.nixos.label = "${type}-${version}"; }
     ../host/${host}
-
-    ../modules/networking
     ./nixosconfiguser.nix
   ]
   ++ userConfigurations
