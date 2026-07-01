@@ -77,6 +77,20 @@
           ];
         };
 
+        gnome = mkConfig "pts-skia" {
+          system = "x86_64-linux";
+          type = "desktop";
+
+          users = [
+            "axelmychro"
+            "priestess"
+          ];
+
+          extraModules = [
+            ./ecosystem/gnome
+          ];
+        };
+
         web = mkConfig "prts-web" {
           system = "x86_64-linux";
           type = "server";
