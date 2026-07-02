@@ -1,6 +1,4 @@
-wakatime.cfg
-overview.md
-.unused
 result
 *.qcow2
 .env*
+flake.conf
