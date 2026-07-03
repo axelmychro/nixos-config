@@ -1,17 +1,17 @@
 _: {
   programs.plasma = {
     kwin.virtualDesktops = {
-      number = 8;
-      rows = 2;
+      number = 3;
+      rows = 1;
       names = [
         "󰜌 "
         " "
         " "
-        " "
-        " "
-        "󰭹 "
-        "󰺵 "
-        "󰏗 "
+        #" "
+        #" "
+        #"󰭹 "
+        #"󰺵 "
+        #"󰏗 "
       ];
     };
     session = {
