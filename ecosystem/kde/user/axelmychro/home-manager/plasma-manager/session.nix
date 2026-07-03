@@ -26,7 +26,7 @@ _: {
       shortcuts.launch = [ "Meta+Space" ];
       activateWhenTypingOnDesktop = false;
       historyBehavior = "disabled";
-      position = "center";
+      position = "top";
     };
     configFile.kdeglobals = {
       General = {
