@@ -56,15 +56,12 @@
           type = "laptop";
           ecosystem = "kde";
 
-          gfx = [
-            "intel"
-            "nvidia"
-          ];
-
           extraArgs = { inherit nixvim; };
-
           extraModules = [
             nixvim.nixosModules.default
+
+            ./modules/graphics/intel.nix
+            ./modules/graphics/nvidia.nix
 
             ./modules/flatpak
 

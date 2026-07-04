@@ -7,18 +7,17 @@ host:
   ## Required
   system,
   users,
+
+  ## Optional
   type ? "minimal",
   ecosystem ? "",
 
-  ## Optional
-  gfx ? [ ],
   extraArgs ? { },
   extraModules ? [ ],
 }:
 
 let
   userConfigurations = map (u: ../user/${u}) users;
-  gfxModules = map (m: ../modules/graphics/${m}.nix) gfx;
 
   defaultArgs = {
     inherit
@@ -92,6 +91,5 @@ inputs.nixpkgs.lib.nixosSystem {
     else
       [ ]
   )
-  ++ gfxModules
   ++ extraModules;
 }
