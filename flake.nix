@@ -31,8 +31,6 @@
 
   outputs =
     {
-      silentSDDM,
-      plasma-manager,
       noctalia,
       nixvim,
       ...
@@ -48,28 +46,25 @@
           users = [ "axelmychro" ];
         };
 
-        kde = mkConfig "prts" {
+        prts = mkConfig "prts" {
           system = "x86_64-linux";
-          type = "laptop";
-
           users = [
             "axelmychro"
             "priestess"
           ];
+
+          type = "laptop";
+          ecosystem = "kde";
 
           gfx = [
             "intel"
             "nvidia"
           ];
 
-          extraArgs = { inherit plasma-manager nixvim; };
+          extraArgs = { inherit nixvim; };
 
           extraModules = [
-            silentSDDM.nixosModules.default
             nixvim.nixosModules.default
-
-            ./modules/login
-            ./ecosystem/kde
 
             ./modules/flatpak
 

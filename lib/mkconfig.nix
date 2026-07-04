@@ -8,6 +8,7 @@ host:
   system,
   users,
   type ? "minimal",
+  ecosystem ? "",
 
   ## Optional
   gfx ? [ ],
@@ -18,18 +19,26 @@ host:
 let
   userConfigurations = map (u: ../user/${u}) users;
   gfxModules = map (m: ../modules/graphics/${m}.nix) gfx;
+
+  defaultArgs = {
+    inherit
+      version
+      system
+      assets
+      ;
+  };
+
+  ecosystemArgs =
+    if ecosystem == "kde" then
+      {
+        inherit (inputs) plasma-manager;
+      }
+    else
+      { };
 in
 
 inputs.nixpkgs.lib.nixosSystem {
-  specialArgs = {
-    inherit
-      system
-      version
-      type
-      assets
-      ;
-  }
-  // extraArgs;
+  specialArgs = defaultArgs // ecosystemArgs // extraArgs;
 
   modules = [
     { system.nixos.label = "${type}-${version}"; }
@@ -63,6 +72,23 @@ inputs.nixpkgs.lib.nixosSystem {
       ]
     else if type == "server" then
       [ ]
+    else
+      [ ]
+  )
+  ++ (
+    if ecosystem == "kde" then
+      [
+        inputs.silentSDDM.nixosModules.default
+        ../ecosystem/kde
+      ]
+    else if ecosystem == "gnome" then
+      [
+        ../ecosystem/gnome
+      ]
+    else if ecosystem == "niri" then
+      [
+        ../ecosystem/niri
+      ]
     else
       [ ]
   )
