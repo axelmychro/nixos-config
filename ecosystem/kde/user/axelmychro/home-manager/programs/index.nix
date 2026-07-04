@@ -1,7 +1,7 @@
 _: {
   imports = [
     ./bash
-    ./fastfetch/index.nix
+    ./fastfetch
     ./firefox/index.nix
     ./fish
     ./nixvim/index.nix
