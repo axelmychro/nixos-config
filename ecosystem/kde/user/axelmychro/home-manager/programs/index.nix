@@ -2,7 +2,8 @@ _: {
   imports = [
     ./bash
     ./fastfetch
-    ./hyetch
+    ./hyfetch
+    ./konsole
     ./firefox
     ./fish
     ./nixvim/index.nix
