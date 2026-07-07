@@ -32,6 +32,10 @@ let
       {
         inherit (inputs) plasma-manager;
       }
+    else if ecosystem == "niri" then
+      {
+        inherit (inputs) noctalia;
+      }
     else
       { };
 in
@@ -86,6 +90,7 @@ inputs.nixpkgs.lib.nixosSystem {
       ]
     else if ecosystem == "niri" then
       [
+        inputs.noctalia.nixosModules.default
         ../ecosystem/niri
       ]
     else
