@@ -76,7 +76,7 @@
           ];
         };
 
-        gnome = mkConfig "pts-skia" {
+        pts-skia = mkConfig "pts-skia" {
           system = "x86_64-linux";
           type = "desktop";
 
