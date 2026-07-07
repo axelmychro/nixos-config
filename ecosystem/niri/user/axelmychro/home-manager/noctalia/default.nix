@@ -6,6 +6,6 @@
   };
   imports = [
     noctalia.homeModules.default
-    ./settings/index.nix
+    #./settings/index.nix
   ];
 }
