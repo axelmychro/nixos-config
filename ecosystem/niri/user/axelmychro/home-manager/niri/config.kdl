@@ -3,7 +3,7 @@ workspace "2"
 workspace "3"
 workspace "4"
 spawn-at-startup "noctalia"
-spawn-at-startup "wl-clip-persist"
+spawn-at-startup "wl-paste --watch cliphist store"
 hotkey-overlay {
     skip-at-startup
 }
