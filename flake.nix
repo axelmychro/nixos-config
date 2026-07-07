@@ -1,6 +1,13 @@
 {
   description = "Like a phoe-nix, cry and rise up from the ash!";
 
+  nixConfig = {
+    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+    ];
+  };
+
   inputs = {
     ## Package manager
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
@@ -20,8 +27,8 @@
       inputs.home-manager.follows = "home-manager";
     };
     noctalia = {
-      url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:noctalia-dev/noctalia/cachix";
+      #inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
@@ -31,7 +38,6 @@
 
   outputs =
     {
-      noctalia,
       nixvim,
       ...
     }@inputs:
