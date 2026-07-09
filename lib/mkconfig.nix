@@ -17,7 +17,16 @@ host:
 }:
 
 let
-  userConfigurations = map (u: ../user/${u}) users;
+  userConfigurations = inputs.nixpkgs.lib.concatMap (
+    u:
+    [ ../user/${u} ]
+    ++ (
+      if builtins.pathExists (../user + "/${u}" + /home-manager) then
+        [ (../user + "/${u}" + /home-manager) ]
+      else
+        [ ]
+    )
+  ) users;
 
   defaultArgs = {
     inherit
