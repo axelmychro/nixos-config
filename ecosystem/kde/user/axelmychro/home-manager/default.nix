@@ -39,7 +39,6 @@
   };
 
   imports = [
-    ./programs/index.nix
-    ./plasma-manager/index.nix
+    ./plasma-manager
   ];
 }
