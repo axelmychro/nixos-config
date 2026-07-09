@@ -7,17 +7,17 @@ in
   #xdg.dataFile."color-schemes/CatppuccinFrappe.colors".source = ../assets/CatppuccinFrappe.colors;
   programs.plasma = {
     workspace = {
+      #colorScheme = "CatppuccinFrappe";
       wallpaper = "${assets}/her.png";
       lookAndFeel = "org.kde.breezedark.desktop";
-      #colorScheme = "CatppuccinFrappe";
-      theme = null; # plasma style. null = default
+      theme = null; # Plasma style. null = default
       #windowDecorations = {
       #  theme = "Breeze";
       #  library = "org.kde.breeze";
       #};
       iconTheme = "breeze-dark";
       cursor = {
-        animationTime = 5;
+        animationTime = 4;
         cursorFeedback = "Bouncing";
         size = 48;
         taskManagerFeedback = true;
@@ -45,7 +45,7 @@ in
       };
       effects = {
         hideCursor = {
-          hideOnInactivity = 3;
+          hideOnInactivity = 2;
           hideOnTyping = true;
         };
         shakeCursor.enable = true;
@@ -59,7 +59,7 @@ in
       };
       fixedWidth = {
         family = code;
-        pointSize = 12;
+        pointSize = 10;
       };
       small = {
         family = sans;

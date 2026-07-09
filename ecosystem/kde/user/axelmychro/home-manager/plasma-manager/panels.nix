@@ -4,13 +4,13 @@ _: {
       location = "top";
       alignment = "center";
       floating = false;
-      height = 36;
+      height = 24;
       hiding = "none";
       lengthMode = "fill";
       opacity = "opaque";
 
       widgets = [
-        "org.kde.plasma.showdesktop"
+        #"org.kde.plasma.showdesktop"
         {
           pager.general = {
             showWindowOutlines = false;
@@ -36,16 +36,16 @@ _: {
         {
           systemTray.items = {
             shown = [
-              "org.kde.plasma.networkmanagement"
               "org.kde.plasma.volume"
-              "org.kde.plasma.battery"
               "org.kde.plasma.brightness"
+              "org.kde.plasma.battery"
+              "org.kde.plasma.networkmanagement"
             ];
 
             hidden = [
+              "org.kde.plasma.mediacontrol"
               "org.kde.plasma.clipboard"
               "org.kde.plasma.bluetooth"
-              "org.kde.plasma.mediacontrol"
             ];
           };
         }
