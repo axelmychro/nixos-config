@@ -60,7 +60,7 @@
           ];
 
           type = "laptop";
-          ecosystem = "kde";
+          ecosystem = "niri";
 
           extraArgs = { inherit nixvim; };
           extraModules = [
