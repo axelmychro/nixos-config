@@ -11,6 +11,12 @@ let
 in
 {
   users.users.${user.name} = {
+
+    packages = with pkgs; [
+      eza
+      ripgrep
+      fd
+    ];
     shell = pkgs.fish;
 
     extraGroups = [
@@ -34,6 +40,7 @@ in
         homeDirectory = "/home/${user.name}";
         stateVersion = version; # HM is developed against nixos-unstable
       };
+      xdg.enable = true;
 
       imports = [
         ./bash
@@ -43,6 +50,7 @@ in
         ./fastfetch
         ./hyfetch
         ./oh-my-posh
+        ./tmux
         nixvim.homeModules.default
         ./nixvim
       ];
