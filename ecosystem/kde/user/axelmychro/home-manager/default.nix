@@ -18,8 +18,6 @@
     };
   };
 
-  xdg.enable = true;
-
   gtk = {
     enable = false;
     theme = {
@@ -40,5 +38,6 @@
 
   imports = [
     ./plasma-manager
+    ./programs/index.nix
   ];
 }
