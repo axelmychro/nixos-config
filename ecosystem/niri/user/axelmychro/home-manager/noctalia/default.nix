@@ -2,10 +2,11 @@
 {
   programs.noctalia = {
     enable = true;
-    systemd.enable = false;
+    systemd.enable = true;
   };
+
+  xdg.configFile."noctalia/config.toml".source = ./config.toml;
   imports = [
     noctalia.homeModules.default
-    #./settings/index.nix
   ];
 }

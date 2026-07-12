@@ -1,9 +1,7 @@
-workspace "1"
-workspace "2"
-workspace "3"
-workspace "4"
-spawn-at-startup "noctalia"
-spawn-at-startup "wl-paste --watch cliphist store"
+// NIRI CONFIG
+//
+/// Connected devices
+//
 hotkey-overlay {
     skip-at-startup
 }
@@ -31,7 +29,39 @@ output "eDP-1" {
     mode "1920x1080@60.001"
     scale 1
     transform "normal"
+    position x=0 y=0
 }
+//
+/// Setup
+//
+//workspace "1"
+//
+/// Initialize session
+//
+spawn-at-startup "noctalia"
+//// Noctalia settings start
+window-rule {
+    geometry-corner-radius 8
+    clip-to-geometry true
+}
+window-rule {
+    match app-id="dev.noctalia.Noctalia"
+    open-floating true
+    default-column-width {
+        fixed 1080
+    }
+    default-window-height {
+        fixed 920
+    }
+}
+debug {
+    honor-xdg-activation-with-invalid-serial
+}
+//// Noctalia settings end
+spawn-at-startup "wl-paste --watch cliphist store"
+//
+/// Look and feel
+//
 prefer-no-csd
 cursor {
     hide-when-typing
@@ -76,10 +106,12 @@ layout {
         color "#0003"
     }
 }
-screenshot-path "~/Pictures/Screenshots/%Y-%m-%d-%H-%M-%S.png"
 animations {
     slowdown 0.7
 }
+//
+//// Window rules
+//
 window-rule {
     geometry-corner-radius 12
     clip-to-geometry true
@@ -94,9 +126,14 @@ window-rule {
     match app-id="dev.zed.Zed"
     open-on-workspace "3"
 }
+//
+/// Controlling
+//
+screenshot-path "~/Pictures/Screenshots/%Y%m%d-%H%M%S.png"
 binds {
+    //// Spawn programs
     Mod+Return hotkey-overlay-title="Terminal" {
-        spawn "konsole"
+        spawn "alacritty"
     }
     Mod+E hotkey-overlay-title="Explorer" {
         spawn "dolphin"
@@ -104,44 +141,38 @@ binds {
     Mod+B hotkey-overlay-title="Browser" {
         spawn "firefox"
     }
-    Mod+C hotkey-overlay-title="Control Center" {
-        spawn-sh "noctalia-shell ipc call controlCenter toggle"
+    //// Noctalia ipc
+    ///// Main binds
+    Mod+C hotkey-overlay-title="Noctalia Control Center" {
+        spawn-sh "noctalia msg panel-toggle control-center"
     }
-    Mod+Space hotkey-overlay-title="Launcher" {
-        spawn-sh "noctalia-shell ipc call launcher toggle"
+    Mod+Space hotkey-overlay-title="Noctalia Launcher" {
+        spawn-sh "noctalia msg panel-toggle launcher"
     }
     Super+Alt+L hotkey-overlay-title="Lock Screen" {
-        spawn-sh "noctalia-shell ipc call lockScreen lock"
+        spawn-sh "noctalia msg session lock"
+    }
+    ///// Other binds
+    ////// Output
+    XF86AudioRaiseVolume allow-when-locked=true {
+        spawn-sh "noctalia msg volume-up"
     }
     XF86AudioLowerVolume allow-when-locked=true {
-        spawn-sh "noctalia-shell ipc call volume decrease"
-    }
-    XF86AudioMicMute allow-when-locked=true {
-        spawn-sh "noctalia-shell ipc call volume muteInput"
+        spawn-sh "noctalia msg volume-down"
     }
     XF86AudioMute allow-when-locked=true {
-        spawn-sh "noctalia-shell ipc call volume muteOutput"
+        spawn-sh "noctalia msg volume-mute"
     }
-    XF86AudioNext allow-when-locked=true {
-        spawn-sh "noctalia-shell ipc call media next"
+    ////// Input
+    XF86AudioMicMute allow-when-locked=true {
+        spawn-sh "noctalia msg mic-volume-mute"
     }
-    XF86AudioPlay allow-when-locked=true {
-        spawn-sh "noctalia-shell ipc call media playPause"
-    }
-    XF86AudioPrev allow-when-locked=true {
-        spawn-sh "noctalia-shell ipc call media previous"
-    }
-    XF86AudioRaiseVolume allow-when-locked=true {
-        spawn-sh "noctalia-shell ipc call volume increase"
-    }
-    XF86AudioStop allow-when-locked=true {
-        spawn-sh "noctalia-shell ipc call media stop"
+    ////// Brightness
+    XF86MonBrightnessUp allow-when-locked=true {
+        spawn-sh "noctalia msg brightness-up"
     }
     XF86MonBrightnessDown allow-when-locked=true {
-        spawn-sh "noctalia-shell ipc call brightness decrease"
-    }
-    XF86MonBrightnessUp allow-when-locked=true {
-        spawn-sh "noctalia-shell ipc call brightness increase"
+        spawn-sh "noctalia msg brightness-down"
     }
     Mod+BracketLeft {
         consume-or-expel-window-left
@@ -152,6 +183,7 @@ binds {
     Mod+Comma {
         consume-window-into-column
     }
+    //// Window manager
     Mod+Ctrl+C {
         center-column
     }
@@ -223,9 +255,6 @@ binds {
     }
     Mod+Shift+Slash {
         show-hotkey-overlay
-    }
-    Mod+W {
-        toggle-column-tabbed-display
     }
     Mod+WheelScrollDown cooldown-ms=150 {
         focus-workspace-down
@@ -300,3 +329,4 @@ binds {
         screenshot
     }
 }
+
