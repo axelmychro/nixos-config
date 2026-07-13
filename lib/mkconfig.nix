@@ -93,6 +93,10 @@ inputs.nixpkgs.lib.nixosSystem {
         inputs.silentSDDM.nixosModules.default
         ../ecosystem/kde
       ]
+    else if ecosystem == "cosmic" then
+      [
+        ../ecosystem/cosmic
+      ]
     else if ecosystem == "gnome" then
       [
         ../ecosystem/gnome
