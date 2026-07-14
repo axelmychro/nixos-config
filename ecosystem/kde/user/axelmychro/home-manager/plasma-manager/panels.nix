@@ -4,7 +4,7 @@ _: {
       location = "top";
       alignment = "center";
       floating = false;
-      height = 24;
+      height = 32;
       hiding = "none";
       lengthMode = "fill";
       opacity = "opaque";
