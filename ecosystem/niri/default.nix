@@ -27,10 +27,12 @@
     cliphist
 
     kdePackages.dolphin
-    lf
+    kdePackages.gwenview
+    yazi
+    libreoffice
 
     firefox
-    alacritty
+    kitty
     tmux
   ];
 
