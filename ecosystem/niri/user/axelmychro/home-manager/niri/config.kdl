@@ -34,7 +34,8 @@ output "eDP-1" {
 //
 /// Setup
 //
-//workspace "1"
+workspace "1"
+workspace "2"
 //
 /// Initialize session
 //
@@ -133,7 +134,7 @@ screenshot-path "~/Pictures/Screenshots/%Y%m%d-%H%M%S.png"
 binds {
     //// Spawn programs
     Mod+Return hotkey-overlay-title="Terminal" {
-        spawn "alacritty"
+        spawn "kitty"
     }
     Mod+E hotkey-overlay-title="Explorer" {
         spawn "dolphin"
