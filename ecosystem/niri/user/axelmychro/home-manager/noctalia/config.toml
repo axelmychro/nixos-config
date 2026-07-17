@@ -195,44 +195,46 @@ wifi_enabled = []
 ## Bar
 
 [bar]
-order = ["default", "session"]
+order = ["default", "second"]
 
 [bar.default]
 enabled = true
 position = "left"
 thickness = 32
-widget_spacing = 12
+widget_spacing = 16
+reserve_space = true
+auto_hide = false
 
 capsule = true
-capsule_radius = 4.0
+capsule_radius = 2.0
 
 capsule_fill = "surface_variant"
 capsule_group = []
 capsule_opacity = 1.0
-capsule_padding = 6.0
-capsule_thickness = 0.75999999046325684
+capsule_padding = 5.0
+capsule_thickness = 0.75
 
-start = ["workspaces"]
-center = ["clock"]
+start = ["control-center", "notifications", "clipboard", "clock"]
+center = ["workspaces"]
 end = ["network", "bluetooth", "volume", "brightness", "battery"]
 
 margin_ends = 0
 margin_edge = 0
 
-radius = 12
+radius = 4
 radius_bottom_left = 0
-radius_bottom_right = 12
+radius_bottom_right = 4
 radius_top_left = 0
-radius_top_right = 12
+radius_top_right = 4
 
 concave_edge_corners = true
 
 border = "outline"
-border_width = 2.0
+border_width = 0.0
 
-[bar.pop]
-enabled = true
-position = "top"
+[bar.second]
+enabled = false
+position = "right"
 thickness = 48
 reserve_space = false
 auto_hide = true
@@ -241,11 +243,11 @@ capsule = true
 capsule_radius = 4.0
 
 start = []
-center = ["media"]
-end = ["tray", "clipboard", "session", "notifications"]
+center = ["tray", "clipboard", "session", "notifications"]
+end = []
 
-margin_ends = 512
-margin_edge = 10
+#margin_ends = 0
+margin_edge = 0
 
 radius = 12
 radius_bottom_left = 12
@@ -310,14 +312,17 @@ visible = true
 ## Dock
 
 [dock]
+enabled = true
+auto_hide = true
+reserve_space = false
+position = "right"
+
 active_monitor_only = false
 active_opacity = 1.0
 active_scale = 1.0
-auto_hide = false
 background_opacity = 0.87999999523162842
 concave_edge_corners = false
 cross_axis_padding = 8
-enabled = false
 icon_size = 48
 inactive_opacity = 0.85000002384185791
 inactive_scale = 0.85000002384185791
@@ -333,13 +338,11 @@ margin_edge = 8
 margin_ends = 0
 monitors = []
 pinned = []
-position = "bottom"
 radius = 16
 radius_bottom_left = 16
 radius_bottom_right = 16
 radius_top_left = 16
 radius_top_right = 16
-reserve_space = true
 shadow = true
 show_dots = false
 show_instance_count = true
@@ -371,13 +374,14 @@ resume_command = ""
 timeout = 660.0
 
 [keybinds]
-cancel = ["Escape"]
-down = ["Down"]
 left = ["Left"]
+down = ["Down"]
+up = ["Up"]
 right = ["Right"]
+
+cancel = ["Escape"]
 tab_next = ["Tab"]
 tab_previous = ["Shift+ISO_Left_Tab"]
-up = ["Up"]
 validate = ["Return", "KP_Enter", "space"]
 
 [location]
@@ -397,7 +401,8 @@ tint_intensity = 0.30000001192092896
 wallpaper = ""
 
 [lockscreen_widgets]
-enabled = false
+enabled = true
+
 schema_version = 2
 widget_order = ["lockscreen-login-box@eDP-1"]
 
