@@ -60,7 +60,7 @@
           ];
 
           type = "laptop";
-          ecosystem = "niri";
+          ecosystem = "cosmic";
 
           extraArgs = { inherit nixvim; };
           extraModules = [
