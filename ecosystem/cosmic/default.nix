@@ -23,7 +23,7 @@
       # Term
       kitty
       # Browser
-      firefox
+      firefox-bin
       # Documents
       libreoffice
       # Audio player
@@ -34,7 +34,6 @@
       # Else
       vscode
       fpc
-      lazarus
       binutils
 
       zoom-us
