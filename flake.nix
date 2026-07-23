@@ -69,10 +69,10 @@
             ./modules/graphics/intel.nix
             ./modules/graphics/nvidia.nix
 
-            ./modules/flatpak
+            #./modules/flatpak
 
-            ./modules/virtualisation/virt-manager.nix
-            ./modules/virtualisation/docker.nix
+            #./modules/virtualisation/virt-manager.nix
+            #./modules/virtualisation/docker.nix
           ];
         };
 
