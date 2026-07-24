@@ -11,6 +11,7 @@
       cosmic-term
     ];
     systemPackages = with pkgs; [
+      gdu
 
       # Term
       kitty
