@@ -5,10 +5,10 @@ host:
   assets ? ../assets,
 
   ## Required
-  system,
   users,
 
   ## Optional
+  system ? "x86_64-linux",
   type ? "minimal",
   ecosystem ? "",
 

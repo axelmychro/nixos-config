@@ -42,18 +42,18 @@
       ...
     }@inputs:
     let
+      system = "x86_64-linux";
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
       mkConfig = import ./lib/mkconfig.nix { inherit inputs; };
     in
     {
       nixosConfigurations = {
 
         default = mkConfig "prts" {
-          system = "x86_64-linux";
           users = [ "axelmychro" ];
         };
 
         prts = mkConfig "prts" {
-          system = "x86_64-linux";
           users = [
             "axelmychro"
             "priestess"
@@ -77,7 +77,6 @@
         };
 
         pts-skia = mkConfig "pts-skia" {
-          system = "x86_64-linux";
           type = "desktop";
 
           users = [
@@ -91,7 +90,6 @@
         };
 
         web = mkConfig "prts-web" {
-          system = "x86_64-linux";
           type = "server";
 
           users = [ "axelmychro" ];
