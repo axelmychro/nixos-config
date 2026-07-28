@@ -10,6 +10,13 @@
     systemPackages = with pkgs; [
       firefox
       haruna
+
+      vscode
+      fpc
+
+      # Binary compatibilities
+      nix-ld
+      steam-run
     ];
     plasma6.excludePackages = with pkgs.kdePackages; [
       plasma-browser-integration
