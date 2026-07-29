@@ -47,6 +47,22 @@
       mkConfig = import ./lib/mkconfig.nix { inherit inputs; };
     in
     {
+      apps.${system} = {
+        update = {
+          type = "app";
+          program = "${pkgs.writeShellScript "update" "nix flake update"}";
+        };
+        clean = {
+          type = "app";
+          program = "${pkgs.writeShellScript "clean" "nix-collect-garbage --delete-old"}";
+        };
+        switch = {
+          type = "app";
+          program = "${pkgs.writeShellScript "switch" "nixos-rebuild --sudo switch --flake .#$HOSTNAME"}";
+        };
+        default = inputs.self.apps.${system}.switch;
+      };
+
       nixosConfigurations = {
 
         default = mkConfig "prts" {
