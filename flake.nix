@@ -50,15 +50,24 @@
       apps.${system} = {
         update = {
           type = "app";
-          program = "${pkgs.writeShellScript "update" "nix flake update"}";
+          program = "${pkgs.writeShellScript "update" ''
+            git add -A
+            nix flake update
+          ''}";
         };
         clean = {
           type = "app";
-          program = "${pkgs.writeShellScript "clean" "nix-collect-garbage --delete-old"}";
+          program = "${pkgs.writeShellScript "clean" ''
+            nix-collect-garbage --delete-old
+            nix store optimise
+          ''}";
         };
         switch = {
           type = "app";
-          program = "${pkgs.writeShellScript "switch" "nixos-rebuild --sudo switch --flake .#$HOSTNAME"}";
+          program = "${pkgs.writeShellScript "switch" ''
+            git add -A
+            nixos-rebuild --sudo switch --flake .#"$HOSTNAME"
+          ''}";
         };
         default = inputs.self.apps.${system}.switch;
       };
