@@ -106,6 +106,10 @@ inputs.nixpkgs.lib.nixosSystem {
         inputs.noctalia.nixosModules.default
         ../ecosystem/niri
       ]
+    else if ecosystem == "sway" then
+      [
+        ../ecosystem/sway
+      ]
     else
       [ ]
   )
