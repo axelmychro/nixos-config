@@ -13,20 +13,23 @@
     systemPackages = with pkgs; [
       gdu
 
+      gimp
+      krita
+      kdePackages.kdenlive
+      blender
+
       # Term
       kitty
       # Browser
-      firefox-bin
+      firefox
       # Documents
       libreoffice
       # Audio player
       decibels
       # Image viewer
       loupe
-
-      # Else
-      vscode
-      fpc
+      # File explorer
+      yazi
 
       # Binary compatibilities
       binutils
@@ -36,8 +39,6 @@
       easyeffects
       zoom-us
 
-      # File explorer
-      yazi
       # NOTE: cosmic-player requires gstreamer
       gst_all_1.gstreamer
       gst_all_1.gst-plugins-base
