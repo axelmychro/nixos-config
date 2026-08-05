@@ -1,34 +1,76 @@
 {
-  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
-  "modules": [
-    "title",
-    "separator",
-    "os",
-    "host",
-    "kernel",
-    "uptime",
-    "packages",
-    "shell",
-    "display",
-    "de",
-    "wm",
-    "wmtheme",
-    "theme",
-    "icons",
-    "font",
-    "cursor",
-    "terminal",
-    "terminalfont",
-    "cpu",
-    "gpu",
-    "memory",
-    "swap",
-    "disk",
-    "localip",
-    "battery",
-    "poweradapter",
-    "locale",
-    "break",
-    "colors"
-  ]
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
+    "logo": {
+        "source": "~/.config/fastfetch/nix.txt",
+        "padding": {
+            "top": 2,
+            "left": 2,
+            "right": 2,
+            "bottom": 2
+        },
+        "color": {
+            "1": "#5b6078",
+            "2": "#6e738d",
+            "3": "#5b6078",
+            "4": "#6e738d",
+            "5": "#5b6078",
+            "6": "#6e738d"
+        }
+    },
+    "display": {
+        "separator": "",
+        "color": {
+            "title": "#939ab7",
+            "keys": "#939ab7"
+        },
+        "key": {
+            "width": 16,
+            "paddingLeft": 2,
+            "type": "both-2"
+        }
+    },
+    "modules": [
+        "title",
+        "separator",
+        "os",
+        "host",
+        "kernel",
+        "uptime",
+        "packages",
+        "shell",
+        {
+            "type": "display",
+            "key": "Display"
+        },
+        "de",
+        "wm",
+        "wmtheme",
+        "theme",
+        "icons",
+        "font",
+        "cursor",
+        "terminal",
+        {
+            "type": "terminalfont",
+            "key": "Term Font"
+        },
+        "cpu",
+        "gpu",
+        "memory",
+        "swap",
+        {
+            "type": "disk",
+            "key": "Storage"
+        },
+        {
+            "type": "localip",
+            "key": "Local IP"
+        },
+        {
+            "type": "battery",
+            "key": "Battery"
+        },
+        "poweradapter",
+        "locale"
+    ]
 }
