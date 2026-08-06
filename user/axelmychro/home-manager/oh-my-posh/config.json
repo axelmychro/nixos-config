@@ -1,37 +1,28 @@
 {
     "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
     "console_title_template": "PRTS",
-    "palette": {
-        "crust": "#232634",
-        "mantle": "#292c3c",
-        "mauve": "#ca9ee6",
-        "peach": "#ef9f76",
-        "plain": "#c6d0f5",
-        "closer": "p:plain"
-    },
     "blocks": [
         {
             "alignment": "left",
             "segments": [
                 {
-                    "foreground": "p:mauve",
+                    "type": "shell",
                     "style": "plain",
-                    "template": "{{ .UserName }}@{{ .HostName }} ",
-                    "type": "session"
+                    "template": "{{ .Name }} "
                 },
                 {
-                    "foreground": "p:plain",
+                    "type": "path",
+                    "style": "plain",
                     "options": {
-                        "folder_icon": "..\ue5fe..",
+                        "folder_icon": "....",
                         "home_icon": "~",
                         "style": "agnoster_short"
                     },
-                    "style": "plain",
-                    "template": "{{ .Path }} ",
-                    "type": "path"
+                    "template": "{{ .Path }} "
                 },
                 {
-                    "foreground": "p:peach",
+                    "type": "git",
+                    "style": "plain",
                     "options": {
                         "branch_icon": "\ue725 ",
                         "cherry_pick_icon": "\ue29b ",
@@ -44,15 +35,12 @@
                         "revert_icon": "\uf0e2 ",
                         "tag_icon": "\uf412 "
                     },
-                    "template": "{{ .HEAD }} ",
-                    "type": "git",
-                    "style": "plain"
+                    "template": "{{ .HEAD }} "
                 },
                 {
-                    "foreground": "p:closer",
-                    "template": "󰜌 ",
                     "type": "text",
-                    "style": "plain"
+                    "style": "plain",
+                    "template": "󰜌 "
                 }
             ],
             "type": "prompt"
