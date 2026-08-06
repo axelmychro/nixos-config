@@ -2,7 +2,6 @@
 {
   boot.loader = {
     efi.canTouchEfiVariables = true;
-    timeout = 10;
 
     systemd-boot = {
       enable = lib.mkForce false;
@@ -13,7 +12,7 @@
       enable = true;
       efiSupport = true;
       device = "nodev";
-      configurationLimit = 8;
+      configurationLimit = 4;
       useOSProber = false;
 
       gfxmodeEfi = "1920x1080";
@@ -22,7 +21,7 @@
       gfxpayloadBios = "keep";
 
       font = "${assets}/GeistMonoNerdFont-Regular.otf";
-      fontSize = 24;
+      fontSize = 16;
 
       backgroundColor = "#ffffff";
       theme = "${assets}/grub/theme";
