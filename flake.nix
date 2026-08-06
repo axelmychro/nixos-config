@@ -69,7 +69,13 @@
             nixos-rebuild --sudo switch --flake .#"$HOSTNAME"
           ''}";
         };
-        default = inputs.self.apps.${system}.switch;
+        default = {
+          type = "app";
+          program = "${pkgs.writeShellScript "default" ''
+            nix run .#clean
+            nix run .#switch
+          ''}";
+        };
       };
 
       nixosConfigurations = {
