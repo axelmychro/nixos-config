@@ -5,29 +5,21 @@
   ...
 }:
 {
-  services.desktopManager.plasma6.enable = true;
+  services = {
+    displayManager.sddm = {
+      enable = lib.mkForce true;
+      wayland.enable = lib.mkForce true;
+    };
+    desktopManager.plasma6.enable = true;
+  };
   environment = {
     systemPackages = with pkgs; [
       firefox
       haruna
-
-      vscode
-      fpc
-
-      # Binary compatibilities
-      nix-ld
-      steam-run
     ];
     plasma6.excludePackages = with pkgs.kdePackages; [
       plasma-browser-integration
     ];
-  };
-
-  imports = [ ./user/index.nix ];
-
-  services.displayManager.sddm = {
-    enable = lib.mkForce true;
-    wayland.enable = lib.mkForce true;
   };
   programs.silentSDDM = {
     theme = "rei";
@@ -46,4 +38,6 @@
     };
     enable = true;
   };
+
+  imports = [ ./user/index.nix ];
 }

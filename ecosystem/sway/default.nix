@@ -20,57 +20,32 @@
     swaylock.enableGnomeKeyring = true;
   };
 
-  environment = {
-    systemPackages = with pkgs; [
-      gdu
+  environment.systemPackages = with pkgs; [
+    gdu
 
-      gimp
-      krita
-      kdePackages.kdenlive
-      blender
+    # Screenshot
+    grim
+    slurp
+    sway-contrib.grimshot
 
-      # Binary compatibilities
-      binutils
-      nix-ld
-      steam-run
+    # Clipboard
+    wl-clipboard
+    cliphist
 
-      # Screenshot
-      grim
-      slurp
-      sway-contrib.grimshot
+    # Notification
+    mako
+    # Browser
+    firefox
+    # Documents
+    libreoffice
+    # Audio player
+    decibels
+    # Image viewer
+    loupe
 
-      # Clipboard
-      wl-clipboard
-      cliphist
-
-      # Notification
-      mako
-      # Browser
-      firefox
-      # Documents
-      libreoffice
-      # Audio player
-      decibels
-      # Image viewer
-      loupe
-
-      # File explorer
-      yazi
-
-      # gstreamer
-      gst_all_1.gstreamer
-      gst_all_1.gst-plugins-base
-      gst_all_1.gst-plugins-good
-      gst_all_1.gst-plugins-bad
-      gst_all_1.gst-plugins-ugly
-      gst_all_1.gst-libav
-      gst_all_1.gst-vaapi
-    ];
-    variables = {
-      GST_PLUGIN_PATH = "/run/current-system/sw/lib/gstreamer-1.0";
-      SWAY_UNSUPPPORTED_GPU = "TRUE";
-    };
-  };
+    # File explorer
+    yazi
+  ];
 
   imports = [ ./user/index.nix ];
 }

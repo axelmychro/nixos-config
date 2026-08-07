@@ -19,7 +19,6 @@
     ];
   };
   imports = [
-    ../common.nix
     ./user/index.nix
   ];
 }

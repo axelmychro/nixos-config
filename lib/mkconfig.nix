@@ -1,31 +1,30 @@
-{ inputs }:
+{ inputs, ... }:
 host:
 {
-  version ? "26.05",
+  version,
+  system,
   assets ? ../assets,
 
   ## Required
+  ecosystem,
   users,
 
   ## Optional
-  system ? "x86_64-linux",
-  type ? "minimal",
-  ecosystem ? "",
-
   extraArgs ? { },
   extraModules ? [ ],
 }:
-
 let
-  userConfigurations = inputs.nixpkgs.lib.concatMap (
+  inherit (inputs.nixpkgs) lib;
+  userConfigurations = lib.concatMap (
     u:
-    [ ../user/${u} ]
-    ++ (
-      if builtins.pathExists (../user + "/${u}" + /home-manager) then
-        [ (../user + "/${u}" + /home-manager) ]
-      else
-        [ ]
-    )
+    let
+      userConfigurationFile = ../user/${u};
+      userHomeManagerConfigurationFile = userConfigurationFile + /home-manager;
+    in
+    [ userConfigurationFile ]
+    ++ lib.optionals (ecosystem != "server" && builtins.pathExists userHomeManagerConfigurationFile) [
+      userHomeManagerConfigurationFile
+    ]
   ) users;
 
   defaultArgs = {
@@ -48,45 +47,25 @@ let
     else
       { };
 in
-
-inputs.nixpkgs.lib.nixosSystem {
+lib.nixosSystem {
   specialArgs = defaultArgs // ecosystemArgs // extraArgs;
 
   modules = [
-    { system.nixos.label = "${type}-${version}"; }
+    { system.nixos.label = "${ecosystem}-${version}"; }
+    ../host/common.nix
     ../host/${host}
     ./nixosconfiguser.nix
   ]
   ++ userConfigurations
-  ++ (
-    if type == "minimal" then
-      [ ]
-    else if type == "desktop" then
-      [
-        inputs.home-manager.nixosModules.default
-        ../modules/home-manager
-
-        ../modules/audio
-        ../modules/bluetooth
-
-        ../modules/graphics
-      ]
-    else if type == "laptop" then
-      [
-        inputs.home-manager.nixosModules.default
-        ../modules/home-manager
-
-        ../modules/audio
-        ../modules/bluetooth
-        ../modules/power
-
-        ../modules/graphics
-      ]
-    else if type == "server" then
-      [ ]
-    else
-      [ ]
-  )
+  ++ lib.optionals (ecosystem != "server") [
+    inputs.home-manager.nixosModules.default
+    ../modules/home-manager
+    ../modules/audio
+    ../modules/bluetooth
+    ../modules/power
+    ../modules/graphics
+    ../ecosystem/common.nix
+  ]
   ++ (
     if ecosystem == "kde" then
       [
