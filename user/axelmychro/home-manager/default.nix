@@ -46,6 +46,7 @@ in
         ./bash
         ./fish
         ./git
+        ./kitty
         ./lazygit
         ./fastfetch
         ./hyfetch
