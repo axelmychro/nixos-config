@@ -42,41 +42,46 @@
       ...
     }@inputs:
     let
+      version = "26.05";
       system = "x86_64-linux";
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       mkConfig = import ./lib/mkconfig.nix { inherit inputs; };
     in
     {
-      apps.${system} = {
-        update = {
-          type = "app";
-          program = "${pkgs.writeShellScript "update" ''
-            git add -A
-            nix flake update
-          ''}";
-        };
-        clean = {
-          type = "app";
-          program = "${pkgs.writeShellScript "clean" ''
-            nix-collect-garbage --delete-old
-            nix store optimise
-          ''}";
-        };
-        switch = {
-          type = "app";
-          program = "${pkgs.writeShellScript "switch" ''
-            git add -A
-            nixos-rebuild --sudo switch --flake .#"$HOSTNAME"
-          ''}";
-        };
-        default = {
-          type = "app";
-          program = "${pkgs.writeShellScript "default" ''
-            nix run .#clean
-            nix run .#switch
-          ''}";
-        };
-      };
+      apps.${system} =
+        builtins.mapAttrs
+          (name: script: {
+            type = "app";
+            program = "${pkgs.writeShellScriptBin name script}/bin/${name}";
+          })
+          {
+            build = ''
+              git add -A
+              nixos-rebuild --sudo boot --flake .#"$HOSTNAME"
+            '';
+
+            check = ''
+              git add -A
+              nixos-rebuild --sudo dry-run --flake .#"$HOSTNAME"
+            '';
+
+            clean = ''
+              nix-collect-garbage --delete-old
+              nix store optimise
+            '';
+
+            run = ''
+              git add -A
+              nixos-rebuild --sudo switch --flake .#"$HOSTNAME"
+            '';
+
+            update = ''
+              git add -A
+              nix flake update
+            '';
+
+            default = "nix run .#run";
+          };
 
       nixosConfigurations = {
 
@@ -85,14 +90,13 @@
         };
 
         prts = mkConfig "prts" {
+          inherit version system;
           users = [
             "axelmychro"
             "priestess"
           ];
 
-          type = "laptop";
           ecosystem = "cosmic";
-
           extraArgs = { inherit nixvim; };
           extraModules = [
             nixvim.nixosModules.default
@@ -108,21 +112,15 @@
         };
 
         pts-skia = mkConfig "pts-skia" {
-          type = "desktop";
-
           users = [
             "axelmychro"
             "priestess"
           ];
 
-          extraModules = [
-            ./ecosystem/gnome
-          ];
+          ecosystem = "cosmic";
         };
 
         web = mkConfig "prts-web" {
-          type = "server";
-
           users = [ "axelmychro" ];
         };
       };
