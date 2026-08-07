@@ -7,7 +7,7 @@ _: {
     focusEvents = true;
 
     extraConfig = ''
-      set-option -g status-style bg=#181926,fg=#cad3f5
+      set-option -g status-style bg=#1e2030,fg=#cad3f5
     '';
   };
 }
