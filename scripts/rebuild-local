@@ -1,5 +1,0 @@
-#!/bin/sh
-
-hostname="$(cat /etc/hostname)"
-git add --all
-nixos-rebuild --sudo switch --flake ".#$hostname" --install-bootloader
