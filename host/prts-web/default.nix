@@ -2,7 +2,6 @@
   networking.hostName = "prts-web";
 
   imports = [
-    ../common.nix
     ./configuration.nix
   ];
 

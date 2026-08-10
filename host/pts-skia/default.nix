@@ -2,7 +2,6 @@ _: {
   networking.hostName = "pts-skia";
 
   imports = [
-    ../common.nix
     ./configuration.nix
   ];
 

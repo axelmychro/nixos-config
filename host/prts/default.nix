@@ -2,7 +2,6 @@ _: {
   networking.hostName = "prts";
 
   imports = [
-    ../common.nix
     ./configuration.nix
     ./modules/index.nix
   ];
