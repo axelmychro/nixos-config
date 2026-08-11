@@ -1,9 +1,8 @@
-function conserve
+function battery-conserve
     set -l _target_file '/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
 
     if not test -f "$_target_file"
-        log "Conservation mode path not found. Is ideapad_acpi module loaded?"
-        return 1
+        log -e "Conservation mode path not found. Is ideapad_acpi module loaded?"
     end
 
     set -l _conserve_status (cat "$_target_file")

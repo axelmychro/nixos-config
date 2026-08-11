@@ -1,4 +1,4 @@
-function dl
+function dl-video
     set -- url "$argv[1]"
     test -z "$url"; and log -e 'No URL provided'; and return
 
