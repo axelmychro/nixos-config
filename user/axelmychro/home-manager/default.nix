@@ -16,6 +16,7 @@ in
       eza
       ripgrep
       fd
+      yazi
     ];
     shell = pkgs.fish;
 
