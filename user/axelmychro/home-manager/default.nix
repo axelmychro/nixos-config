@@ -45,6 +45,7 @@ in
 
       imports = [
         ./bash
+        ./cava
         ./fish
         ./git
         ./kitty
