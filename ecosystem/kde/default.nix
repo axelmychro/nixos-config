@@ -4,6 +4,9 @@
   assets,
   ...
 }:
+let
+  bg_file_name = "priestess_moon.mp4";
+in
 {
   services = {
     displayManager.sddm = {
@@ -23,14 +26,14 @@
   };
   programs.silentSDDM = {
     theme = "rei";
-    backgrounds."pries.mp4" = "${assets}/pries.mp4";
+    backgrounds."${bg_file_name}" = "${assets}/${bg_file_name}";
 
     settings = {
       "LoginScreen" = {
-        background = "pries.mp4";
+        background = "${bg_file_name}";
       };
       "LockScreen" = {
-        background = "pries.mp4";
+        background = "${bg_file_name}";
       };
       "LockScreen.Message" = {
         text = "Welcome back, Oracle.";
