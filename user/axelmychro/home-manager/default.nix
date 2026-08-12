@@ -16,7 +16,6 @@ in
       eza
       ripgrep
       fd
-      yazi
     ];
     shell = pkgs.fish;
 
@@ -54,6 +53,7 @@ in
         ./hyfetch
         ./oh-my-posh
         ./tmux
+        ./yazi
         nixvim.homeModules.default
         ./nixvim
       ];
