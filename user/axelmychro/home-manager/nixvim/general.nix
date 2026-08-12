@@ -14,11 +14,11 @@
       trouble_lualine = true;
     };
 
-    colorschemes.catppuccin = {
+    colorschemes.rose-pine = {
       enable = true;
-      settings.flavour = "macchiato";
+      settings.variant = "dawn";
     };
-    colorscheme = "catppuccin";
+    colorscheme = "rose-pine-dawn";
 
     clipboard = {
       register = "unnamedplus";

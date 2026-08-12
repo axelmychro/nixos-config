@@ -1,28 +1,70 @@
 {
     "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
-    "console_title_template": "PRTS",
+    "final_space": false,
+    "console_title_template": "{{ .Shell }} in {{ .Folder }}",
+    "palette": {
+        "base": "#faf4ed",
+        "surface": "#fffaf3",
+        "overlay": "#f2e9e1",
+        "muted": "#9893a5",
+        "subtle": "#797593",
+        "text": "#575279",
+        "love": "#b4637a",
+        "gold": "#ea9d34",
+        "rose": "#d7827e",
+        "pine": "#286983",
+        "foam": "#56949f",
+        "iris": "#907aa9",
+        "highlight-low": "#f4ede8",
+        "highlight-med": "#dfdad9",
+        "highlight-high": "#cecacd",
+
+        "main": "p:iris",
+        "time": "p:muted",
+        "path": "p:main",
+        "git": "p:gold",
+
+        "docker": "p:foam",
+        "go": "p:foam",
+        "haskell": "p:iris",
+        "lua": "p:pine",
+        "python": "p:gold",
+        "rust": "p:rose"
+    },
+    "transient_prompt": {
+        "foreground": "p:time",
+        "template": " [{{ now | date \"15:04:05\" }}] "
+    },
     "blocks": [
         {
+            "type": "prompt",
             "alignment": "left",
+            "newline": true,
             "segments": [
                 {
                     "type": "shell",
-                    "style": "plain",
-                    "template": "{{ .Name }} "
+                    "style": "diamond",
+                    "trailing_diamond": "\ue0b0",
+                    "background": "p:main",
+                    "foreground": "p:base",
+                    "template": " {{ .Name }} "
                 },
                 {
                     "type": "path",
                     "style": "plain",
+                    "foreground": "p:path",
+                    "template": " {{ .Path }} ",
                     "options": {
-                        "folder_icon": "....",
                         "home_icon": "~",
+                        "folder_icon": "..",
                         "style": "agnoster_short"
-                    },
-                    "template": "{{ .Path }} "
+                    }
                 },
                 {
                     "type": "git",
                     "style": "plain",
+                    "foreground": "p:git",
+                    "template": " [{{ .HEAD }}] ",
                     "options": {
                         "branch_icon": "\ue725 ",
                         "cherry_pick_icon": "\ue29b ",
@@ -34,17 +76,65 @@
                         "rebase_icon": "\ue728 ",
                         "revert_icon": "\uf0e2 ",
                         "tag_icon": "\uf412 "
-                    },
-                    "template": "{{ .HEAD }} "
+                    }
                 },
                 {
-                    "type": "text",
+                    "type": "docker",
                     "style": "plain",
-                    "template": "󰜌 "
+                    "foreground": "p:docker",
+                    "template": "\uf308 {{ .Context }} "
+                },
+                {
+                    "type": "go",
+                    "style": "plain",
+                    "foreground": "p:go",
+                    "template": " [\ue627 go] "
+                },
+                {
+                    "type": "haskell",
+                    "style": "plain",
+                    "foreground": "p:haskell",
+                    "template": " [\ue61f hskl] "
+                },
+                {
+                    "type": "lua",
+                    "style": "plain",
+                    "foreground": "p:lua",
+                    "template": " [\ue620 lua] "
+                },
+                {
+                    "type": "python",
+                    "style": "plain",
+                    "foreground": "p:python",
+                    "template": " [\ue73c pytn] ",
+                    "options": {
+                        "display_default": false,
+                        "display_mode": "context"
+                    }
+                },
+                {
+                    "type": "rust",
+                    "style": "plain",
+                    "foreground": "p:rust",
+                    "template": " [\ue7a8 rs] "
                 }
-            ],
-            "type": "prompt"
+            ]
+        },
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "newline": true,
+            "segments": [
+                {
+                    "type": "status",
+                    "style": "plain",
+                    "foreground": "p:main",
+                    "template": "\ue0b0 ",
+                    "options": {
+                        "always_enabled": true
+                    }
+                }
+            ]
         }
-    ],
-    "final_space": true
+    ]
 }
