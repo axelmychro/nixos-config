@@ -3,13 +3,17 @@
 - Release: 26.05 "Yarara"
 - Arch: x86-64
 
-## --flake .#main
+<img src="./assets/screenshot-cosmic-rose_pine_dawn_iris-term.png" />
+<img src="./assets/screenshot-cosmic-rose_pine_dawn_iris.png" />
 
-- Host: prts
-- Type: desktop
-- Note: "Use nvme module and nvidia gpu"
+## Host
 
-### Setup
+### PRTS
+
+- Nvme storage
+- Nvidia discrete gpu
+
+## Credits
 
 - [GRUB](https://www.gnu.org/software/grub)
     - [Theme](https://github.com/Shelton786/Grub-Themes-Arknights_Priestess)
