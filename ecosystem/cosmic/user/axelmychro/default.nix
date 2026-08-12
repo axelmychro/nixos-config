@@ -16,5 +16,5 @@ in
     unset _user_icon_dir
   '';
 
-  #home-manager.users.${user.name}.imports = [ ./home-manager ];
+  home-manager.users.${user.name}.imports = [ ./home-manager ];
 }
