@@ -20,7 +20,7 @@
       gfxmodeBios = "1920x1080";
       gfxpayloadBios = "keep";
 
-      font = "${assets}/GeistMonoNerdFont-Regular.otf";
+      font = "${assets}/GoMonoNerdFont-Regular.ttf";
       fontSize = 16;
 
       backgroundColor = "#ffffff";

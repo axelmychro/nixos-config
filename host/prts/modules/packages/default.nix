@@ -1,9 +1,5 @@
 { pkgs, ... }:
 {
-  environment.systemPackages = with pkgs; [
-    steam-run
-  ];
-
   fonts = {
     fontconfig = {
       subpixel.rgba = "rgb";
@@ -14,7 +10,7 @@
       enable = true;
     };
     packages = with pkgs; [
-      nerd-fonts.geist-mono
+      nerd-fonts.go-mono
     ];
   };
 }

@@ -4,7 +4,7 @@ _: {
     terminal = {
       shell = "system";
       toolbar.breadcrumbs = false;
-      font_family = "GeistMono Nerd Font";
+      font_family = "GoMono Nerd Font";
       cursor_shape = "block";
     };
   };

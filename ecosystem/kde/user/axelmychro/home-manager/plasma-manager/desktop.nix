@@ -1,7 +1,8 @@
 { assets, ... }:
 let
-  sans = "GeistMono Nerd Font";
-  code = "GeistMono Nerd Font";
+  font = "GoMono Nerd Font";
+  sans = "${font}";
+  code = "${font}";
 in
 {
   #xdg.dataFile."color-schemes/CatppuccinFrappe.colors".source = ../assets/CatppuccinFrappe.colors;

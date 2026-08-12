@@ -84,11 +84,6 @@
           };
 
       nixosConfigurations = {
-
-        default = mkConfig "prts" {
-          users = [ "axelmychro" ];
-        };
-
         prts = mkConfig "prts" {
           inherit version system;
           users = [
@@ -120,7 +115,7 @@
           ecosystem = "cosmic";
         };
 
-        web = mkConfig "prts-web" {
+        prts-web = mkConfig "prts-web" {
           users = [ "axelmychro" ];
         };
       };

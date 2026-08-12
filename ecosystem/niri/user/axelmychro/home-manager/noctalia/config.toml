@@ -20,7 +20,7 @@ enable_community_templates = false
 
 [shell]
 avatar_path = "~/.face"
-font_family = "GeistMono Nerd Font"
+font_family = "GoMono Nerd Font"
 
 app_icon_colorize = false
 clipboard_auto_paste = "auto"

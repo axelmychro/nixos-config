@@ -6,7 +6,7 @@ _: {
     ];
     userSettings = {
       ui_font_size = 20.0;
-      ui_font_family = "GeistMono Nerd Font";
+      ui_font_family = "GoMono Nerd Font";
 
       icon_theme = {
         mode = "system";
