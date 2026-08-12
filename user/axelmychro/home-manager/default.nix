@@ -16,6 +16,7 @@ in
       eza
       ripgrep
       fd
+      kew
     ];
     shell = pkgs.fish;
 
