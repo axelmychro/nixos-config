@@ -46,6 +46,7 @@ in
       imports = [
         ./bash
         ./cava
+        ./direnv
         ./fish
         ./git
         ./kitty
