@@ -1,5 +1,5 @@
 {
-  description = "Like a phoe-nix, cry and rise up from the ash!";
+  description = "Like a phoenix, cry and rise up from the ash!";
 
   nixConfig = {
     extra-substituters = [ "https://noctalia.cachix.org" ];
@@ -9,27 +9,27 @@
   };
 
   inputs = {
-    ## Package manager
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    git-hooks.url = "github:cachix/git-hooks.nix";
 
-    ## Desktop
     home-manager = {
+      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/release-26.05";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    silentSDDM = {
-      url = "github:uiriansan/SilentSDDM";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    plasma-manager = {
-      url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
     noctalia = {
       url = "github:noctalia-dev/noctalia/cachix";
       #inputs.nixpkgs.follows = "nixpkgs";
     };
+    plasma-manager = {
+      inputs.home-manager.follows = "home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:nix-community/plasma-manager";
+    };
+    silentSDDM = {
+      inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:uiriansan/SilentSDDM";
+    };
+
     nixvim = {
       url = "github:nix-community/nixvim/nixos-26.05";
       #inputs.nixpkgs.follows = "nixpkgs";
@@ -38,6 +38,7 @@
 
   outputs =
     {
+      self,
       nixvim,
       ...
     }@inputs:
@@ -51,46 +52,69 @@
       apps.${system} =
         builtins.mapAttrs
           (name: script: {
-            type = "app";
             program = "${pkgs.writeShellScriptBin name script}/bin/${name}";
+            type = "app";
           })
           {
             build = ''
               git add -A
               nixos-rebuild --sudo boot --flake .#"$HOSTNAME"
             '';
-
             check = ''
               git add -A
               nixos-rebuild --sudo dry-run --flake .#"$HOSTNAME"
             '';
-
             clean = ''
               nix-collect-garbage --delete-old
               nix store optimise
             '';
-
             run = ''
               git add -A
               nixos-rebuild --sudo switch --flake .#"$HOSTNAME"
             '';
-
             update = ''
               git add -A
               nix flake update
             '';
-
             default = "nix run .#run";
           };
-
+      checks.${system}.pre-commit-check = inputs.git-hooks.lib.${system}.run {
+        hooks = {
+          deadnix = {
+            enable = true;
+            files = "\\.nix$";
+          };
+          nixfmt = {
+            enable = true;
+            files = "\\.nix$";
+          };
+          statix = {
+            enable = true;
+            files = "\\.nix$";
+          };
+        };
+        src = ./.;
+      };
+      devShells.${system}.default =
+        let
+          inherit (self.checks.${system}.pre-commit-check) shellHook enabledPackages;
+        in
+        pkgs.mkShell {
+          inherit shellHook;
+          buildInputs = enabledPackages;
+        };
+      formatter =
+        let
+          config = self.checks.${system}.pre-commit-check.config;
+          inherit (config) package configFile;
+          script = ''
+            ${pkgs.lib.getExe package} run --all-files --config ${configFile}
+          '';
+        in
+        pkgs.writeShellScriptBin "pre-commit-run" script;
       nixosConfigurations = {
         prts = mkConfig "prts" {
           inherit version system;
-          users = [
-            "axelmychro"
-            "priestess"
-          ];
-
           ecosystem = "cosmic";
           extraArgs = { inherit nixvim; };
           extraModules = [
@@ -104,27 +128,21 @@
             #./modules/virtualisation/virt-manager.nix
             #./modules/virtualisation/docker.nix
           ];
-        };
-
-        pts-skia = mkConfig "pts-skia" {
           users = [
             "axelmychro"
             "priestess"
           ];
-
-          ecosystem = "cosmic";
         };
-
         prts-web = mkConfig "prts-web" {
           users = [ "axelmychro" ];
         };
-      };
-      devShells.${system}.default = pkgs.mkShell {
-        nativeBuildInputs = with pkgs; [
-          nixfmt
-          statix
-          deadnix
-        ];
+        pts-skia = mkConfig "pts-skia" {
+          ecosystem = "cosmic";
+          users = [
+            "axelmychro"
+            "priestess"
+          ];
+        };
       };
     };
 }
