@@ -29,7 +29,10 @@
         "haskell": "p:iris",
         "lua": "p:pine",
         "python": "p:gold",
-        "rust": "p:rose"
+        "rust": "p:rose",
+        "npm": "p:love",
+        "pnpm": "p:gold",
+        "astro": "p:iris"
     },
     "transient_prompt": {
         "foreground": "p:time",
@@ -82,7 +85,7 @@
                     "type": "docker",
                     "style": "plain",
                     "foreground": "p:docker",
-                    "template": "\uf308 {{ .Context }} "
+                    "template": " [\uf308 {{ .Context }}] "
                 },
                 {
                     "type": "go",
@@ -117,6 +120,18 @@
                     "style": "plain",
                     "foreground": "p:rust",
                     "template": " [\ue7a8 rs] "
+                },
+                {
+                    "type": "npm",
+                    "style": "plain",
+                    "foreground": "p:npm",
+                    "template": "{{ if not (glob \"pnpm-lock.yaml\") }} [\ue71e npm] {{ end }}"
+                },
+                {
+                    "type": "pnpm",
+                    "style": "plain",
+                    "foreground": "p:pnpm",
+                    "template": " [\ue865 pnpm] "
                 }
             ]
         },

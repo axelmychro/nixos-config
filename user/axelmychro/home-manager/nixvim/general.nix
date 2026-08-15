@@ -1,5 +1,4 @@
-{ config, ... }:
-{
+_: {
   programs.nixvim = {
     globals = {
       mapleader = " ";
