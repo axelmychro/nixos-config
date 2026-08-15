@@ -4,7 +4,7 @@ _: {
     "fastfetch/config.jsonc".source = ./config.jsonc;
     "fastfetch/nix.txt".source = ./src/nix.txt;
 
-    "fastfetch/zconf.json".source = ./zconf.json;
+    "fastfetch/cconf.json".source = ./cconf.json;
     "fastfetch/closure.png".source = ./src/closure.png;
   };
 }
