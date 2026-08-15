@@ -7,11 +7,13 @@ _: {
   ];
 
   nix.settings = {
+    trusted-users = [
+      "root"
+      "axelmychro"
+    ];
     cores = 12;
     max-jobs = 8;
   };
   services.fwupd.enable = true; # firmware update daemon
   zramSwap.enable = true; # 50% by default
-
-  environment.shellAliases.nc = "cd ~/nixos-config";
 }
