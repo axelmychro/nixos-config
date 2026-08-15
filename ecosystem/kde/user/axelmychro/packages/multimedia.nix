@@ -1,4 +1,7 @@
 { pkgs, ... }:
+let
+  obs-cuda = pkgs.obs-studio.override { cudaSupport = true; };
+in
 {
   environment.systemPackages = with pkgs; [
     imagemagick
@@ -20,11 +23,7 @@
     enable = true;
     enableVirtualCamera = true;
 
-    package = (
-      pkgs.obs-studio.override {
-        cudaSupport = false;
-      }
-    );
+    package = obs-cuda;
 
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs
