@@ -38,10 +38,6 @@
         "uptime",
         "packages",
         "shell",
-        {
-            "type": "display",
-            "key": "Display"
-        },
         "de",
         "wm",
         "wmtheme",
@@ -53,6 +49,10 @@
         {
             "type": "terminalfont",
             "key": "Term Font"
+        },
+        {
+            "type": "display",
+            "key": "Display"
         },
         "cpu",
         "gpu",
