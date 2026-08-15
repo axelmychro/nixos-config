@@ -27,7 +27,10 @@ in
       "libvirtd"
     ];
   };
-  programs.fish.enable = true;
+  programs = {
+    fish.enable = true;
+    gnupg.agent.enable = true;
+  };
 
   home-manager = {
     extraSpecialArgs = {
