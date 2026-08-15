@@ -119,5 +119,12 @@
           users = [ "axelmychro" ];
         };
       };
+      devShells.${system}.default = pkgs.mkShell {
+        nativeBuildInputs = with pkgs; [
+          nixfmt
+          statix
+          deadnix
+        ];
+      };
     };
 }

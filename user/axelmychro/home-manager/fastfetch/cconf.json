@@ -4,10 +4,11 @@
         "type": "kitty-icat",
         "source": "~/.config/fastfetch/closure.png",
         "height": 12,
+        "width": 24,
         "padding": {
             "top": 0,
-            "left": 2,
-            "right": 2,
+            "left": 0,
+            "right": 4,
             "bottom": 0
         }
     },
