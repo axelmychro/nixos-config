@@ -1,7 +1,6 @@
 {
   version,
   pkgs,
-  config,
   ...
 }:
 {
@@ -60,7 +59,7 @@
       PasswordAuthentication = false;
       KbdInteractiveAuthentication = false;
       PermitRootLogin = "no";
-      AllowUsers = [];
+      AllowUsers = [ ];
       MaxAuthTries = 3;
     };
   };
@@ -104,6 +103,6 @@
     e = "$EDITOR";
     sue = "sudoedit";
     g = "git";
-    nsh = "nix-shell -p";
+    nsh = "nix-shell";
   };
 }
