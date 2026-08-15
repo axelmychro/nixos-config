@@ -104,5 +104,6 @@
     sue = "sudoedit";
     g = "git";
     nsh = "nix-shell";
+    nc = "cd ~/nixos-config";
   };
 }
