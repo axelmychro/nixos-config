@@ -1,3 +1,6 @@
 _: {
-  programs.direnv.enable = true;
+  programs.direnv = {
+    nix-direnv.enable = true;
+    enable = true;
+  };
 }
