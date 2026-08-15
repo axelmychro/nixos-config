@@ -1,9 +1,4 @@
-{
-  assets,
-  noctalia,
-  ...
-}:
-{
+_: {
   imports = [
     ./niri
     ./noctalia
