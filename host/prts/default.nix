@@ -8,10 +8,7 @@
   ];
 
   nix.settings = {
-    trusted-users = [
-      "root"
-      "axelmychro"
-    ];
+    trusted-users = [ "axelmychro" ];
     cores = 12;
     max-jobs = 8;
   };
