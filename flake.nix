@@ -2,14 +2,19 @@
   description = "Like a phoenix, cry and rise up from the ash!";
 
   nixConfig = {
-    extra-substituters = [ "https://noctalia.cachix.org" ];
+    extra-substituters = [
+      "https://noctalia.cachix.org"
+      "https://attic.xuyh0120.win/lantian"
+    ];
     extra-trusted-public-keys = [
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
     ];
   };
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     git-hooks.url = "github:cachix/git-hooks.nix";
 
     home-manager = {
@@ -39,6 +44,7 @@
   outputs =
     {
       self,
+      nix-cachyos-kernel,
       nixvim,
       ...
     }@inputs:
@@ -112,12 +118,19 @@
           '';
         in
         pkgs.writeShellScriptBin "pre-commit-run" script;
+
+      #
+      # NixOS Configurations
+      #
       nixosConfigurations = {
         prts = mkConfig "prts" {
           inherit version system;
           ecosystem = "cosmic";
-          extraArgs = { inherit nixvim; };
+          extraArgs = { inherit nix-cachyos-kernel nixvim; };
           extraModules = [
+            (_: {
+              nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
+            })
             nixvim.nixosModules.default
 
             ./modules/graphics/intel.nix
