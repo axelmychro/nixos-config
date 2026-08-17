@@ -1,13 +1,14 @@
 {
   version,
   pkgs,
+  lib,
   ...
 }:
 {
   # System
 
   system.stateVersion = version;
-  boot.kernelPackages = pkgs.linuxPackages_6_18;
+  boot.kernelPackages = lib.mkDefault pkgs.linuxKernel.packages.linux_6_18;
 
   nixpkgs.config.allowUnfree = true;
   nix = {
