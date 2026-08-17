@@ -1,11 +1,17 @@
 { pkgs, ... }:
 # Shared packages for desktops
 {
+  programs = {
+    nix-ld.enable = true;
+    steam.enable = true;
+    gamemode.enable = true;
+  };
   environment = {
     systemPackages = with pkgs; [
-      # Terminal emulator
+      wl-clipboard # wl-copy
+
+      # Terminalism
       kitty
-      # System information
       yazi
       fastfetch
       btop
@@ -24,12 +30,7 @@
       zoom-us
       easyeffects
 
-      # Binary compatibilities
-      binutils
-      nix-ld
-      steam-run
-
-      # NOTE: some programs like cosmic-player requires gstreamer
+      # NOTE: Some programs like cosmic-player requires gstreamer
       gst_all_1.gstreamer
       gst_all_1.gst-plugins-base
       gst_all_1.gst-plugins-good
@@ -37,9 +38,20 @@
       gst_all_1.gst-plugins-ugly
       gst_all_1.gst-libav
       gst_all_1.gst-vaapi
+
+      # Binary compatibilities
+      binutils
+      #nix-ld
+      steam-run
+
+      # Games
+      wineWow64Packages.waylandFull
+      winetricks
+      #gamemode
+      protonplus
+      #steam
+      heroic
     ];
-    variables = {
-      GST_PLUGIN_PATH = "/run/current-system/sw/lib/gstreamer-1.0/";
-    };
+    variables.GST_PLUGIN_PATH = "/run/current-system/sw/lib/gstreamer-1.0/";
   };
 }
