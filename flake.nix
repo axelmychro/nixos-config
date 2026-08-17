@@ -21,24 +21,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/release-26.05";
     };
-    noctalia = {
-      url = "github:noctalia-dev/noctalia/cachix";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    };
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
     plasma-manager = {
-      inputs.home-manager.follows = "home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/plasma-manager";
-    };
-    silentSDDM = {
       inputs.nixpkgs.follows = "nixpkgs";
-      url = "github:uiriansan/SilentSDDM";
+      inputs.home-manager.follows = "home-manager";
     };
+    silentSDDM.url = "github:uiriansan/SilentSDDM";
 
-    nixvim = {
-      url = "github:nix-community/nixvim/nixos-26.05";
-      #inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
   };
 
   outputs =
@@ -129,7 +121,10 @@
           extraArgs = { inherit nix-cachyos-kernel nixvim; };
           extraModules = [
             (_: {
-              nixpkgs.overlays = [ nix-cachyos-kernel.overlays.pinned ];
+              nixpkgs.overlays = [
+                nix-cachyos-kernel.overlays.pinned
+                inputs.millennium.overlays.default
+              ];
             })
             nixvim.nixosModules.default
 

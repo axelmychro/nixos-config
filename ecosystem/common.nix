@@ -3,7 +3,10 @@
 {
   programs = {
     nix-ld.enable = true;
-    steam.enable = true;
+    steam = {
+      package = pkgs.millennium-steam;
+      enable = true;
+    };
     gamemode.enable = true;
   };
   environment = {
