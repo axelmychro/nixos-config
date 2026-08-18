@@ -19,6 +19,7 @@
       fastfetch
       btop
       gdu
+      wiremix
 
       # Browser
       firefox
@@ -54,6 +55,7 @@
       protonplus
       #steam
       heroic
+      #osu-lazer-bin
     ];
     variables.GST_PLUGIN_PATH = "/run/current-system/sw/lib/gstreamer-1.0/";
   };
