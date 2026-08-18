@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, prismlauncher, ... }:
 # Shared packages for desktops
 {
   programs = {
@@ -56,6 +56,7 @@
       #steam
       heroic
       #osu-lazer-bin
+      prismlauncher.packages.${pkgs.system}.prismlauncher
     ];
     variables.GST_PLUGIN_PATH = "/run/current-system/sw/lib/gstreamer-1.0/";
   };

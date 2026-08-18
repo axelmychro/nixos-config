@@ -5,10 +5,12 @@
     extra-substituters = [
       "https://noctalia.cachix.org"
       "https://attic.xuyh0120.win/lantian"
+      "https://prismlauncher.cachix.org"
     ];
     extra-trusted-public-keys = [
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
+      "prismlauncher.cachix.org-1:9/n/FGyABA2jLUVfY+DEp4hKds/rwO+SCOtbOkDzd+c="
     ];
   };
 
@@ -31,13 +33,16 @@
 
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    prismlauncher.url = "github:PrismLauncher/PrismLauncher";
   };
 
   outputs =
     {
       self,
       nix-cachyos-kernel,
+      millennium,
       nixvim,
+      prismlauncher,
       ...
     }@inputs:
     let
@@ -118,12 +123,19 @@
         prts = mkConfig "prts" {
           inherit version system;
           ecosystem = "cosmic";
-          extraArgs = { inherit nix-cachyos-kernel nixvim; };
+          extraArgs = {
+            inherit
+              nix-cachyos-kernel
+              millennium
+              nixvim
+              prismlauncher
+              ;
+          };
           extraModules = [
             (_: {
               nixpkgs.overlays = [
                 nix-cachyos-kernel.overlays.pinned
-                inputs.millennium.overlays.default
+                millennium.overlays.default
               ];
             })
             nixvim.nixosModules.default
