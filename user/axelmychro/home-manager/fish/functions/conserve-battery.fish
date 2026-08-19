@@ -1,4 +1,4 @@
-function battery-conserve
+function conserve-battery
     set -l _target_file '/sys/bus/platform/drivers/ideapad_acpi/VPC2004:00/conservation_mode'
 
     if not test -f "$_target_file"
