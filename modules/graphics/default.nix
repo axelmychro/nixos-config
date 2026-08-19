@@ -3,15 +3,14 @@
   ...
 }:
 {
+  services.xserver.enable = false;
   hardware = {
-    enableRedistributableFirmware = true;
     graphics = {
       enable = true;
       enable32Bit = true;
     };
+    enableRedistributableFirmware = true;
   };
-  services.xserver.enable = false;
-
   environment = {
     sessionVariables = {
       NIXOS_OZONE_WL = "1"; # for chromium,electron
