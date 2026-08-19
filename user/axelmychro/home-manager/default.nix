@@ -16,7 +16,10 @@ in
       eza
       ripgrep
       fd
-      kew
+      #tree
+      #gdu
+      #btop
+      #kew
     ];
     shell = pkgs.fish;
 
