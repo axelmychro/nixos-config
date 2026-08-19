@@ -8,7 +8,7 @@
   ];
 
   nix.settings = {
-    trusted-users = [ "axelmychro" ];
+    trusted-users = [ "@wheel" ];
     cores = 12;
     max-jobs = 8;
   };
