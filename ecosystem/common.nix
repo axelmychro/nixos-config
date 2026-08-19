@@ -21,6 +21,7 @@ let
       btop
       gdu
       tree
+      kew
       wiremix
       wl-clipboard # wl-copy
     ];
