@@ -16,12 +16,11 @@ in
     desktopManager.plasma6.enable = true;
   };
   environment = {
-    systemPackages = with pkgs; [
-      firefox
-      haruna
+    systemPackages = [
+      pkgs.haruna
     ];
-    plasma6.excludePackages = with pkgs.kdePackages; [
-      plasma-browser-integration
+    plasma6.excludePackages = [
+      pkgs.kdePackages.plasma-browser-integration
     ];
   };
   programs.silentSDDM = {
