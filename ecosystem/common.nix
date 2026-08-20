@@ -10,6 +10,7 @@ let
     environment.systemPackages = with pkgs; [
       binutils
       steam-run
+      appimage-run
     ];
     programs.nix-ld.enable = true;
   };
@@ -70,7 +71,7 @@ let
       #gamemode
       #steam
       heroic
-      #osu-lazer-bin
+      osu-lazer-bin
       prismlauncher.packages.${pkgs.system}.prismlauncher
     ];
     programs = {
@@ -92,7 +93,9 @@ lib.mkMerge [
 
       # Univ & office
       libreoffice
+      thunderbird
       zoom-us
+      aichat
     ];
 
   }
