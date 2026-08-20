@@ -64,6 +64,7 @@ in
         ./yazi
         nixvim.homeModules.default
         ./nixvim
+        ./zed
       ];
     };
   };
