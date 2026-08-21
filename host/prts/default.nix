@@ -14,4 +14,7 @@
   };
   services.fwupd.enable = true; # firmware update daemon
   zramSwap.enable = true; # 50% by default
+
+  # WARNING: Temporary option!
+  #services.cloudflare-warp.enable = true;
 }
