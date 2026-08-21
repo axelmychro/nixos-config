@@ -14,7 +14,7 @@ let
     ];
     programs.nix-ld.enable = true;
   };
-  myTerminalism = {
+  commonTerminal = {
     environment.systemPackages = with pkgs; [
       kitty # Emulator
       yazi
@@ -63,7 +63,7 @@ let
       };
     };
   };
-  myGames = {
+  commonGames = {
     environment.systemPackages = with pkgs; [
       wineWow64Packages.waylandFull
       winetricks
@@ -82,24 +82,25 @@ let
       };
     };
   };
+  commonOffice = {
+    environment.systemPackages = with pkgs; [
+      bitwarden-desktop
+      firefox
+      libreoffice
+      telegram-desktop
+      aichat
+    ];
+    programs = {
+      thunderbird.enable = true;
+      zoom-us.enable = true;
+    };
+  };
 in
 lib.mkMerge [
   binaryCompatibility
-  myTerminalism
-  {
-    environment.systemPackages = with pkgs; [
-      # Browser
-      firefox
-
-      # Univ & office
-      libreoffice
-      thunderbird
-      zoom-us
-      aichat
-    ];
-
-  }
+  commonTerminal
   gstreamerFull
   myMultimedia
-  myGames
+  commonGames
+  commonOffice
 ]
