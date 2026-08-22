@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  prismlauncher,
   ...
 }:
 # Shared packages for desktops
@@ -46,6 +45,7 @@ let
     environment.systemPackages = with pkgs; [
       ffmpeg
       imagemagick
+      snapshot
       gimp
       krita
       kdePackages.kdenlive
@@ -72,7 +72,7 @@ let
       #steam
       heroic
       osu-lazer-bin
-      prismlauncher.packages.${pkgs.system}.prismlauncher
+      prismlauncher
     ];
     programs = {
       gamemode.enable = true;
