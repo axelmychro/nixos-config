@@ -136,14 +136,11 @@
               ];
             })
             nixvim.nixosModules.default
-
             ./modules/graphics/intel.nix
             ./modules/graphics/nvidia.nix
-
-            #./modules/flatpak
-
-            #./modules/virtualisation/virt-manager.nix
-            #./modules/virtualisation/docker.nix
+            ./modules/flatpak
+            ./modules/virtualisation/virt-manager.nix
+            ./modules/virtualisation/docker.nix
           ];
           users = [
             "axelmychro"
