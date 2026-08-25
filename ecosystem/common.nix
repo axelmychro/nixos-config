@@ -15,15 +15,32 @@ let
   };
   commonTerminal = {
     environment.systemPackages = with pkgs; [
-      kitty # Emulator
+      # Emulator
+      kitty
+
+      # Archive
+      zip
+      unzip
+      rar
+      unrar
+      p7zip
+      mat2
+
+      # CLI
+      wl-clipboard # ... | wl-copy
       yazi
-      fastfetch
-      btop
-      gdu
-      tree
+      btop # general system information
+      gdu # disk usage
+      tree # print entire directory
+      wiremix # audio control
       kew
-      wiremix
-      wl-clipboard # wl-copy
+
+      ## Forensic
+      fastfetch
+      exiftool
+      steghide
+      stegseek
+      zsteg
     ];
   };
   gstreamerFull = {
@@ -68,8 +85,6 @@ let
       wineWow64Packages.waylandFull
       winetricks
       protonplus
-      #gamemode
-      #steam
       heroic
       osu-lazer-bin
       prismlauncher
@@ -84,16 +99,46 @@ let
   };
   commonOffice = {
     environment.systemPackages = with pkgs; [
-      bitwarden-desktop
-      firefox
-      libreoffice
+      monero-gui
       telegram-desktop
-      aichat
     ];
     programs = {
       thunderbird.enable = true;
       zoom-us.enable = true;
     };
+  };
+  commonNet = {
+    environment.systemPackages = with pkgs; [
+      # Password manager
+      bitwarden-desktop
+
+      # Browser
+      librewolf
+      tor-browser
+
+      # Client
+      qbittorrent
+      proton-vpn
+      freetube
+      dorion
+      localsend
+    ];
+  };
+  commonDev = {
+    services = {
+      ollama = {
+        package = pkgs.ollama-cuda;
+        port = 11434;
+        enable = true;
+      };
+      open-webui = {
+        port = 8081;
+        enable = true;
+      };
+    };
+    environment.systemPackages = with pkgs; [
+      aichat
+    ];
   };
 in
 lib.mkMerge [
@@ -103,4 +148,6 @@ lib.mkMerge [
   myMultimedia
   commonGames
   commonOffice
+  commonNet
+  commonDev
 ]
