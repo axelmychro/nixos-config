@@ -34,19 +34,17 @@
   networking = {
     networkmanager = {
       enable = true;
-      dns = "none";
+      #dns = "none";
     };
-    firewall.enable = true;
-
+    firewall = {
+      # NOTE: Don't check for most VPNs to work.
+      checkReversePath = false;
+      enable = true;
+    };
     nameservers = [
-      "1.1.1.1"
-      "1.0.0.1"
-      "8.8.8.8"
-      "8.8.4.4"
-      "9.9.9.9"
-      "149.112.112.112"
+      "45.90.28.28"
+      "45.90.30.28"
     ];
-
     hosts = {
       "192.168.1.11" = [ "prts" ];
       "192.168.122.185" = [ "prts-web" ];
@@ -70,9 +68,8 @@
   programs = {
     vim = {
       enable = true;
-      defaultEditor = true;
+      defaultEditor = lib.mkDefault true;
     };
-
     git = {
       config = {
         init.defaultBranch = "main";
@@ -87,11 +84,9 @@
           ph = "push";
         };
       };
-
       enable = true;
     };
   };
-
   environment.shellAliases = {
     x = "sync; clear; exec $SHELL";
     l = "ls -Ahl";
