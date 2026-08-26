@@ -24,7 +24,6 @@ let
       rar
       unrar
       p7zip
-      mat2
 
       # CLI
       wl-clipboard # ... | wl-copy
@@ -99,6 +98,7 @@ let
   };
   commonOffice = {
     environment.systemPackages = with pkgs; [
+      libreoffice
       monero-gui
       telegram-desktop
     ];
@@ -113,14 +113,14 @@ let
       bitwarden-desktop
 
       # Browser
-      librewolf
+      google-chrome
+      mullvad-browser
       tor-browser
 
       # Client
       qbittorrent
       proton-vpn
       freetube
-      dorion
       localsend
     ];
   };
@@ -129,11 +129,11 @@ let
       ollama = {
         package = pkgs.ollama-cuda;
         port = 11434;
-        enable = true;
+        enable = false;
       };
       open-webui = {
         port = 8081;
-        enable = true;
+        enable = false;
       };
     };
     environment.systemPackages = with pkgs; [
