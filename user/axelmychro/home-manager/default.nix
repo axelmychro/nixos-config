@@ -4,6 +4,7 @@
   pkgs,
   assets,
   nixvim,
+  nixcord,
   ...
 }:
 let
@@ -65,6 +66,8 @@ in
         nixvim.homeModules.default
         ./nixvim
         ./zed
+        nixcord.homeModules.default
+        ./nixcord
       ];
     };
   };

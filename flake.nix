@@ -33,14 +33,16 @@
 
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    nixcord.url = "github:4evy/nixcord";
   };
 
   outputs =
     {
       self,
       nix-cachyos-kernel,
-      millennium,
       nixvim,
+      millennium,
+      nixcord,
       ...
     }@inputs:
     let
@@ -126,6 +128,7 @@
               nix-cachyos-kernel
               millennium
               nixvim
+              nixcord
               ;
           };
           extraModules = [
