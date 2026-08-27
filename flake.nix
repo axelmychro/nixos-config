@@ -1,5 +1,8 @@
 {
-  description = "Like a phoenix, cry and rise up from the ash!";
+  description = ''
+    This is a flake for workstations consisting of configurations for a desktop or a server.
+    "Like a phoe-nix, cry and rise up from the ash.";
+  '';
 
   nixConfig = {
     extra-substituters = [
@@ -59,26 +62,14 @@
             type = "app";
           })
           {
-            build = ''
-              git add -A
-              nixos-rebuild --sudo boot --flake .#"$HOSTNAME"
-            '';
-            check = ''
-              git add -A
-              nixos-rebuild --sudo dry-run --flake .#"$HOSTNAME"
-            '';
+            build = "nixos-rebuild --sudo boot --flake .#$HOSTNAME";
+            check = "nixos-rebuild --sudo dry-run --flake .#$HOSTNAME";
             clean = ''
               nix-collect-garbage --delete-old
               nix store optimise
             '';
-            run = ''
-              git add -A
-              nixos-rebuild --sudo switch --flake .#"$HOSTNAME"
-            '';
-            update = ''
-              git add -A
-              nix flake update
-            '';
+            run = "nixos-rebuild --sudo switch --flake .#$HOSTNAME";
+            update = "nix flake update";
             default = "nix run .#run";
           };
       checks.${system}.pre-commit-check = inputs.git-hooks.lib.${system}.run {
