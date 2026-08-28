@@ -1,45 +1,20 @@
 {
-  version,
-  config,
-  pkgs,
   assets,
-  nixvim,
-  nixcord,
+  config,
+  inputs,
+  pkgs,
+  version,
   ...
 }:
 let
   user = config.nixosConfigUsers.axelmychro;
 in
 {
-  users.users.${user.name} = {
-
-    packages = with pkgs; [
-      eza
-      ripgrep
-      fd
-      #tree
-      #gdu
-      #btop
-      #kew
-    ];
-    shell = pkgs.fish;
-
-    extraGroups = [
-      "video"
-      "render"
-      "docker"
-      "libvirtd"
-    ];
-  };
-  programs = {
-    fish.enable = true;
-    gnupg.agent.enable = true;
-  };
-
   home-manager = {
     extraSpecialArgs = {
       inherit
         assets
+        inputs
         ;
     };
 
@@ -48,8 +23,6 @@ in
         homeDirectory = "/home/${user.name}";
         stateVersion = version; # HM is developed against nixos-unstable
       };
-      xdg.enable = true;
-
       imports = [
         ./bash
         ./cava
@@ -63,12 +36,36 @@ in
         ./oh-my-posh
         ./tmux
         ./yazi
-        nixvim.homeModules.default
+        inputs.nixvim.homeModules.default
         ./nixvim
         ./zed
-        nixcord.homeModules.default
+        inputs.nixcord.homeModules.default
         ./nixcord
       ];
+      xdg.enable = true;
     };
+  };
+  programs = {
+    fish.enable = true;
+    gnupg.agent.enable = true;
+  };
+  users.users.${user.name} = {
+
+    extraGroups = [
+      "video"
+      "render"
+      "docker"
+      "libvirtd"
+    ];
+    packages = with pkgs; [
+      eza
+      ripgrep
+      fd
+      #tree
+      #gdu
+      #btop
+      #kew
+    ];
+    shell = pkgs.fish;
   };
 }

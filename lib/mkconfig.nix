@@ -32,6 +32,7 @@ let
       version
       system
       assets
+      inputs
       ;
   };
 
@@ -48,8 +49,6 @@ let
       { };
 in
 lib.nixosSystem {
-  specialArgs = defaultArgs // ecosystemArgs // extraArgs;
-
   modules = [
     { system.nixos.label = "${ecosystem}-${version}"; }
     ../host/common.nix
@@ -93,4 +92,5 @@ lib.nixosSystem {
       [ ]
   )
   ++ extraModules;
+  specialArgs = defaultArgs // ecosystemArgs // extraArgs;
 }

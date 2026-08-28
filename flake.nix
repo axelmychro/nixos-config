@@ -40,14 +40,7 @@
   };
 
   outputs =
-    {
-      self,
-      nix-cachyos-kernel,
-      nixvim,
-      millennium,
-      nixcord,
-      ...
-    }@inputs:
+    { self, ... }@inputs:
     let
       version = "26.05";
       system = "x86_64-linux";
@@ -101,9 +94,7 @@
         let
           config = self.checks.${system}.pre-commit-check.config;
           inherit (config) package configFile;
-          script = ''
-            ${pkgs.lib.getExe package} run --all-files --config ${configFile}
-          '';
+          script = "${pkgs.lib.getExe package} run --all-files --config ${configFile}";
         in
         pkgs.writeShellScriptBin "pre-commit-run" script;
 
@@ -114,22 +105,13 @@
         prts = mkConfig "prts" {
           inherit version system;
           ecosystem = "cosmic";
-          extraArgs = {
-            inherit
-              nix-cachyos-kernel
-              millennium
-              nixvim
-              nixcord
-              ;
-          };
           extraModules = [
             (_: {
               nixpkgs.overlays = [
-                nix-cachyos-kernel.overlays.pinned
-                millennium.overlays.default
+                inputs.nix-cachyos-kernel.overlays.pinned
+                inputs.millennium.overlays.default
               ];
             })
-            nixvim.nixosModules.default
             ./modules/graphics/intel.nix
             ./modules/graphics/nvidia.nix
             ./modules/flatpak
