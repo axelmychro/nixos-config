@@ -46,6 +46,15 @@
       system = "x86_64-linux";
       pkgs = inputs.nixpkgs.legacyPackages.${system};
       mkConfig = import ./lib/mkconfig.nix { inherit inputs; };
+
+      # Options
+      intel_gpu = ./modules/graphics/intel.nix;
+      nvidia_gpu = ./modules/graphics/nvidia.nix;
+      #flatpak = ./modules/flatpak;
+      libvirt = ./modules/virtualisation/libvirt.nix;
+      #vmware = ./modules/virtualisation/vmware.nix;
+      docker = ./modules/virtualisation/docker.nix;
+      #podman = ./modules/virtualisation/podman.nix;
     in
     {
       apps.${system} =
@@ -112,11 +121,13 @@
                 inputs.millennium.overlays.default
               ];
             })
-            ./modules/graphics/intel.nix
-            ./modules/graphics/nvidia.nix
-            ./modules/flatpak
-            ./modules/virtualisation/virt-manager.nix
-            ./modules/virtualisation/docker.nix
+            intel_gpu
+            nvidia_gpu
+            #flatpak
+            libvirt
+            #vmware
+            docker
+            #podman
           ];
           users = [
             "axelmychro"
