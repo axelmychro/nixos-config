@@ -99,6 +99,7 @@ let
   commonOffice = {
     environment.systemPackages = with pkgs; [
       libreoffice
+      inkscape
       monero-gui
       telegram-desktop
     ];
