@@ -12,6 +12,7 @@ host:
   ## Optional
   extraArgs ? { },
   extraModules ? [ ],
+  theme ? "rose-pine",
 }:
 let
   inherit (inputs.nixpkgs) lib;
@@ -27,15 +28,35 @@ let
     ]
   ) users;
 
+  #
+  # Theming
+  #
+  wallpaperFiles = {
+    rose-pine-dawn = "wallpaper-rose_pine_dawn-kiana.png";
+    rose-pine = "wallpaper-rose_pine-wisadel.png";
+  };
+  wallpaperFileName =
+    wallpaperFiles.${theme} or (throw ''
+      Unknown theme "${theme}".
+      Available themes: ${
+        lib.concatStringsSep "\n" (lib.mapAttrsToList (name: _: "  - ${name}") wallpaperFiles)
+      }
+    '');
+  wallpaper-file = "${assets}/${wallpaperFileName}";
+
+  #
+  # Args
+  #
   defaultArgs = {
     inherit
       version
       system
       assets
+      theme
+      wallpaper-file
       inputs
       ;
   };
-
   ecosystemArgs =
     if ecosystem == "kde" then
       {

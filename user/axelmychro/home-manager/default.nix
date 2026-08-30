@@ -4,21 +4,17 @@
   pkgs,
   user,
   version,
+  theme,
   wallpaper-file,
   ...
 }:
-let
-  file_name = "wallpaper-rose_pine_dawn_iris-kiana.png";
-  wallpaper_file = "${assets}/${file_name}";
-in
 {
-  _module.args.wallpaper-file = wallpaper_file;
-
   home-manager = {
     extraSpecialArgs = {
       inherit
         assets
         inputs
+        theme
         wallpaper-file
         ;
     };
