@@ -51,7 +51,7 @@ in
 lib.nixosSystem {
   modules = [
     { system.nixos.label = "${ecosystem}-${version}"; }
-    ../host/common.nix
+    ../common/system
     ../host/${host}
     ./nixosconfiguser.nix
   ]
