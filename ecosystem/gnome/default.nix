@@ -14,9 +14,5 @@
       gnome-tour
       gnome-user-docs
     ];
-    systemPackages = with pkgs; [
-      alacritty
-    ];
   };
-  programs.firefox.enable = true;
 }
