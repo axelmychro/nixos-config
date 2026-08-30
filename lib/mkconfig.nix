@@ -57,13 +57,13 @@ lib.nixosSystem {
   ]
   ++ userConfigurations
   ++ lib.optionals (ecosystem != "server") [
+    ../common/desktop
     inputs.home-manager.nixosModules.default
     ../modules/home-manager
     ../modules/audio
     ../modules/bluetooth
     ../modules/power
     ../modules/graphics
-    ../ecosystem/common.nix
   ]
   ++ (
     if ecosystem == "kde" then
