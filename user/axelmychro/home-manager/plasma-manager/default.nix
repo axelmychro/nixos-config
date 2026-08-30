@@ -1,13 +1,20 @@
-{ lib, wallpaper-file, ... }:
+{
+  lib,
+  theme,
+  wallpaper-file,
+  ...
+}:
+let
+  lookAndFeel =
+    if theme == "rose-pine" then "org.kde.breezedark.desktop" else "org.kde.breeze.desktop";
+in
 {
   programs.plasma = {
     enable = true;
     overrideConfig = true;
 
     workspace = {
-      # light = org.kde.breeze.desktop
-      # dark = org.kde.breezedark.desktop
-      lookAndFeel = "org.kde.breeze.desktop";
+      inherit lookAndFeel;
       colorScheme = "FOOBAR";
       wallpaper = wallpaper-file;
     };
