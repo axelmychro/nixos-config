@@ -9,11 +9,13 @@
       "https://noctalia.cachix.org"
       "https://attic.xuyh0120.win/lantian"
       "https://cache.nixos-cuda.org"
+      "https://ezkea.cachix.org"
     ];
     extra-trusted-public-keys = [
       "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
       "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
       "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
     ];
   };
 
@@ -37,6 +39,7 @@
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
     nixcord.url = "github:4evy/nixcord";
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix/release-26.05";
   };
 
   outputs =
@@ -51,10 +54,11 @@
       intel_gpu = ./modules/graphics/intel.nix;
       nvidia_gpu = ./modules/graphics/nvidia.nix;
       #flatpak = ./modules/flatpak;
-      libvirt = ./modules/virtualisation/libvirt.nix;
+      #libvirt = ./modules/virtualisation/libvirt.nix;
       #vmware = ./modules/virtualisation/vmware.nix;
-      docker = ./modules/virtualisation/docker.nix;
+      #docker = ./modules/virtualisation/docker.nix;
       #podman = ./modules/virtualisation/podman.nix;
+      aagl = ./modules/aagl;
     in
     {
       apps.${system} =
@@ -124,10 +128,11 @@
             intel_gpu
             nvidia_gpu
             #flatpak
-            libvirt
+            #libvirt
             #vmware
-            docker
+            #docker
             #podman
+            aagl
           ];
           users = [
             "axelmychro"
