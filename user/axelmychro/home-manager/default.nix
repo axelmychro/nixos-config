@@ -1,13 +1,16 @@
 {
-  assets,
   config,
+  assets,
   inputs,
   pkgs,
   version,
+  user,
   ...
 }:
 let
-  user = config.nixosConfigUsers.axelmychro;
+  file_name = "kiana-rose_pine_dawn_iris.png";
+  wallpaper_file = "${assets}/wallpaper-${file_name}";
+  out = "${config.home-manager.users.${user}.home.homeDirectory}/Pictures/Wallpapers";
 in
 {
   home-manager = {
@@ -17,11 +20,22 @@ in
         inputs
         ;
     };
-
-    users.${user.name} = {
+    users.${user} = {
       home = {
-        homeDirectory = "/home/${user.name}";
+        homeDirectory = "/home/${user}";
         stateVersion = version; # HM is developed against nixos-unstable
+        pointerCursor = {
+          package = pkgs.rose-pine-cursor;
+          name = "BreezeX-RosePineDawn-Linux";
+          size = 48;
+          enable = true;
+          x11.enable = true;
+          gtk.enable = true;
+        };
+        activation.wallpaper = ''
+          mkdir -p "${out}"
+          cp -f "${wallpaper_file}" "${out}/${file_name}"
+        '';
       };
       imports = [
         ./bash
@@ -49,8 +63,7 @@ in
     fish.enable = true;
     gnupg.agent.enable = true;
   };
-  users.users.${user.name} = {
-
+  users.users.${user} = {
     extraGroups = [
       "video"
       "render"
@@ -61,10 +74,6 @@ in
       eza
       ripgrep
       fd
-      #tree
-      #gdu
-      #btop
-      #kew
     ];
     shell = pkgs.fish;
   };

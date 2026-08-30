@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  imports = [ ./user/index.nix ];
   services = {
     desktopManager.cosmic.enable = true;
     displayManager.cosmic-greeter.enable = true;
