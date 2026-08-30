@@ -9,8 +9,8 @@
   ...
 }:
 let
-  file_name = "kiana-rose_pine_dawn_iris.png";
-  wallpaper_file = "${assets}/wallpaper-${file_name}";
+  file_name = "wallpaper-rose_pine_dawn_iris-kiana.png";
+  wallpaper_file = "${assets}/${file_name}";
   out = "${config.home-manager.users.${user}.home.homeDirectory}/Pictures/Wallpapers";
 in
 {
