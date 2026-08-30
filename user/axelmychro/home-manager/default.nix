@@ -1,10 +1,11 @@
 {
-  config,
   assets,
+  config,
   inputs,
   pkgs,
-  version,
   user,
+  version,
+  wallpaper-file,
   ...
 }:
 let
@@ -13,17 +14,26 @@ let
   out = "${config.home-manager.users.${user}.home.homeDirectory}/Pictures/Wallpapers";
 in
 {
+  _module.args.wallpaper-file = wallpaper_file;
+
   home-manager = {
     extraSpecialArgs = {
       inherit
         assets
         inputs
+        wallpaper-file
         ;
     };
+    sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
+
     users.${user} = {
       home = {
         homeDirectory = "/home/${user}";
         stateVersion = version; # HM is developed against nixos-unstable
+        activation.wallpaper = ''
+          mkdir -p "${out}"
+          cp -f "${wallpaper-file}" "${out}/${file_name}"
+        '';
         pointerCursor = {
           package = pkgs.rose-pine-cursor;
           name = "BreezeX-RosePineDawn-Linux";
@@ -32,31 +42,31 @@ in
           x11.enable = true;
           gtk.enable = true;
         };
-        activation.wallpaper = ''
-          mkdir -p "${out}"
-          cp -f "${wallpaper_file}" "${out}/${file_name}"
-        '';
       };
+      xdg.enable = true;
+      qt.enable = false;
+      gtk.enable = false;
       imports = [
         ./bash
         ./cava
         ./direnv
+        ./fastfetch
         ./fish
         ./git
-        ./kitty
-        ./lazygit
-        ./fastfetch
         ./hyfetch
-        ./oh-my-posh
-        ./tmux
-        ./yazi
-        inputs.nixvim.homeModules.default
-        ./nixvim
-        ./zed
+        ./kitty
+        ./konsole
+        ./lazygit
         inputs.nixcord.homeModules.default
         ./nixcord
+        inputs.nixvim.homeModules.default
+        ./nixvim
+        ./oh-my-posh
+        ./plasma-manager
+        ./tmux
+        ./yazi
+        ./zed
       ];
-      xdg.enable = true;
     };
   };
   programs = {

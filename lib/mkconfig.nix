@@ -68,7 +68,6 @@ lib.nixosSystem {
   ++ (
     if ecosystem == "kde" then
       [
-        inputs.silentSDDM.nixosModules.default
         ../ecosystem/kde
       ]
     else if ecosystem == "cosmic" then

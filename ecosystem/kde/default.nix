@@ -1,45 +1,45 @@
 {
-  lib,
-  pkgs,
   assets,
+  inputs,
+  pkgs,
   ...
 }:
 let
-  bg_file_name = "priestess_moon.mp4";
+  sddm_bg_file_name = "priestess_moon.mp4";
 in
 {
+  imports = [
+    inputs.silentSDDM.nixosModules.default
+  ];
   services = {
-    displayManager.sddm = {
-      enable = lib.mkForce true;
-      wayland.enable = lib.mkForce true;
-    };
     desktopManager.plasma6.enable = true;
-  };
-  environment = {
-    systemPackages = [
-      pkgs.haruna
-    ];
-    plasma6.excludePackages = [
-      pkgs.kdePackages.plasma-browser-integration
-    ];
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
   };
   programs.silentSDDM = {
     theme = "rei";
-    backgrounds."${bg_file_name}" = "${assets}/${bg_file_name}";
-
+    backgrounds."${sddm_bg_file_name}" = "${assets}/${sddm_bg_file_name}";
     settings = {
-      "LoginScreen" = {
-        background = "${bg_file_name}";
-      };
       "LockScreen" = {
-        background = "${bg_file_name}";
+        background = "${sddm_bg_file_name}";
       };
       "LockScreen.Message" = {
         text = "Welcome back, Oracle.";
       };
+      "LoginScreen" = {
+        background = "${sddm_bg_file_name}";
+      };
     };
     enable = true;
   };
-
-  imports = [ ./user/index.nix ];
+  environment = {
+    plasma6.excludePackages = [
+      pkgs.kdePackages.plasma-browser-integration
+    ];
+    systemPackages = [
+      pkgs.haruna
+    ];
+  };
 }
