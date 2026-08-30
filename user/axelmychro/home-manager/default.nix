@@ -1,6 +1,5 @@
 {
   assets,
-  config,
   inputs,
   pkgs,
   user,
@@ -11,7 +10,6 @@
 let
   file_name = "wallpaper-rose_pine_dawn_iris-kiana.png";
   wallpaper_file = "${assets}/${file_name}";
-  out = "${config.home-manager.users.${user}.home.homeDirectory}/Pictures/Wallpapers";
 in
 {
   _module.args.wallpaper-file = wallpaper_file;
@@ -30,10 +28,7 @@ in
       home = {
         homeDirectory = "/home/${user}";
         stateVersion = version; # HM is developed against nixos-unstable
-        activation.wallpaper = ''
-          mkdir -p "${out}"
-          cp -f "${wallpaper-file}" "${out}/${file_name}"
-        '';
+
         pointerCursor = {
           package = pkgs.rose-pine-cursor;
           name = "BreezeX-RosePineDawn-Linux";
@@ -49,6 +44,7 @@ in
       imports = [
         ./bash
         ./cava
+        ./cosmic-manager
         ./direnv
         ./fastfetch
         ./fish
