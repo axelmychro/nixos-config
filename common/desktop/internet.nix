@@ -5,7 +5,7 @@
   ...
 }:
 {
-  config = lib.mkIf config.common.network.enable {
+  config = lib.mkIf config.common.internet.enable {
     environment.systemPackages = with pkgs; [
       # Browser
       google-chrome
@@ -18,5 +18,5 @@
       localsend
     ];
   };
-  options.common.network.enable = lib.mkEnableOption "networking applications";
+  options.common.internet.enable = lib.mkEnableOption "Common desktop internet packages.";
 }

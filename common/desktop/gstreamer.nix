@@ -4,6 +4,7 @@
   config,
   ...
 }:
+# NOTE: Some programs like cosmic-player requires GStreamer.
 {
   config = lib.mkIf config.common.gstreamer.enable {
     environment = {
@@ -19,5 +20,5 @@
       variables.GST_PLUGIN_PATH = "/run/current-system/sw/lib/gstreamer-1.0/";
     };
   };
-  options.common.gstreamer.enable = lib.mkEnableOption "full GStreamer support";
+  options.common.gstreamer.enable = lib.mkEnableOption "GStreamer multimedia library options.";
 }

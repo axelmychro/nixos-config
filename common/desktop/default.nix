@@ -1,25 +1,27 @@
 {
   imports = [
     ./binary-compatibility.nix
-    ./terminal.nix
+    ./development.nix
+    ./games.nix
+    ./graphics.nix
     ./gstreamer.nix
+    ./internet.nix
     ./multimedia.nix
     ./office.nix
-    ./network.nix
-    ./dev.nix
-    ./games.nix
+    ./terminal.nix
   ];
   common = {
     binaryCompatibility.enable = true;
-    terminal.enable = true;
-    gstreamer.enable = true;
-    multimedia.enable = true;
-    office.enable = true;
-    network.enable = true;
-    dev = {
+    development = {
       enable = true;
       ai.enable = false;
     };
     games.enable = true;
+    graphics.enable = true;
+    gstreamer.enable = true;
+    internet.enable = true;
+    multimedia.enable = true;
+    office.enable = true;
+    terminal.enable = true;
   };
 }

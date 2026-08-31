@@ -8,14 +8,14 @@
   config = lib.mkIf config.common.games.enable {
     environment.systemPackages = with pkgs; [
       # Winery
+      protonplus
       wineWow64Packages.waylandFull
       winetricks
-      protonplus
 
       # Launcher
       heroic
-      prismlauncher
       osu-lazer-bin
+      prismlauncher
     ];
     programs.steam = {
       package = pkgs.millennium-steam;
@@ -23,5 +23,5 @@
     };
     programs.gamemode.enable = true;
   };
-  options.common.games.enable = lib.mkEnableOption "Common games options.";
+  options.common.games.enable = lib.mkEnableOption "Common desktop games options.";
 }

@@ -9,7 +9,6 @@
     environment.systemPackages = with pkgs; [
       binutils
       steam-run
-      appimage-run
     ];
     programs.nix-ld.enable = true;
   };
