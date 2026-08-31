@@ -37,6 +37,8 @@ in
   environment = {
     plasma6.excludePackages = [
       pkgs.kdePackages.plasma-browser-integration
+      pkgs.kdePackages.konsole
+      pkgs.kdePackages.kate
     ];
     systemPackages = [
       pkgs.haruna
