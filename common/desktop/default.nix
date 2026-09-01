@@ -9,6 +9,7 @@
     ./multimedia.nix
     ./office.nix
     ./terminal.nix
+    ./utilities.nix
   ];
   common = {
     binaryCompatibility.enable = true;
@@ -23,5 +24,6 @@
     multimedia.enable = true;
     office.enable = true;
     terminal.enable = true;
+    utilities.enable = true;
   };
 }
