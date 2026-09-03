@@ -20,8 +20,13 @@
     programs.tmux.enable = true;
     environment.systemPackages = [
       pkgs.zed-editor
+      pkgs.video2x
     ]
-    ++ lib.optional config.common.development.ai.enable pkgs.aichat;
+    ++ lib.optional config.common.development.ai.enable [
+      pkgs.aichat
+      pkgs.upscayl
+      pkgs.video2x
+    ];
   };
   options.common.development = {
     enable = lib.mkEnableOption "Common desktop development options";
