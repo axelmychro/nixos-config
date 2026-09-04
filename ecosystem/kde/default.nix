@@ -35,10 +35,11 @@ in
     enable = true;
   };
   environment = {
-    plasma6.excludePackages = [
-      pkgs.kdePackages.plasma-browser-integration
-      pkgs.kdePackages.konsole
-      pkgs.kdePackages.kate
+    plasma6.excludePackages = with pkgs.kdePackages; [
+      plasma-browser-integration
+      konsole
+      kate
+      okular
     ];
     systemPackages = [
       pkgs.haruna
