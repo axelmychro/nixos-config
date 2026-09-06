@@ -12,6 +12,7 @@
       imagemagick
       snapshot
       kdePackages.kdenlive
+      yt-dlp
     ];
     programs.obs-studio = {
       package = pkgs.obs-studio.override { cudaSupport = true; };
