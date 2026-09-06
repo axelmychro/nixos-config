@@ -1,5 +1,7 @@
 {
   imports = [
+    ./display-manager.nix
+
     ./binary-compatibility.nix
     ./development.nix
     ./games.nix
