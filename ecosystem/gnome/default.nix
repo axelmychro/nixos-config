@@ -1,7 +1,7 @@
 { pkgs, ... }:
 {
   services = {
-    displayManager.gdm.enable = true;
+    #displayManager.gdm.enable = true;
     desktopManager.gnome.enable = true;
     gnome = {
       core-apps.enable = false;
