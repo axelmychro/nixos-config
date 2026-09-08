@@ -7,9 +7,11 @@
   };
   environment = {
     cosmic.excludePackages = with pkgs; [
-      cosmic-term
+      cosmic-edit
+      #cosmic-files
       cosmic-player
       cosmic-reader
+      cosmic-term
     ];
   };
 }
