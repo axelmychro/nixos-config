@@ -5,13 +5,14 @@
   };
   environment = {
     plasma6.excludePackages = with pkgs.kdePackages; [
-      plasma-browser-integration
-      konsole
-      kate
-      okular
-      gwenview
-      elisa
       ark
+      #dolphin
+      elisa
+      gwenview
+      kate
+      konsole
+      okular
+      plasma-browser-integration
     ];
   };
 }
