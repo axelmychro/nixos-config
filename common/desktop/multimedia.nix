@@ -15,13 +15,11 @@
 
       # audio
       amberol
-      easyeffects
       eartag
+      easyeffects
 
       # image
-      loupe
       imagemagick
-      gradia
 
       # video
       haruna

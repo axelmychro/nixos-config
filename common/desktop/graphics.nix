@@ -9,6 +9,8 @@
     environment.systemPackages = with pkgs; [
       blender
       gimp
+      gradia
+      loupe
       inkscape
       krita
       unityhub
