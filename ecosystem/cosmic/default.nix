@@ -9,6 +9,7 @@
     cosmic.excludePackages = with pkgs; [
       cosmic-term
       cosmic-player
+      cosmic-reader
     ];
   };
 }
