@@ -39,10 +39,10 @@ in
     environment.systemPackages =
       with pkgs;
       [
+        zed-editor
         nodejs
         pnpm
-        zed-editor
-        video2x
+        swi-prolog
       ]
       ++ ai_packages;
   };
