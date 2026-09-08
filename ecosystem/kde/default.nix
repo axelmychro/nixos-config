@@ -10,6 +10,8 @@
       kate
       okular
       gwenview
+      elisa
+      ark
     ];
   };
 }
