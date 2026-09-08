@@ -8,11 +8,12 @@
   config = lib.mkIf config.common.internet.enable {
     environment.systemPackages = with pkgs; [
       # Browser
-      google-chrome
+      brave
       mullvad-browser
       tor-browser
 
       # Clients
+      linphone
       qbittorrent
       proton-vpn
       localsend
