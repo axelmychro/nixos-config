@@ -34,8 +34,8 @@ let
   # Theming
   #
   wallpaperFiles = {
+    rose-pine = "wallpaper-rose_pine-text.jpg";
     rose-pine-dawn = "wallpaper-rose_pine_dawn-kiana.png";
-    rose-pine = "wallpaper-rose_pine-wisadel.png";
   };
   wallpaperFileName =
     wallpaperFiles.${theme} or (throw ''
