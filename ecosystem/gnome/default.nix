@@ -7,6 +7,7 @@
       core-apps.enable = false;
       core-developer-tools.enable = false;
       games.enable = false;
+      rygel.enable = false;
     };
   };
   environment = {
