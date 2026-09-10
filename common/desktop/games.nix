@@ -9,7 +9,7 @@
     environment.systemPackages = with pkgs; [
       # Winery
       protonplus
-      wineWow64Packages.waylandFull
+      wineWow64Packages.stable
       winetricks
 
       # Launcher
