@@ -11,6 +11,7 @@
       #cosmic-files
       cosmic-player
       cosmic-reader
+      cosmic-store
       cosmic-term
     ];
   };
