@@ -1,6 +1,5 @@
 {
   assets,
-  lib,
   user,
   ...
 }:
@@ -21,19 +20,23 @@
     ];
   };
 
-  services.postgresql = {
-    authentication = lib.mkOverride 10 ''
-      #type database  DBuser  auth-method
-      local all       all     trust
-    '';
-    ensureDatabases = [ user ];
-    ensureUsers = [
-      {
-        ensureClauses = {
-          login = true;
-        };
-        name = user;
-      }
-    ];
+  services = {
+    postgresql = {
+      ensureDatabases = [ user ];
+      ensureUsers = [
+        {
+          name = user;
+          ensureClauses = {
+            login = true;
+            superuser = true;
+          };
+          ensureDBOwnership = true;
+        }
+      ];
+    };
+    pgadmin = {
+      initialEmail = "axelmychro@gmail.com";
+      initialPasswordFile = "/var/lib/secrets/pgadmin_password";
+    };
   };
 }
