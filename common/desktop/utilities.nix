@@ -8,6 +8,7 @@
   config = lib.mkIf config.common.utilities.enable {
     environment.systemPackages = with pkgs; [
       bitwarden-desktop
+      ente-auth
       gnome-clocks
       peazip
       sherlock
