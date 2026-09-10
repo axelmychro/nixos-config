@@ -12,6 +12,7 @@
       kitty
 
       # Main
+      wget
       wl-clipboard # useful "... | wl-copy" pipe
       yazi
       btop
