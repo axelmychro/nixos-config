@@ -53,11 +53,11 @@
       # Options
       intel_gpu = ./modules/graphics/intel.nix;
       nvidia_gpu = ./modules/graphics/nvidia.nix;
-      #flatpak = ./modules/flatpak;
+      flatpak = ./modules/flatpak;
       #libvirt = ./modules/virtualisation/libvirt.nix;
       #vmware = ./modules/virtualisation/vmware.nix;
       #docker = ./modules/virtualisation/docker.nix;
-      #podman = ./modules/virtualisation/podman.nix;
+      podman = ./modules/virtualisation/podman.nix;
       aagl = ./modules/aagl;
     in
     {
@@ -120,6 +120,7 @@
           ecosystem = [
             "cosmic"
             "kde"
+            "gnome"
           ];
           theme = "rose-pine";
           extraModules = [
@@ -131,11 +132,11 @@
             })
             intel_gpu
             nvidia_gpu
-            #flatpak
+            flatpak
             #libvirt
             #vmware
             #docker
-            #podman
+            podman
             aagl
           ];
           users = [
