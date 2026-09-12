@@ -18,9 +18,10 @@
       btop
       gdu
       tree
-      wiremix
       fastfetch
+      wiremix
       kew
+      glow
 
       ## Archive
       zip
