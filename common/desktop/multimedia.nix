@@ -10,6 +10,7 @@
       ffmpeg
       yt-dlp
       gallery-dl
+      spotdl
 
       # capturer
       snapshot
