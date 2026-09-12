@@ -9,6 +9,7 @@
     environment.systemPackages = with pkgs; [
       ffmpeg
       yt-dlp
+      gallery-dl
 
       # capturer
       snapshot
