@@ -20,7 +20,6 @@
       tree
       fastfetch
       wiremix
-      kew
       glow
 
       ## Archive
