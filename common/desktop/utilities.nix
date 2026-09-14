@@ -7,15 +7,18 @@
 {
   config = lib.mkIf config.common.utilities.enable {
     environment.systemPackages = with pkgs; [
-      bitwarden-desktop
-      ente-auth
       gnome-clocks
       peazip
-      sherlock
+
+      # system information
       cpu-x
       gparted
-      gpu-viewer
       usbview
+      gpu-viewer
+
+      # clipboaard manager
+      wl-clipboard # useful "... | wl-copy" pipe
+      wl-clip-persist
     ];
   };
   options.common.utilities.enable = lib.mkEnableOption "Common desktop utility packages.";
