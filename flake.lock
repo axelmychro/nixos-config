@@ -549,15 +549,16 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1785353884,
-        "narHash": "sha256-UYAP/sPJxG95tN6a4VNTcskY54ud2sIQKrTzTLioGv0=",
-        "owner": "uiriansan",
+        "lastModified": 1789400688,
+        "narHash": "sha256-tRLgsOJn/ydW4TlmmltxWyie17m8LgM7pqE84/kffJ4=",
+        "owner": "axelmychro",
         "repo": "SilentSDDM",
-        "rev": "0dc4386ef570659537b480f4b226b3b6f2699948",
+        "rev": "58f5b5d71cbf817ae2f3413e9aaedb9099c3c2f4",
         "type": "github"
       },
       "original": {
-        "owner": "uiriansan",
+        "owner": "axelmychro",
+        "ref": "axelmychro/amiya",
         "repo": "SilentSDDM",
         "type": "github"
       }

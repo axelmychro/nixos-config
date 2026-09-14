@@ -34,7 +34,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    silentSDDM.url = "github:uiriansan/SilentSDDM";
+    silentSDDM.url = "github:axelmychro/SilentSDDM/axelmychro/amiya";
 
     nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
