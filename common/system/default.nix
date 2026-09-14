@@ -35,7 +35,7 @@
     firewall = {
       # NOTE: Don't check for most VPNs to work.
       #checkReversePath = false;
-      enable = true;
+      enable = false;
     };
     hosts = {
       "192.168.1.11" = [ "prts" ];
@@ -45,10 +45,14 @@
       # NextDNS
       "45.90.28.28"
       "45.90.30.28"
+
+      # Cloudflare
+      #"1.1.1.1"
+      #"1.0.0.1"
     ];
     networkmanager = {
       enable = true;
-      #dns = "none";
+      dns = "none";
     };
   };
   services.openssh = {
