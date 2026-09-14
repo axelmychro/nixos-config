@@ -57,6 +57,8 @@ in
         zed-editor
         nodejs
         pnpm
+        rainfrog
+        k9s
         swi-prolog
       ]
       ++ ai_packages;
