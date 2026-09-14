@@ -1,0 +1,24 @@
+{
+  imports = [
+    ./bash
+    ./cava
+    ./cosmic-manager
+    ./direnv
+    ./fastfetch
+    ./fish
+    ./git
+    ./glow
+    ./hyfetch
+    ./hypr
+    ./kitty
+    ./konsole
+    ./lazygit
+    ./nixcord
+    ./nixvim
+    ./oh-my-posh
+    ./plasma-manager
+    ./tmux
+    ./yazi
+    ./zed
+  ];
+}

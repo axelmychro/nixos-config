@@ -1,14 +1,19 @@
 {
   assets,
+  config,
   inputs,
   pkgs,
+  theme,
   user,
   version,
-  theme,
   wallpaper-file,
   ...
 }:
 {
+  programs = {
+    fish.enable = true;
+    gnupg.agent.enable = true;
+  };
   users.users.${user} = {
     shell = pkgs.fish;
     extraGroups = [
@@ -31,6 +36,7 @@
         theme
         wallpaper-file
         ;
+      hyprland_enabled = config.programs.hyprland.enable;
     };
     sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
 
@@ -62,32 +68,7 @@
           };
         };
       };
-
-      imports = [
-        ./bash
-        ./cava
-        ./cosmic-manager
-        ./direnv
-        ./fastfetch
-        ./fish
-        ./git
-        ./glow
-        ./hyfetch
-        ./kitty
-        ./konsole
-        ./lazygit
-        ./nixcord
-        ./nixvim
-        ./oh-my-posh
-        ./plasma-manager
-        ./tmux
-        ./yazi
-        ./zed
-      ];
+      imports = [ ./index.nix ];
     };
-  };
-  programs = {
-    fish.enable = true;
-    gnupg.agent.enable = true;
   };
 }
