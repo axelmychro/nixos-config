@@ -89,7 +89,7 @@ lib.nixosSystem {
       ]
     else if ecosystem == "hypr" then
       [
-        ../ecosystem/hyprland
+        ../ecosystem/hypr
       ]
     else if ecosystem == "gnome" then
       [

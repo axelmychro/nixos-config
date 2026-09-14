@@ -2,14 +2,14 @@
   programs.hyprland = {
     enable = true;
     withUWSM = false;
-    xwayland.enable = false;
+    xwayland.enable = true; # WARN: Required for Steam.
   };
 
   services.gnome.gnome-keyring.enable = true;
 
   environment.systemPackages = with pkgs; [
     # NOTE: Hyprland polkit could be enabled with home-manager
-    # services.hyprpolkitagent.enable = hyprland_enabled;!
+    # services.hyprpolkitagent.enable = hyprland_enabled;.
 
     #hyprpolkitagent
 
@@ -20,7 +20,7 @@
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # NOTE: The following programs could be replaced by
-    # Noctalia features, therefore redundant!
+    # Noctalia features, therefore redundant.
 
     #hyprpaper hyprlauncher hypridle hyprlock hyprsunset
 
