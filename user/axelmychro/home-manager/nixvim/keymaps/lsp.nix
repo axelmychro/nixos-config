@@ -1,166 +1,160 @@
-_: {
+{
   programs.nixvim.keymaps = [
     {
-      key = "<leader>cl";
-      options.desc = "Lsp Info";
-      action = "<cmd>LspInfo<cr>";
-      mode = [ "n" ];
-    }
-    {
-      key = "gd";
-      options.desc = "Goto Definition";
       action = "<cmd>Telescope lsp_definitions<cr>";
+      key = "gd";
       mode = [
         "n"
         "n"
       ];
+      options.desc = "Goto Definition";
     }
     {
-      key = "gr";
-      options.desc = "References";
       action = "<cmd>Telescope lsp_references<cr>";
+      key = "gr";
       mode = [
         "n"
         "n"
       ];
+      options.desc = "References";
     }
     {
-      key = "gI";
-      options.desc = "Goto Implementation";
       action = "<cmd>Telescope lsp_implementations<cr>";
+      key = "gI";
       mode = [
         "n"
         "n"
       ];
+      options.desc = "Goto Implementation";
     }
     {
-      key = "gy";
-      options.desc = "Goto T[y]pe Definition";
       action = "<cmd>Telescope lsp_type_definitions<cr>";
+      key = "gy";
       mode = [
         "n"
         "n"
       ];
+      options.desc = "Goto T[y]pe Definition";
     }
     {
-      key = "gD";
-      options.desc = "Goto Declaration";
       action = "<cmd>lua vim.lsp.buf.declaration()<cr>";
+      key = "gD";
       mode = [ "n" ];
+      options.desc = "Goto Declaration";
     }
     {
-      key = "K";
-      options.desc = "Hover";
       action = "<cmd>lua vim.lsp.buf.hover()<cr>";
+      key = "K";
       mode = [ "n" ];
+      options.desc = "Hover";
     }
     {
+      action = "<cmd>lua vim.lsp.buf.signature_help()<cr>";
       key = "gK";
-      options.desc = "Signature Help";
-      action = "<cmd>lua vim.lsp.buf.signature_help()<cr>";
       mode = [ "n" ];
+      options.desc = "Signature Help";
     }
     {
+      action = "<cmd>lua vim.lsp.buf.signature_help()<cr>";
       key = "<c-k>";
-      options.desc = "Signature Help";
-      action = "<cmd>lua vim.lsp.buf.signature_help()<cr>";
       mode = [ "i" ];
+      options.desc = "Signature Help";
     }
     {
-      key = "<leader>ca";
-      options.desc = "Code Action";
       action = "<cmd>lua vim.lsp.buf.code_action()<cr>";
+      key = "<leader>ca";
       mode = [
         "n"
         "x"
       ];
+      options.desc = "Code Action";
     }
     {
-      key = "<leader>cc";
-      options.desc = "Run Codelens";
       action = "<cmd>lua vim.lsp.codelens.run()<cr>";
+      key = "<leader>cc";
       mode = [
         "n"
         "x"
       ];
+      options.desc = "Run Codelens";
     }
     {
-      key = "<leader>cC";
-      options.desc = "Refresh & Display Codelens";
       action = "<cmd>lua vim.lsp.codelens.refresh()<cr>";
+      key = "<leader>cC";
       mode = [ "n" ];
+      options.desc = "Refresh & Display Codelens";
     }
     {
-      key = "<leader>cR";
-      options.desc = "Rename File";
       action = "<cmd>lua require('snacks').rename.rename_file()<cr>";
+      key = "<leader>cR";
       mode = [ "n" ];
+      options.desc = "Rename File";
     }
     {
-      key = "<leader>cr";
-      options.desc = "Rename";
       action = "<cmd>lua vim.lsp.buf.rename()<cr>";
+      key = "<leader>cr";
       mode = [ "n" ];
+      options.desc = "Rename";
     }
     {
-      key = "<leader>cA";
-      options.desc = "Source Action";
       action = "<cmd>lua vim.lsp.buf.code_action({ context = { only = { 'source' } } })<cr>";
+      key = "<leader>cA";
       mode = [ "n" ];
+      options.desc = "Source Action";
     }
     {
+      action = "<cmd>lua require('illuminate').goto_next_reference()<cr>";
       key = "]]";
-      options.desc = "Next Reference";
-      action = "<cmd>lua require('illuminate').goto_next_reference()<cr>";
       mode = [ "n" ];
+      options.desc = "Next Reference";
     }
     {
+      action = "<cmd>lua require('illuminate').goto_prev_reference()<cr>";
       key = "[[";
-      options.desc = "Prev Reference";
-      action = "<cmd>lua require('illuminate').goto_prev_reference()<cr>";
       mode = [ "n" ];
+      options.desc = "Prev Reference";
     }
     {
-      key = "<a-n>";
-      options.desc = "Next Reference";
       action = "<cmd>lua require('illuminate').goto_next_reference()<cr>";
+      key = "<a-n>";
       mode = [ "n" ];
+      options.desc = "Next Reference";
     }
     {
-      key = "<a-p>";
-      options.desc = "Prev Reference";
       action = "<cmd>lua require('illuminate').goto_prev_reference()<cr>";
+      key = "<a-p>";
       mode = [ "n" ];
+      options.desc = "Prev Reference";
     }
     {
-      key = "<leader>co";
-      options.desc = "Organize Imports";
       action = "<cmd>lua vim.lsp.buf.code_action({ context = { only = { 'source.organizeImports' } } })<cr>";
+      key = "<leader>co";
       mode = [ "n" ];
+      options.desc = "Organize Imports";
     }
     {
-      key = "<leader>ss";
-      options.desc = "LSP Symbols";
       action = "<cmd>Telescope lsp_document_symbols<cr>";
+      key = "<leader>ss";
       mode = [ "n" ];
+      options.desc = "LSP Symbols";
     }
     {
-      key = "<leader>sS";
-      options.desc = "LSP Workspace Symbols";
       action = "<cmd>Telescope lsp_workspace_symbols<cr>";
+      key = "<leader>sS";
       mode = [ "n" ];
+      options.desc = "LSP Workspace Symbols";
     }
     {
-      key = "gai";
-      options.desc = "C[a]lls Incoming";
       action = "<cmd>Telescope lsp_incoming_calls<cr>";
+      key = "gai";
       mode = [ "n" ];
+      options.desc = "C[a]lls Incoming";
     }
     {
-      key = "gao";
-      options.desc = "C[a]lls Outgoing";
       action = "<cmd>Telescope lsp_outgoing_calls<cr>";
+      key = "gao";
       mode = [ "n" ];
+      options.desc = "C[a]lls Outgoing";
     }
   ];
 }

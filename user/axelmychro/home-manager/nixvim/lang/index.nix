@@ -4,6 +4,7 @@
     ./c-language.nix
     ./fish.nix
     ./kdl.nix
+    ./lua.nix
     ./markdown.nix
     ./nix.nix
     ./python.nix

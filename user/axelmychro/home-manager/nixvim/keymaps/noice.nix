@@ -1,66 +1,66 @@
-_: {
+{
   programs.nixvim.keymaps = [
     {
-      key = "<c-b>";
-      options.desc = "Scroll Backward";
       action = "<cmd>lua require('noice.lsp').scroll(-4)<cr>";
+      key = "<c-b>";
       mode = [
         "n"
         "i"
         "s"
       ];
+      options.desc = "Scroll Backward";
     }
     {
-      key = "<c-f>";
-      options.desc = "Scroll Forward";
       action = "<cmd>lua require('noice.lsp').scroll(4)<cr>";
+      key = "<c-f>";
       mode = [
         "n"
         "i"
         "s"
       ];
+      options.desc = "Scroll Forward";
     }
     {
-      key = "<leader>sn";
-      options.desc = "+noice";
       action = "";
+      key = "<leader>sn";
       mode = [ "n" ];
+      options.desc = "+noice";
     }
     {
-      key = "<leader>sna";
-      options.desc = "Noice All";
       action = "<cmd>Noice all<cr>";
+      key = "<leader>sna";
       mode = [ "n" ];
+      options.desc = "Noice All";
     }
     {
-      key = "<leader>snd";
-      options.desc = "Dismiss All";
       action = "<cmd>Noice dismiss<cr>";
+      key = "<leader>snd";
       mode = [ "n" ];
+      options.desc = "Dismiss All";
     }
     {
-      key = "<leader>snh";
-      options.desc = "Noice History";
       action = "<cmd>Noice history<cr>";
+      key = "<leader>snh";
       mode = [ "n" ];
+      options.desc = "Noice History";
     }
     {
-      key = "<leader>snl";
-      options.desc = "Noice Last Message";
       action = "<cmd>Noice last<cr>";
+      key = "<leader>snl";
       mode = [ "n" ];
+      options.desc = "Noice Last Message";
     }
     {
-      key = "<leader>snt";
-      options.desc = "Noice Picker (Telescope/FzfLua)";
       action = "<cmd>Noice telescope<cr>";
+      key = "<leader>snt";
       mode = [ "n" ];
+      options.desc = "Noice Picker (Telescope/FzfLua)";
     }
     {
-      key = "<S-Enter>";
-      options.desc = "Redirect Cmdline";
       action = "<cmd>lua require('noice').redirect(vim.fn.getcmdline())<cr>";
+      key = "<S-Enter>";
       mode = [ "c" ];
+      options.desc = "Redirect Cmdline";
     }
   ];
 }
