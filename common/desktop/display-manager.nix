@@ -19,21 +19,20 @@ in
     wayland.enable = true;
   };
   programs.silentSDDM = {
-    theme = "silvia";
+    enable = true;
+    theme = "amiya";
     backgrounds.${sddm_bg_file_name} = "${assets}/${sddm_bg_file_name}";
     settings = {
       "LockScreen".background = sddm_bg_file_name;
-      "LockScreen.Date".color = white;
       "LockScreen.Clock".color = white;
+      "LockScreen.Date".color = white;
+      "LockScreen.Message".color = white;
 
       "LoginScreen".background = sddm_bg_file_name;
-      "LoginScreen.Clock".font-family = font_family_name;
-      "LoginScreen.Date".font-family = font_family_name;
-      "LoginScreen.Message" = {
-        font-family = font_family_name;
-        color = white;
+      "LoginScreen.LoginArea.Avatar" = {
+        shape = "square";
+        border-radius = 5;
       };
-      "LoginScreen.LoginArea.Avatar".shape = "square";
       "LoginScreen.LoginArea.Username" = {
         font-family = font_family_name;
         color = white;
@@ -55,6 +54,5 @@ in
       "LoginScreen.LoginArea.Popups".font-family = font_family_name;
       "Tooltips".font-family = font_family_name;
     };
-    enable = true;
   };
 }
