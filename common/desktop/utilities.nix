@@ -9,6 +9,8 @@
     environment.systemPackages = with pkgs; [
       gnome-clocks
       peazip
+      bitwarden-desktop
+      ente-auth
 
       # system information
       cpu-x
