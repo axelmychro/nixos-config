@@ -24,8 +24,10 @@
     ];
     packages = with pkgs; [
       eza
-      ripgrep
       fd
+      ripgrep
+      trash-cli
+      zoxide
     ];
   };
   home-manager = {
