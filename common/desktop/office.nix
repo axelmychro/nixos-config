@@ -11,7 +11,6 @@
       monero-gui
       telegram-desktop
     ];
-    programs.thunderbird.enable = true;
     programs.zoom-us.enable = true;
   };
   options.common.office.enable = lib.mkEnableOption "Common desktop office packages.";
