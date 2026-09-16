@@ -28,6 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/release-26.05";
     };
+    stylix.url = "github:nix-community/stylix/release-26.05";
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
