@@ -1,6 +1,7 @@
 _: {
   programs.direnv = {
-    nix-direnv.enable = true;
     enable = true;
+    nix-direnv.enable = true;
+    silent = true;
   };
 }
