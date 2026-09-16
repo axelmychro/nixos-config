@@ -15,7 +15,7 @@
         "hypr/hyprland_noctalia.lua".source = ./hyprland_noctalia.lua;
         "hypr/hyprland_windows.lua".source = ./hyprland_windows.lua;
         "hypr/hyprland_workspaces.lua".source = ./hyprland_workspaces.lua;
-        "hypr/.luarc.json".source = ./luarc.json;
+        "hypr/.luarc.json".source = ./.luarc.json;
       }
     else
       { };
