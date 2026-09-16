@@ -48,12 +48,10 @@
         stateVersion = version; # HM is developed against nixos-unstable
 
         pointerCursor = {
+          enable = true;
           package = pkgs.rose-pine-cursor;
           name = "BreezeX-RosePineDawn-Linux";
           size = 64;
-          enable = true;
-          x11.enable = true;
-          gtk.enable = true;
         };
       };
       xdg.enable = true;
