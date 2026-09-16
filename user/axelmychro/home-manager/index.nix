@@ -1,8 +1,12 @@
 {
   imports = [
+    ./stylix
+    ./cosmic-manager
+    ./plasma-manager
+    ./nixvim
+
     ./bash
     ./cava
-    ./cosmic-manager
     ./direnv
     ./fastfetch
     ./fish
@@ -14,9 +18,7 @@
     ./konsole
     ./lazygit
     ./nixcord
-    ./nixvim
     ./oh-my-posh
-    ./plasma-manager
     ./tmux
     ./yazi
     ./zed
