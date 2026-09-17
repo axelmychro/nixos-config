@@ -26,6 +26,8 @@
     };
 
     targets = {
+      btop.enable = true;
+      cava.enable = true;
       gnome.enable = true;
       gtk.enable = true;
       kde.enable = true;
