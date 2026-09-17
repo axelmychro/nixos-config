@@ -32,7 +32,7 @@
       gtk.enable = true;
       kde.enable = true;
       qt.enable = true;
-      zed.enable = if config.programs.zed-editor.enable then true else false;
+      zed.enable = true;
     };
   };
 
