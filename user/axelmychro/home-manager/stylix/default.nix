@@ -27,10 +27,15 @@
 
     targets = {
       btop.enable = true;
-      cava.enable = true;
+      cava.enable = false;
+      nixcord.enable = true;
+      fontconfig.enable = true;
+      gdu.enable = false;
       gnome.enable = true;
       gtk.enable = true;
       kde.enable = true;
+      lazygit.enable = true;
+      nixvim.enable = false;
       qt.enable = true;
       yazi.enable = false;
       zed.enable = true;
