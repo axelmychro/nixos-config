@@ -32,6 +32,7 @@
       gtk.enable = true;
       kde.enable = true;
       qt.enable = true;
+      yazi.enable = false;
       zed.enable = true;
     };
   };
