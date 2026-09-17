@@ -15,7 +15,7 @@ end
 hl.bind(MAIN_MOD .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(MAIN_MOD .. " + mouse_up", hl.dsp.focus({ workspace = "e-1" }))
 
-local workspace_names = { "terminal", "media", "chat", "game", "design" }
+local workspace_names = { "main", "docs", "code", "chat", "media" }
 for number, name in ipairs(workspace_names) do
     hl.workspace_rule({
         workspace = tostring(number),
