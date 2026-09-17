@@ -8,7 +8,7 @@ in
     hide_window_decorations titlebar-only
     font_family             GoMono Nerd Font
     font_size               12.0
-    background_opacity      0.9
+    background_opacity      0.95
 
     ${builtins.readFile kitty_conf}
   '';
