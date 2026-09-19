@@ -4,6 +4,7 @@
     ./cosmic-manager
     ./plasma-manager
     ./nixvim
+    ./noctalia
 
     ./bash
     ./cava
