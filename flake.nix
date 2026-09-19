@@ -72,8 +72,8 @@
             build = "nixos-rebuild --sudo boot --flake .#$HOSTNAME";
             check = "nixos-rebuild --sudo dry-run --flake .#$HOSTNAME";
             clean = ''
-              nix-collect-garbage --delete-old
-              nix store optimise
+              sudo nix-collect-garbage --delete-old
+              sudo nix store optimise
             '';
             run = "nixos-rebuild --sudo switch --flake .#$HOSTNAME";
             update = "nix flake update";
