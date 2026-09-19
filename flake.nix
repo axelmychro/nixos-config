@@ -118,7 +118,10 @@
       nixosConfigurations = {
         prts = mkConfig "prts" {
           inherit version system;
-          ecosystem = [ "hypr" ];
+          ecosystem = [
+            "cosmic"
+            "hypr"
+          ];
           theme = "rose-pine";
           extraModules = [
             (_: {
