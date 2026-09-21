@@ -8,6 +8,7 @@
   config = lib.mkIf config.common.office.enable {
     environment.systemPackages = with pkgs; [
       libreoffice
+      zathura
       monero-gui
       telegram-desktop
     ];
