@@ -24,6 +24,7 @@
 
     #hyprpaper hyprlauncher hypridle hyprlock hyprsunset
 
+    kando
     nautilus
     hyprpicker
     hyprsysteminfo
