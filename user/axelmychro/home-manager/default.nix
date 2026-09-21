@@ -66,6 +66,10 @@
             insert_final_newline = true;
             max_line_width = 80;
           };
+          "*.{css,html,json,nix,xml}" = {
+            indent_style = "space";
+            indent_size = 2;
+          };
         };
       };
       imports = [ ./index.nix ];
