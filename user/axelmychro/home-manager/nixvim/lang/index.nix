@@ -13,5 +13,6 @@
     ./sql.nix
     ./toml.nix
     ./web-language.nix
+    ./xml.nix
   ];
 }
