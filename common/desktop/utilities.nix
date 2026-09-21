@@ -7,6 +7,8 @@
 {
   config = lib.mkIf config.common.utilities.enable {
     environment.systemPackages = with pkgs; [
+      wvkbd
+      calcurse
       gnome-clocks
       peazip
       bitwarden-desktop
