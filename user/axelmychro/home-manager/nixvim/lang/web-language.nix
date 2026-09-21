@@ -2,6 +2,7 @@
 {
   home.packages = with pkgs; [
     prettier
+    rustywind
     astro-language-server
   ];
 
@@ -17,20 +18,50 @@
       };
 
       conform-nvim.settings.formatters_by_ft = {
-        html = [ "prettier" ];
-        css = [ "prettier" ];
+        html = [
+          "prettier"
+          "rustywind"
+        ];
+        css = [
+          "prettier"
+          "rustywind"
+        ];
         # JS {
-        javascript = [ "prettier" ];
-        json = [ "prettier" ];
-        jsonc = [ "prettier" ];
-        typescript = [ "prettier" ];
+        javascript = [
+          "prettier"
+          "rustywind"
+        ];
+        json = [
+          "prettier"
+          "rustywind"
+        ];
+        jsonc = [
+          "prettier"
+          "rustywind"
+        ];
+        typescript = [
+          "prettier"
+          "rustywind"
+        ];
         # }
         # React {
-        javascriptreact = [ "prettier" ];
-        typescriptreact = [ "prettier" ];
+        javascriptreact = [
+          "prettier"
+          "rustywind"
+        ];
+        typescriptreact = [
+          "prettier"
+          "rustywind"
+        ];
         # }
-        vue = [ "prettier" ];
-        astro = [ "prettier" ];
+        vue = [
+          "prettier"
+          "rustywind"
+        ];
+        astro = [
+          "prettier"
+          "rustywind"
+        ];
       };
     };
   };
