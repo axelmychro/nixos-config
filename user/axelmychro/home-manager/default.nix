@@ -38,7 +38,10 @@
         theme
         wallpaper-file
         ;
-      hyprland_enabled = config.programs.hyprland.enable;
+      system_hyprland = {
+        is_enabled = config.programs.hyprland.enable;
+        uwsm.is_enabled = config.programs.hyprland.withUWSM;
+      };
     };
     sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
 
