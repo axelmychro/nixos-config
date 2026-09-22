@@ -1,3 +1,4 @@
+{ theme, ... }:
 let
   # Rosé Pine Dawn
   dawn_base = "#faf4ed";
@@ -128,115 +129,33 @@ let
       };
     };
   };
+  is_rose_pine_theme = theme == "rose-pine" || theme == "rose-pine-dawn";
+  is_dark = theme == "rose-pine";
+  is_light = theme == "rose-pine-dawn";
+  mode =
+    if is_dark then
+      "dark"
+    else if is_light then
+      "light"
+    else
+      "auto";
+  custom_palette = if is_rose_pine_theme then "rose-pine" else { };
 in
 {
   xdg.configFile = {
     "noctalia/palettes/rose-pine.json".text = builtins.toJSON rose_pine_palette;
     "noctalia/config.toml".text = ''
-      # https://docs.noctalia.dev/noctalia/configuration/shell/
-
-      [shell]
-      offline_mode = true
-      telemetry_enabled = false
-
-      font_family = "GoMono Nerd Font"
-      time_format = "{:%-I:%M %p}"
-      setup_wizard_enabled = false
-      avatar_path = "~/.face"
-
-      [shell.launcher]
-      app_grid = true
-      sort_by_usage = false
-
-      [shell.screenshot]
-      save_to_file = true
-      directory = "~/Pictures/Screenshots"
-      confirm_region = true
-      show_cursor = true
-      annotate = true
-
-      # https://docs.noctalia.dev/noctalia/bar/
-
-      [bar]
-      order = ["default"]
-
-      [bar.default]
-      enabled = true
-      auto_hide = true
-      smart_auto_hide = true
-      reserve_space = false
-      position = "bottom"
-      radius_bottom_left = 0
-      radius_bottom_right = 0
-      show_on_workspace_switch = false
-      layer = "overlay"
-
-      thickness = 64
-      background_opacity = 1.0
-      border_width = 2
-      contact_shadow = true
-      concave_edge_corners = false
-      margin_ends = 512
-      margin_edge = -2
-      padding = 12
-      widget_spacing = 8
-
-      capsule = true
-      capsule_thickness = 0.5
-      capsule_radius = 2.0
-      capsule_opacity = 1.0
-
-      start = ["session", "clock", "network", "bluetooth"]
-      center = ["workspaces"]
-      end = ["tray", "volume", "brightness", "battery", "clipboard", "notifications"]
-
-      # https://docs.noctalia.dev/noctalia/desktop/wallpaper/
-
-      [wallpaper]
-      enabled = true
-      fill_color = "#191724"
-      directory = "~/Pictures/Wallpapers"
-
-      [wallpaper.default]
-      path = "~/Pictures/Wallpapers/seaside-bus-stop-view.png"
-
-      #https://docs.noctalia.dev/noctalia/theming/
+      # https://docs.noctalia.dev/noctalia/theming/
 
       [theme]
-      mode = "dark"                # dark | light | auto
+      mode = "${mode}"                # dark | light | auto
       source = "custom"            # builtin | wallpaper | community | custom
       builtin = "Rosé Pine"        # bundled palette name
       community_palette = ""       # community palette name when source = "community"
-      custom_palette = "rose-pine" # file name (without .json) when source = "custom"
+      custom_palette = "${custom_palette}" # file name (without .json) when source = "custom"
       wallpaper_scheme = ""        # generator used when source = "wallpaper"
 
-      # https://docs.noctalia.dev/noctalia/services/battery/
-
-      [battery]
-      warning_threshold = 50
-
-      [brightness]
-      minimum_brightness = 0.1
-
-      [idle]
-      behavior_order = ["lock", "screen-off", "suspend"]
-      pre_action_fade_seconds = 2.0
-      [idle.behavior.lock]
-      enabled = true
-      timeout = 600
-      action = "lock"
-      [idle.behavior.screen-off]
-      enabled = false
-      [idle.behavior.suspend]
-      enabled = true
-      timeout = 900
-      action = "lock_and_suspend"
-
-      [system.monitor]
-      enabled = false
-
-      [weather]
-      enabled = false
+      ${builtins.readFile ./config.toml}
     '';
   };
 }
