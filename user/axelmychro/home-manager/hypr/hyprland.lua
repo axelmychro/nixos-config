@@ -1,5 +1,3 @@
--- https://wiki.hypr.land/Configuring/Start/
-
 MAIN_MOD = "SUPER" -- Sets "Windows" key as main modifier
 local function hlExec(cmd)
 	return hl.dsp.exec_cmd(cmd)
