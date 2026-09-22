@@ -1,8 +1,8 @@
 { inputs, pkgs, ... }: {
   programs.hyprland = {
     enable = true;
-    withUWSM = false;
-    xwayland.enable = true; # WARN: Required for Steam.
+    withUWSM = true;
+    xwayland.enable = true; # WARNING: Required for Steam.
   };
 
   services.gnome.gnome-keyring.enable = true;
@@ -33,6 +33,11 @@
     hyprshutdown
     hyprtoolkit
     hyprcursor
+
     hyprmon
+    wl-mirror
+    nwg-displays
+    wlr-randr
+    kanshi
   ];
 }
