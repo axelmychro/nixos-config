@@ -75,6 +75,7 @@
       imports = [
         ./mimeapps
         ./stylix
+        ./cosmic-manager
         ./plasma-manager
         ./nixvim
         ./noctalia

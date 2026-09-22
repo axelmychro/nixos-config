@@ -1,47 +1,45 @@
-{ wallpaper-file, ... }: {
-  xdg.configFile = {
-    "cosmic/com.system76.CosmicSettings.Wallpaper/v1/custom-images" = {
-      text = ''
-        [
-            "${wallpaper-file}",
-        ]
-      '';
-      force = true;
-    };
-    "cosmic/com.system76.CosmicBackground/v1/all" = {
+{
+  cosmicLib,
+  inputs,
+  wallpaper-file,
+  ...
+}:
+{
 
-      text = ''
-        (
-            output: "all",
-            source: Path("${wallpaper-file}"),
-            filter_by_theme: true,
-            rotation_frequency: 300,
-            filter_method: Lanczos,
-            scaling_mode: Zoom,
-            sampling_method: Alphanumeric,
-        )
-      '';
-      force = true;
+  imports = [ inputs.cosmic-manager.homeManagerModules.cosmic-manager ];
+  wayland.desktopManager.cosmic = {
+    enable = true;
+    applets.app-list.settings = {
+      favorites = [
+        "brave-browser"
+        "com.system76.CosmicFiles"
+        "dev.zed.Zed"
+        "kitty"
+        "com.system76.CosmicSettings"
+      ];
     };
-    "cosmic/com.system76.CosmicBackground/v1/output.eDP-1" = {
-
-      text = ''
-        (
-            output: "eDP-1",
-            source: Path("${wallpaper-file}"),
-            filter_by_theme: true,
-            filter_by_theme: true,
-            rotation_frequency: 300,
-            filter_method: Lanczos,
-            scaling_mode: Zoom,
-            sampling_method: Alphanumeric,
-            rotation_frequency: 300,
-            filter_method: Lanczos,
-            scaling_mode: Zoom,
-            sampling_method: Alphanumeric,
-        )
-      '';
-      force = true;
-    };
+    wallpapers = [
+      {
+        output = "all";
+        filter_by_theme = false;
+        filter_method = cosmicLib.cosmic.mkRON "enum" "Lanczos";
+        rotation_frequency = 600;
+        sampling_method = cosmicLib.cosmic.mkRON "enum" "Alphanumeric";
+        scaling_mode = cosmicLib.cosmic.mkRON "enum" {
+          value = [
+            (cosmicLib.cosmic.mkRON "tuple" [
+              0.5
+              1.0
+              (cosmicLib.cosmic.mkRON "raw" "0.345354352")
+            ])
+          ];
+          variant = "Fit";
+        };
+        source = cosmicLib.cosmic.mkRON "enum" {
+          value = [ wallpaper-file ];
+          variant = "Path";
+        };
+      }
+    ];
   };
 }
