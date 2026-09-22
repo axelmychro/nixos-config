@@ -30,10 +30,19 @@
     };
     stylix.url = "github:nix-community/stylix/release-26.05";
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
+    cosmic-manager = {
+      url = "github:HeitorAugustoLN/cosmic-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
     plasma-manager = {
       url = "github:nix-community/plasma-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
     };
     silentSDDM.url = "github:axelmychro/SilentSDDM/axelmychro/amiya";
 
@@ -122,7 +131,7 @@
             "cosmic"
             "hypr"
           ];
-          theme = "rose-pine";
+          theme = "rose-pine-dawn";
           extraModules = [
             (_: {
               nixpkgs.overlays = [
