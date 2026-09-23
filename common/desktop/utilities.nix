@@ -7,6 +7,7 @@
 {
   config = lib.mkIf config.common.utilities.enable {
     environment.systemPackages = with pkgs; [
+      mpvpaper
       wvkbd
       calcurse
       gnome-clocks
