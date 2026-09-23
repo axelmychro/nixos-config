@@ -7,6 +7,8 @@
 {
   config = lib.mkIf config.common.games.enable {
     environment.systemPackages = with pkgs; [
+      steamcmd
+
       # Winery
       protonplus
       wineWow64Packages.stable
