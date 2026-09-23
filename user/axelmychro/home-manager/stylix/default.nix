@@ -26,9 +26,15 @@
     };
 
     targets = {
+      # NOTE: Disabled targets were tested
+      #       and found to be unpleasant to look at
+      #       or that I already themed them manually.
+
       btop.enable = true;
       cava.enable = false;
-      nixcord.enable = true;
+      # Nixcord NOTE: Light styles fail to affect white texts.
+      #               Unreadable. Theme manually or use dark styles
+      nixcord.enable = false;
       fontconfig.enable = true;
       gdu.enable = false;
       gnome.enable = true;
