@@ -15,6 +15,9 @@
       bitwarden-desktop
       ente-auth
 
+      # file manager
+      nemo
+
       # system information
       cpu-x
       gparted
