@@ -25,7 +25,6 @@
     #hyprpaper hyprlauncher hypridle hyprlock hyprsunset
 
     kando
-    nautilus
     hyprpicker
     hyprsysteminfo
     hyprland-qt-support
