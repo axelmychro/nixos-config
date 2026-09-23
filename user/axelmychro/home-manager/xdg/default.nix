@@ -220,35 +220,38 @@ let
   image_app = genAppAttrs "org.gnome.Loupe.desktop" image_mimetype;
 in
 {
-  xdg.mimeApps = {
+  xdg = {
     enable = true;
-    defaultApplications = {
-      # File manager
-      "inode/directory" = "org.gnome.Nautilus.desktop";
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        # File manager
+        "inode/directory" = "org.gnome.Nautilus.desktop";
 
-      # Web browser
-      "application/xhtml+xml" = "com.brave.Browser.desktop";
-      "text/html" = "com.brave.Browser.desktop";
-      "x-scheme-handler/chrome" = "com.brave.Browser.desktop";
-      "x-scheme-handler/http" = "com.brave.Browser.desktop";
-      "x-scheme-handler/https" = "com.brave.Browser.desktop";
+        # Web browser
+        "application/xhtml+xml" = "com.brave.Browser.desktop";
+        "text/html" = "com.brave.Browser.desktop";
+        "x-scheme-handler/chrome" = "com.brave.Browser.desktop";
+        "x-scheme-handler/http" = "com.brave.Browser.desktop";
+        "x-scheme-handler/https" = "com.brave.Browser.desktop";
 
-      # Mail client
-      "x-scheme-handler/mailto" = "thunderbird.desktop";
+        # Mail client
+        "x-scheme-handler/mailto" = "thunderbird.desktop";
 
-      # Calender
-      "text/calendar" = "thunderbird.desktop";
+        # Calender
+        "text/calendar" = "thunderbird.desktop";
 
-      # Terminal
-      "application/x-terminal-emulator" = "kitty.desktop";
-      "x-scheme-handler/terminal" = "kitty.desktop";
+        # Terminal
+        "application/x-terminal-emulator" = "kitty.desktop";
+        "x-scheme-handler/terminal" = "kitty.desktop";
 
-      # Text editor
-      "application/x-zerosize" = "dev.zed.Zed.desktop";
-      "text/plain" = "dev.zed.Zed.desktop";
-    }
-    // music_app
-    // video_app
-    // image_app;
+        # Text editor
+        "application/x-zerosize" = "dev.zed.Zed.desktop";
+        "text/plain" = "dev.zed.Zed.desktop";
+      }
+      // music_app
+      // video_app
+      // image_app;
+    };
   };
 }

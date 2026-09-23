@@ -27,7 +27,6 @@
       fd
       ripgrep
       trash-cli
-      zoxide
     ];
   };
   home-manager = {
@@ -48,8 +47,9 @@
     users.${user} = {
       home = {
         homeDirectory = "/home/${user}";
-        stateVersion = version; # HM is developed against nixos-unstable
+        stateVersion = version; # WARNING: HM is developed against nixos-unstable
 
+        # NOTE: This is hardcoded because I like dawn pointer cursor.
         pointerCursor = {
           enable = true;
           package = pkgs.rose-pine-cursor;
@@ -57,10 +57,10 @@
           size = 64;
         };
       };
-      xdg.enable = true;
 
       imports = [
-        ./mimeapps
+        # Foundational
+        ./xdg
         ./stylix
         ./cosmic-manager
         ./plasma-manager
