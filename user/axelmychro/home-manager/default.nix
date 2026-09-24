@@ -89,6 +89,7 @@
       home = {
         homeDirectory = "/home/${user.name}";
         stateVersion = version; # WARNING: HM is developed against nixos-unstable
+        sessionVariables.EDITOR = "${pkgs.neovim}/bin/nvim";
 
         # NOTE: This is hardcoded because I like dawn pointer cursor.
         pointerCursor = {
