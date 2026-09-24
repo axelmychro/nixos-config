@@ -1,10 +1,12 @@
 {
   config,
   lib,
-  theme,
+  #theme,
   ...
 }:
 let
+  # NOTE: Hardcoded this because I want dark theme.
+  theme = "rose-pine";
   font_name = "GoMono Nerd Font";
   rose_pine_theme = theme == "rose-pine" || theme == "rose-pine-dawn";
 in
