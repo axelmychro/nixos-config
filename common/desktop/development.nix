@@ -54,6 +54,8 @@ in
     environment.systemPackages =
       with pkgs;
       [
+        python3
+        lua
         zed-editor
         nodejs
         pnpm
