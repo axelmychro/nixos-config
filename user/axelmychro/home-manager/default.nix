@@ -14,7 +14,7 @@
     fish.enable = true;
     gnupg.agent.enable = true;
   };
-  users.users.${user} = {
+  users.users.${user.name} = {
     shell = pkgs.fish;
     extraGroups = [
       "video"
@@ -75,16 +75,19 @@
           entry = "dev.zed.Zed.desktop";
         };
       };
-      system_hyprland = {
-        is_enabled = config.programs.hyprland.enable;
-        uwsm.is_enabled = config.programs.hyprland.withUWSM;
+      nixpkgs_options = {
+        user_shell = config.users.users.${user.name}.shell;
+        hyprland = {
+          is_enabled = config.programs.hyprland.enable;
+          uwsm.is_enabled = config.programs.hyprland.withUWSM;
+        };
       };
     };
     sharedModules = [ inputs.plasma-manager.homeModules.plasma-manager ];
 
-    users.${user} = {
+    users.${user.name} = {
       home = {
-        homeDirectory = "/home/${user}";
+        homeDirectory = "/home/${user.name}";
         stateVersion = version; # WARNING: HM is developed against nixos-unstable
 
         # NOTE: This is hardcoded because I like dawn pointer cursor.

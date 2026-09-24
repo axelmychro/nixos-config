@@ -4,14 +4,17 @@
   ...
 }:
 {
-  _module.args.user = "axelmychro";
+  _module.args.user = {
+    name = "axelmychro";
+    email = "axelmychro@gmail.com";
+  };
   system.activationScripts.face.text = ''
     USER_ICON_DIR=/var/lib/AccountsService/icons
-    rm -f "$USER_ICON_DIR/${user}"
-    ln -sfn "${assets}/${user}-face.png" "$USER_ICON_DIR/${user}"
+    rm -f "$USER_ICON_DIR/${user.name}"
+    ln -sfn "${assets}/${user.name}-face.png" "$USER_ICON_DIR/${user.name}"
     unset USER_ICON_DIR
   '';
-  users.users.${user} = {
+  users.users.${user.name} = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = [
@@ -22,10 +25,9 @@
 
   services = {
     postgresql = {
-      ensureDatabases = [ user ];
       ensureUsers = [
         {
-          name = user;
+          inherit (user) name;
           ensureClauses = {
             login = true;
             superuser = true;
@@ -33,9 +35,10 @@
           ensureDBOwnership = true;
         }
       ];
+      ensureDatabases = [ user.name ];
     };
     pgadmin = {
-      initialEmail = "axelmychro@gmail.com";
+      initialEmail = user.email;
       initialPasswordFile = "/var/lib/secrets/pgadmin_password";
     };
   };
