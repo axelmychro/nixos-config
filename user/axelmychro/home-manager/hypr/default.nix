@@ -1,6 +1,6 @@
 {
   default_applications,
-  system_hyprland,
+  nixpkgs_options,
   theme,
   ...
 }:
@@ -28,11 +28,11 @@ let
   };
 in
 {
-  services.hyprpolkitagent.enable = system_hyprland.is_enabled;
+  services.hyprpolkitagent.enable = nixpkgs_options.hyprland.is_enabled;
   wayland.windowManager.hyprland = {
-    enable = system_hyprland.is_enabled;
+    enable = nixpkgs_options.hyprland.is_enabled;
     # WARNING: If you use the Home Manager module, make sure to disable the systemd integration as it conflicts with UWSM.
-    systemd.enable = !system_hyprland.uwsm.is_enabled;
+    systemd.enable = !nixpkgs_options.hyprland.uwsm.is_enabled;
     configType = "lua";
     extraConfig = ''
       local theme <const> = {
