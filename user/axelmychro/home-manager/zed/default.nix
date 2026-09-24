@@ -22,6 +22,7 @@ in
       extensions = [
         "editorconfig"
         "git-firefly"
+        "colored-zed-icons-theme"
       ];
 
       userSettings = {
@@ -38,6 +39,8 @@ in
         toolbar.breadcrumbs = true;
         use_system_path_prompts = false;
         use_system_prompts = false;
+
+        icon_theme = "Colored Zed Icons Theme Dark";
       };
     }
 
