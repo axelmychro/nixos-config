@@ -1,4 +1,9 @@
-{ system_hyprland, theme, ... }:
+{
+  default_applications,
+  system_hyprland,
+  theme,
+  ...
+}:
 let
   base = "191724";
   muted = "6e6a86";
@@ -36,6 +41,11 @@ in
       	primary = "${current_theme.primary}",
       	secondary = "${current_theme.secondary}",
       	tertiary = "${current_theme.tertiary}",
+      }
+      local default_applications <const> = {
+        terminal_emulator  = "${default_applications.terminal_emulator.command}",
+        file_manager  = "${default_applications.file_manager.command}",
+        web_browser  = "${default_applications.web_browser.command}",
       }
       ${builtins.readFile ./hyprland.lua}
     '';

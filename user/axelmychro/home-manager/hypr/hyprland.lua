@@ -61,19 +61,15 @@ hl.gesture({
 ---- MY PROGRAMS ----
 ---------------------
 
--- I use Noctalia for launcher
+-- I use Noctalia for launcher. See below
 
-local terminal <const> = "kitty"
-local file_manager <const> = "nautilus"
-local browser <const> = "brave"
-local virtual_keyboard <const> =
-	"pkill wvkbd || wvkbd-mobintl -L 256 --non-exclusive --fn 'GoMono Nerd Font 16' --bg 1e1e2e --fg 313244 --text cdd6f4 --press 89b4fa"
+--local virtual_keyboard <const> = "pkill wvkbd || wvkbd-mobintl -L 256 --non-exclusive --fn 'GoMono Nerd Font 16' --bg 1e1e2e --fg 313244 --text cdd6f4 --press 89b4fa"
 
 local main_programs <const> = {
-	{ key = "Return", cmd = terminal },
-	{ key = "E", cmd = file_manager },
-	{ key = "B", cmd = browser },
-	{ key = "ALT + k", cmd = virtual_keyboard },
+	{ key = "Return", cmd = default_applications.terminal_emulator },
+	{ key = "E", cmd = default_applications.file_manager },
+	{ key = "B", cmd = default_applications.web_browser },
+	--{ key = "ALT + K", cmd = virtual_keyboard },
 }
 for _, program in ipairs(main_programs) do
 	bindProgram(program.key, program.cmd)
@@ -101,7 +97,6 @@ local noctalia_binds <const> = {
 	{ key = "XF86MonBrightnessUp", cmd = "brightness-up", raw = true },
 	{ key = "XF86MonBrightnessDown", cmd = "brightness-down", raw = true },
 }
-
 for _, bind in ipairs(noctalia_binds) do
 	bindProgram(bind.key, ipc .. bind.cmd, bind.raw)
 end
@@ -143,7 +138,7 @@ hl.window_rule({
 	float = true,
 	pin = true,
 })
-hl.bind("CTRL + Space", hl.dsp.global("menu.kando.Kando:default"))
+hl.bind(MAIN_MOD .. " + Z", hl.dsp.global("menu.kando.Kando:default"))
 
 -------------------
 ---- AUTOSTART ----
