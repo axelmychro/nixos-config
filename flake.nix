@@ -1,7 +1,7 @@
 {
   description = ''
-    This is a flake for workstations consisting of configurations for a desktop or a server.
-    "Like a phoe-nix, cry and rise up from the ash.";
+    A rolling release flake for my workstation.
+    Like a phoe-nix, cry and rise up from the ash!
   '';
 
   nixConfig = {
@@ -20,13 +20,13 @@
   };
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
-    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     git-hooks.url = "github:cachix/git-hooks.nix";
 
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    nix-cachyos-kernel.url = "github:xddxdd/nix-cachyos-kernel/release";
     home-manager = {
-      inputs.nixpkgs.follows = "nixpkgs";
       url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     stylix.url = "github:nix-community/stylix/release-26.05";
     noctalia.url = "github:noctalia-dev/noctalia/cachix";
@@ -133,12 +133,12 @@
           ];
           theme = "rose-pine-dawn";
           extraModules = [
-            (_: {
-              nixpkgs.overlays = [
-                inputs.nix-cachyos-kernel.overlays.pinned
-                inputs.millennium.overlays.default
+            {
+              nixpkgs.overlays = with inputs; [
+                nix-cachyos-kernel.overlays.pinned
+                millennium.overlays.default
               ];
-            })
+            }
             intel_gpu
             nvidia_gpu
             flatpak
