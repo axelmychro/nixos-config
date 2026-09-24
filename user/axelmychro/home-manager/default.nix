@@ -37,6 +37,44 @@
         theme
         wallpaper-file
         ;
+      default_applications = {
+        web_browser = {
+          command = "brave";
+          entry = "com.brave.Browser.desktop";
+        };
+        file_manager = {
+          command = "nemo";
+          entry = "nemo.desktop";
+        };
+        mail_client = {
+          command = "thunderbird";
+          entry = "thunderbird.desktop";
+        };
+        audio_player = {
+          command = "amberol";
+          entry = "io.bassi.Amberol.desktop";
+        };
+        video_player = {
+          command = "haruna";
+          entry = "com.brave.Browser.desktop";
+        };
+        image_viewer = {
+          command = "loupe";
+          entry = "org.gnome.Loupe.desktop";
+        };
+        calendar = {
+          command = "thunderbird";
+          entry = "thunderbird.desktop";
+        };
+        terminal_emulator = {
+          command = "kitty";
+          entry = "kitty.desktop";
+        };
+        text_editor = {
+          command = "zeditor";
+          entry = "dev.zed.Zed.desktop";
+        };
+      };
       system_hyprland = {
         is_enabled = config.programs.hyprland.enable;
         uwsm.is_enabled = config.programs.hyprland.withUWSM;
