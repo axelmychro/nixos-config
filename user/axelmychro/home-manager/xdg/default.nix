@@ -1,3 +1,4 @@
+{ default_applications, pkgs, ... }:
 let
   audio_mimetype = [
     "application/ogg"
@@ -215,41 +216,53 @@ let
         value = app;
       }) mimetypes
     );
-  music_app = genAppAttrs "io.bassi.Amberol.desktop" audio_mimetype;
-  video_app = genAppAttrs "org.kde.haruna.desktop" video_mimetype;
-  image_app = genAppAttrs "org.gnome.Loupe.desktop" image_mimetype;
+  audio_app = genAppAttrs default_applications.audio_player.entry audio_mimetype;
+  video_app = genAppAttrs default_applications.video_player.entry video_mimetype;
+  image_app = genAppAttrs default_applications.image_viewer.entry image_mimetype;
 in
 {
+  home.packages = with pkgs; [
+    nemo
+    brave
+    haruna
+    loupe
+  ];
+  programs = {
+    thunderbird.enable = true;
+    kitty.enable = true;
+    zed-editor.enable = true;
+  };
+  services.amberol.enable = true;
   xdg = {
     enable = true;
     mimeApps = {
       enable = true;
       defaultApplications = {
         # File manager
-        "inode/directory" = "org.gnome.Nautilus.desktop";
+        "inode/directory" = default_applications.file_manager.entry;
 
         # Web browser
-        "application/xhtml+xml" = "com.brave.Browser.desktop";
-        "text/html" = "com.brave.Browser.desktop";
-        "x-scheme-handler/chrome" = "com.brave.Browser.desktop";
-        "x-scheme-handler/http" = "com.brave.Browser.desktop";
-        "x-scheme-handler/https" = "com.brave.Browser.desktop";
+        "application/xhtml+xml" = default_applications.web_browser.entry;
+        "text/html" = default_applications.web_browser.entry;
+        "x-scheme-handler/chrome" = default_applications.web_browser.entry;
+        "x-scheme-handler/http" = default_applications.web_browser.entry;
+        "x-scheme-handler/https" = default_applications.web_browser.entry;
 
         # Mail client
-        "x-scheme-handler/mailto" = "thunderbird.desktop";
+        "x-scheme-handler/mailto" = default_applications.mail_client.entry;
 
         # Calender
-        "text/calendar" = "thunderbird.desktop";
+        "text/calendar" = default_applications.calendar.entry;
 
         # Terminal
-        "application/x-terminal-emulator" = "kitty.desktop";
-        "x-scheme-handler/terminal" = "kitty.desktop";
+        "application/x-terminal-emulator" = default_applications.terminal_emulator.entry;
+        "x-scheme-handler/terminal" = default_applications.terminal_emulator.entry;
 
         # Text editor
-        "application/x-zerosize" = "dev.zed.Zed.desktop";
-        "text/plain" = "dev.zed.Zed.desktop";
+        "application/x-zerosize" = default_applications.text_editor.entry;
+        "text/plain" = default_applications.text_editor.entry;
       }
-      // music_app
+      // audio_app
       // video_app
       // image_app;
     };
