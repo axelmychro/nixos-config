@@ -44,7 +44,7 @@
       nixvim.enable = false;
       qt.enable = true;
       yazi.enable = false;
-      zed.enable = true;
+      zed.enable = false;
     };
   };
 
