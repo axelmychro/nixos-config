@@ -131,6 +131,7 @@
         ./tmux
         ./yazi
         ./zed
+        ./zoxide
       ];
     };
   };
