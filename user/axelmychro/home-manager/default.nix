@@ -99,7 +99,9 @@
           name = "BreezeX-RosePineDawn-Linux";
           size = 64;
         };
+        packages = [ pkgs.keybase-gui ];
       };
+      services.keybase.enable = true;
 
       imports = [
         # Foundational
