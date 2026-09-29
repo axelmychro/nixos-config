@@ -35,6 +35,7 @@
         assets
         inputs
         theme
+        user
         wallpaper-file
         ;
       default_applications = {
