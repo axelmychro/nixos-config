@@ -13,6 +13,7 @@
     ./terminal.nix
     ./utilities.nix
   ];
+  xdg.portal.enable = true;
   common = {
     binaryCompatibility.enable = true;
     development = {
