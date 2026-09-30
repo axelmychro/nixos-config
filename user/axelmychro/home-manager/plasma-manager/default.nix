@@ -1,4 +1,5 @@
 {
+  inputs,
   lib,
   theme,
   wallpaper-file,
@@ -9,6 +10,8 @@ let
     if theme == "rose-pine" then "org.kde.breezedark.desktop" else "org.kde.breeze.desktop";
 in
 {
+
+  imports = [ inputs.plasma-manager.homeModules.plasma-manager ];
   programs.plasma = {
     enable = true;
     overrideConfig = true;
