@@ -35,7 +35,7 @@ let
   #
   wallpaperFiles = {
     rose-pine = "wallpaper-rose_pine-text.jpg";
-    rose-pine-dawn = "wallpaper-rose_pine_dawn-kiana.png";
+    rose-pine-dawn = "wallpaper-rose_pine_dawn-seaside.png";
   };
   wallpaperFileName =
     wallpaperFiles.${theme} or (throw ''
