@@ -18,7 +18,7 @@
     binaryCompatibility.enable = true;
     development = {
       enable = true;
-      ai.enable = false;
+      ai.enable = true;
     };
     games.enable = true;
     graphics.enable = true;

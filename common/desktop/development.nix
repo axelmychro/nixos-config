@@ -5,10 +5,11 @@
   ...
 }:
 let
-  ai_packages = lib.optional config.common.development.ai.enable (
+  ai_packages = lib.optionals config.common.development.ai.enable (
     with pkgs;
     [
       aichat
+      opencode
       upscayl
       video2x
     ]
@@ -41,12 +42,12 @@ in
       };
       pgadmin.enable = true;
       ollama = {
-        enable = config.common.development.ai.enable;
+        #enable = config.common.development.ai.enable;
         package = pkgs.ollama-cuda;
         port = 11434;
       };
       open-webui = {
-        enable = config.common.development.ai.enable;
+        #enable = config.common.development.ai.enable;
         port = 8081;
       };
     };
