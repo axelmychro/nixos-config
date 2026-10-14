@@ -1,0 +1,35 @@
+# Arknights_Priestess
+
+title-text: ""
+desktop-image: "background.png"
+
+# Terminal for Console and Options
+terminal-left: "0"
+terminal-top: "0"
+terminal-border: "0"
+terminal-width: "100%"
+terminal-height: "100%"
+
++ boot_menu {
+  left = 4%
+  top = 45%
+  width = 21%
+  height = 50%
+  item_color = "#cdd6f4"
+  selected_item_color = "#cba6f7"
+  item_icon_space = 18
+  item_height = 30
+  item_padding = 0
+  item_spacing = 45
+  item_pixmap_style = "item_*.png"
+	selected_item_pixmap_style = "selected_item_*.png"
+}
+
++ label {
+  id = "__timeout__"
+  align = "center"
+  left = 5%
+  top = 90%
+  text = "Taking you with me in %d seconds..."
+  color = "#cba6f7"
+}

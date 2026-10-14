@@ -1,0 +1,7 @@
+disabled = []
+ignore = [
+  ".envrc",
+  ".direnv",
+  ".pre-commit-config.yaml",
+  "hardware-configuration.nix",
+]

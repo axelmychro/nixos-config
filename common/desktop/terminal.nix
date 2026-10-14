@@ -1,0 +1,40 @@
+{
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+{
+
+  config = lib.mkIf config.common.terminal.enable {
+    environment.systemPackages = with pkgs; [
+      # Emulator
+      kitty
+
+      # Main
+      wget
+      yazi
+      btop
+      gdu
+      tree
+      fastfetch
+      wiremix
+      glow
+
+      ## Archive
+      zip
+      unzip
+      rar
+      unrar
+      p7zip
+
+      ## Forensic
+      sherlock
+      exiftool
+      steghide
+      stegseek
+      zsteg
+    ];
+  };
+  options.common.terminal.enable = lib.mkEnableOption "Common desktop terminal options.";
+}

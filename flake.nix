@@ -1,0 +1,165 @@
+{
+  description = ''
+    A rolling release flake for my workstation.
+    Like a phoe-nix, cry and rise up from the ash!
+  '';
+
+  nixConfig = {
+    extra-substituters = [
+      "https://noctalia.cachix.org"
+      "https://cache.nixos-cuda.org"
+      "https://ezkea.cachix.org"
+    ];
+    extra-trusted-public-keys = [
+      "noctalia.cachix.org-1:pCOR47nnMEo5thcxNDtzWpOxNFQsBRglJzxWPp3dkU4="
+      "cache.nixos-cuda.org:74DUi4Ye579gUqzH4ziL9IyiJBlDpMRn9MBN8oNan9M="
+      "ezkea.cachix.org-1:ioBmUbJTZIKsHmWWXPe1FSFbeVe+afhfgqgTSNd34eI="
+    ];
+  };
+
+  inputs = {
+    git-hooks.url = "github:cachix/git-hooks.nix";
+
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-26.05";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-26.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    stylix.url = "github:nix-community/stylix/release-26.05";
+    noctalia.url = "github:noctalia-dev/noctalia/cachix";
+    cosmic-manager = {
+      url = "github:HeitorAugustoLN/cosmic-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+    plasma-manager = {
+      url = "github:nix-community/plasma-manager";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        home-manager.follows = "home-manager";
+      };
+    };
+    silentSDDM.url = "github:axelmychro/SilentSDDM/axelmychro/amiya";
+
+    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
+    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    nixcord.url = "github:4evy/nixcord";
+    aagl.url = "github:ezKEa/aagl-gtk-on-nix/release-26.05";
+  };
+
+  outputs =
+    { self, ... }@inputs:
+    let
+      version = "26.05";
+      system = "x86_64-linux";
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+      mkConfig = import ./lib/mkconfig.nix { inherit inputs; };
+
+      # Options
+      intel_gpu = ./modules/graphics/intel.nix;
+      nvidia_gpu = ./modules/graphics/nvidia.nix;
+      flatpak = ./modules/flatpak;
+      #libvirt = ./modules/virtualisation/libvirt.nix;
+      #vmware = ./modules/virtualisation/vmware.nix;
+      #docker = ./modules/virtualisation/docker.nix;
+      podman = ./modules/virtualisation/podman.nix;
+      aagl = ./modules/aagl;
+    in
+    {
+      apps.${system} =
+        builtins.mapAttrs
+          (name: script: {
+            program = "${pkgs.writeShellScriptBin name script}/bin/${name}";
+            type = "app";
+          })
+          {
+            build = "nixos-rebuild --sudo boot --flake .#$HOSTNAME";
+            check = "nixos-rebuild --sudo dry-run --flake .#$HOSTNAME";
+            clean = ''
+              sudo nix-collect-garbage --delete-old
+              sudo nix store optimise
+            '';
+            run = "nixos-rebuild --sudo switch --flake .#$HOSTNAME";
+            update = "nix flake update";
+            default = "nix run .#run";
+          };
+      checks.${system}.pre-commit-check = inputs.git-hooks.lib.${system}.run {
+        hooks = {
+          deadnix = {
+            enable = true;
+            files = "\\.nix$";
+          };
+          nixfmt = {
+            enable = true;
+            files = "\\.nix$";
+          };
+          statix = {
+            enable = true;
+            files = "\\.nix$";
+          };
+        };
+        src = ./.;
+      };
+      devShells.${system}.default =
+        let
+          inherit (self.checks.${system}.pre-commit-check) shellHook enabledPackages;
+        in
+        pkgs.mkShell {
+          inherit shellHook;
+          buildInputs = enabledPackages;
+        };
+      formatter =
+        let
+          config = self.checks.${system}.pre-commit-check.config;
+          inherit (config) package configFile;
+          script = "${pkgs.lib.getExe package} run --all-files --config ${configFile}";
+        in
+        pkgs.writeShellScriptBin "pre-commit-run" script;
+
+      #
+      # NixOS Configurations
+      #
+      nixosConfigurations = {
+        prts = mkConfig "prts" {
+          inherit version system;
+          ecosystem = [
+            "cosmic"
+            "hypr"
+            "sway"
+          ];
+          theme = "rose-pine-dawn";
+          extraModules = [
+            {
+              nixpkgs.overlays = with inputs; [
+                millennium.overlays.default
+              ];
+            }
+            intel_gpu
+            nvidia_gpu
+            flatpak
+            #libvirt
+            #vmware
+            #docker
+            podman
+            aagl
+          ];
+          users = [
+            "florence"
+            "priestess"
+          ];
+        };
+        prts-web = mkConfig "prts-web" {
+          users = [ "axelmychro" ];
+        };
+        pts-skia = mkConfig "pts-skia" {
+          ecosystem = "cosmic";
+          users = [
+            "axelmychro"
+            "priestess"
+          ];
+        };
+      };
+    };
+}
