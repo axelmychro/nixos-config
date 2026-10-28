@@ -20,7 +20,7 @@ in
   config = lib.mkIf config.common.development.enable {
     services = {
       postgresql = {
-        enable = false;
+        enable = true;
         #ensureDatabases = [ host_name ];
         enableTCPIP = true;
         # port = 5432;
