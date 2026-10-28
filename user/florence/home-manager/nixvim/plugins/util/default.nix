@@ -1,6 +1,9 @@
 {
   programs.nixvim = {
-    plugins.persistence.enable = true;
+    plugins = {
+      cord.enable = true;
+      persistence.enable = true;
+    };
     keymaps = [
       {
         key = "<leader>qd";
