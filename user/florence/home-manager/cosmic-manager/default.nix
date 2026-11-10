@@ -1,4 +1,5 @@
 {
+  config,
   cosmicLib,
   inputs,
   theme,
@@ -51,10 +52,10 @@ in
     };
     applets.app-list.settings = {
       favorites = [
-        "brave-browser"
-        "com.system76.CosmicFiles"
-        "dev.zed.Zed"
-        "kitty"
+        config.defaultApplications.webBrowser.program
+        config.defaultApplications.fileManager.program
+        config.defaultApplications.textEditor.program
+        config.defaultApplications.terminalEmulator.program
         "com.system76.CosmicSettings"
       ];
     };
