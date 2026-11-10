@@ -14,6 +14,7 @@
       inkscape
       krita
       unityhub
+      aseprite
     ];
   };
   options.common.graphics.enable = lib.mkEnableOption "Common desktop graphics packages.";
