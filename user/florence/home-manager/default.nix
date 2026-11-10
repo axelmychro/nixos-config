@@ -23,6 +23,10 @@
       fd
       ripgrep
       trash-cli
+
+      firefox
+      mullvad-browser
+      tor-browser
     ];
   };
   home-manager = {

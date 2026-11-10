@@ -8,9 +8,7 @@
   config = lib.mkIf config.common.internet.enable {
     environment.systemPackages = with pkgs; [
       # Browser
-      brave
-      mullvad-browser
-      tor-browser
+      #firefox
 
       # Clients
       linphone
