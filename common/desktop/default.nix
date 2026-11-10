@@ -77,7 +77,10 @@
     binaryCompatibility.enable = true;
     development = {
       enable = true;
-      ai.enable = true;
+      ai = {
+        enable = true;
+        localhost.enable = false;
+      };
     };
     games.enable = true;
     graphics.enable = true;
