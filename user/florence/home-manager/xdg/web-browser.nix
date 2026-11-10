@@ -17,7 +17,7 @@ let
       package = pkgs.firefox;
     };
     google-chrome = {
-      command = "google-chrome-stable";
+      command = "google-chrome";
       entry = "google-chrome.desktop";
       package = pkgs.google-chrome;
     };

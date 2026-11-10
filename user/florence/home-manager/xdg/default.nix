@@ -233,7 +233,7 @@ in
     ./text-editor.nix
   ];
   defaultApplications = {
-    webBrowser.program = "brave";
+    webBrowser.program = "google-chrome";
     fileManager.program = "cosmic-files";
     mailClient.program = "thunderbird";
     audioPlayer.program = "amberol";
