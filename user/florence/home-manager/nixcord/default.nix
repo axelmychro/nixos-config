@@ -11,6 +11,7 @@
       plugins = {
         downloadAllAttachments.enable = true;
         viewRaw.enable = true;
+        customRpc.enable = true;
       };
     };
   };
