@@ -16,7 +16,7 @@
       proton-vpn
       localsend
     ];
-    programs.thunderbird.enable = true;
+    #programs.thunderbird.enable = true;
   };
   options.common.internet.enable = lib.mkEnableOption "Common desktop internet packages.";
 }

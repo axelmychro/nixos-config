@@ -55,9 +55,10 @@ in
     environment.systemPackages =
       with pkgs;
       [
+        #zed-editor
+        vscodium # NOTE: Temporary package
         python3
         lua
-        zed-editor
         nodejs
         pnpm
         rainfrog

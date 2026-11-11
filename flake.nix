@@ -125,8 +125,11 @@
         prts = mkConfig "prts" {
           inherit version system;
           ecosystem = [
+            # WARNING: KDE and Cosmic has a few issues if enabled together!
+
+            #"kde"
             "cosmic"
-            "hypr"
+            #"hypr"
             "sway"
           ];
           theme = "rose-pine-dawn";

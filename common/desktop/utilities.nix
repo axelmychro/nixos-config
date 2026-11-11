@@ -17,7 +17,7 @@
       ente-auth
 
       # file manager
-      cosmic-files
+      #cosmic-files
 
       # system information
       gparted

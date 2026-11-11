@@ -10,7 +10,7 @@
       blender
       gimp
       gradia
-      loupe
+      #loupe
       inkscape
       krita
       unityhub

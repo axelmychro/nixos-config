@@ -12,19 +12,19 @@
       gallery-dl
       spotdl
 
-      # capturer
+      # Capturer
       snapshot
 
-      # audio
-      amberol
+      # Audio
+      #amberol
       eartag
       easyeffects
 
-      # image
+      # Image
       imagemagick
 
-      # video
-      haruna
+      # Video
+      #haruna
       kdePackages.kdenlive
     ];
     programs.obs-studio = {

@@ -9,11 +9,12 @@
   config = lib.mkIf config.common.terminal.enable {
     environment.systemPackages = with pkgs; [
       # Emulator
-      kitty
+      #kitty
+      #alacritty
 
       # Main
       wget
-      yazi
+      #yazi
       btop
       gdu
       tree
