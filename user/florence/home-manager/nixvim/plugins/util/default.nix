@@ -1,7 +1,7 @@
 {
   programs.nixvim = {
     plugins = {
-      cord.enable = true;
+      cord.enable = false;
       persistence.enable = true;
     };
     keymaps = [
