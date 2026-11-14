@@ -61,6 +61,7 @@ in
         lua
         nodejs
         pnpm
+        postman
         rainfrog
         k9s
         swi-prolog
