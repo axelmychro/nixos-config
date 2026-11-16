@@ -129,7 +129,7 @@
 
             #"kde"
             "cosmic"
-            #"hypr"
+            "hypr"
             "sway"
           ];
           theme = "rose-pine-dawn";
