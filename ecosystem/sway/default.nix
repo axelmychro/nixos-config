@@ -19,11 +19,15 @@
     greetd.enableGnomeKeyring = true;
     swaylock.enableGnomeKeyring = true;
   };
-  environment.systemPackages = with pkgs; [
-    swaynotificationcenter
-    # Screenshot
-    grim
-    slurp
-    sway-contrib.grimshot
-  ];
+  environment = {
+    sessionVariables.SWAY_UNSUPPORTED_GPU = "true";
+    systemPackages = with pkgs; [
+      swaynotificationcenter
+
+      # Screenshot
+      grim
+      slurp
+      sway-contrib.grimshot
+    ];
+  };
 }
