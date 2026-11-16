@@ -11,6 +11,7 @@
       yt-dlp
       gallery-dl
       spotdl
+      anki
 
       # Capturer
       snapshot
