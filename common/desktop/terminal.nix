@@ -30,6 +30,7 @@
       p7zip
 
       ## Forensic
+      file
       sherlock
       exiftool
       steghide
