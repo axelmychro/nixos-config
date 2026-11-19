@@ -8,6 +8,7 @@
   config = lib.mkIf config.common.multimedia.enable {
     environment.systemPackages = with pkgs; [
       ffmpeg
+      ffmpegthumbnailer
       yt-dlp
       gallery-dl
       spotdl
@@ -28,6 +29,7 @@
       #haruna
       kdePackages.kdenlive
     ];
+    services.tumbler.enable = true;
     programs.obs-studio = {
       package = pkgs.obs-studio.override { cudaSupport = true; };
       enableVirtualCamera = true;
